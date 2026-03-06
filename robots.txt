@@ -2,4 +2,7 @@ User-agent: *
 
 Allow: /
 
+Disallow: /css/
+Disallow: /images/
+
 Sitemap: https://almadejade.co/sitemap.xml
