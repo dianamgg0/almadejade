@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120">
+
+<style>
+.title{
+font-family: Georgia, serif;
+font-size: 42px;
+fill:#2f6f63;
+letter-spacing:1px;
+}
+
+.symbol{
+fill:none;
+stroke:#6fae9f;
+stroke-width:2.4;
+stroke-linecap:round;
+stroke-linejoin:round;
+}
+</style>
+
+<g class="symbol" transform="translate(60,60)">
+
+<path d="M0 -28 C10 -12 10 12 0 28"/>
+<path d="M0 -28 C-10 -12 -10 12 0 28"/>
+
+<path d="M0 -20 C20 -6 20 6 0 20"/>
+<path d="M0 -20 C-20 -6 -20 6 0 20"/>
+
+</g>
+
+<text x="120" y="70" class="title">
+Alma de Jade
+</text>
+
+</svg>
