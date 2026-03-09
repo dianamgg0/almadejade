@@ -12,8 +12,27 @@ header {
   text-align: center;
 }
 
+/* NUEVO: contenedor para logo + menú */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* NUEVO: tamaño del logo */
+.logo img {
+  height: 42px;
+}
+
 nav {
   margin-top: 15px;
+}
+
+/* NUEVO: cuando está dentro del header-container */
+.header-container nav {
+  margin-top: 0;
 }
 
 nav a {
@@ -31,8 +50,6 @@ nav a {
 nav a:hover {
   background-color: rgba(255,255,255,0.2);
 }
-
-
 
 section {
   padding: 30px 20px;
@@ -57,6 +74,13 @@ footer {
 
 /* Móvil */
 @media (max-width: 600px) {
+
+  /* NUEVO: logo arriba y menú abajo */
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   nav a {
     display: block;
     width: 70%;
@@ -64,9 +88,9 @@ footer {
     text-align: center;
     font-size: 17px;
   }
-}
 
   section {
     padding: 20px 15px;
   }
+
 }
