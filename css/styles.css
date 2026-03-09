@@ -11,6 +11,17 @@ header {
   padding: 20px;
   text-align: center;
 }
+header h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
 /* NUEVO: contenedor para logo + menú */
 .header-container {
