@@ -124,7 +124,7 @@ footer {
     gap: 10px;
   }
    h1 {
-    font-size: 22px; /* Tamaño más pequeño para móviles */
+    font-size: 26px; /* Tamaño más pequeño para móviles */
   }
 }
 
