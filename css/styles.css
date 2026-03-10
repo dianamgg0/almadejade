@@ -122,6 +122,9 @@ footer {
     flex-direction: column;
     gap: 10px;
   }
+   h1 {
+    font-size: 20px; /* Tamaño más pequeño para móviles */
+  }
 }
 
   nav {
