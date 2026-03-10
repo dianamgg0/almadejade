@@ -31,35 +31,24 @@ header h1 {
 }
 
 /* contenedor logo + menú */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: auto;
-}
 .breadcrumbs {
-  display: flex;
-  flex-wrap: nowrap; /* Evita que el contenido se divida en líneas */
-  align-items: center; /* Alinea los elementos verticalmente */
-  font-size: 14px;
-  margin-bottom: 25px;
-  color: #6c7a75;
+font-size: 14px;
+margin-bottom: 25px;
+color: #6c7a75;
 }
 
-.breadcrumbs a,
-.breadcrumbs span {
-  text-decoration: none;
-  color: #8aa39a;
+.breadcrumbs a {
+text-decoration: none;
+color: #8aa39a;
 }
 
 .breadcrumbs span {
-  color: #222;
+color: #222;
 }
 
-.breadcrumbs a:not(:last-child)::after {
-  content: " >"; /* Añade el símbolo de mayor que entre los enlaces */
-  margin: 0 5px;
+.breadcrumbs a::after {
+content: " > ";
+color: #aaa;
 }
 
 /* tamaño del logo */
