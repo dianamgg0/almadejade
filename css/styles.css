@@ -34,13 +34,13 @@ header h1 {
 /* Contenedor logo + menú */
 .breadcrumbs {
   font-size: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   color: #6c7a75;
   display: flex;
-  flex-wrap: nowrap; /* Evita que se desborde en varias líneas */
+  flex-wrap: wrap; /* Evita que se desborde en varias líneas */
   justify-content: flex-start; /* Alinea a la izquierda */
   align-items: center;
-  gap: 5px; /* Reduce el espacio entre los elementos */
+  gap: 2px; /* Reduce el espacio entre los elementos */
 }
 
 .breadcrumbs a {
