@@ -35,7 +35,7 @@ header h1 {
 .breadcrumbs {
   font-size: 12px;
   margin-bottom: 2px;
-  margin-top: 12px; /* Reducción del margen superior, a la mitad del valor actual */
+  margin-top: 6px; /* Reducción del margen superior, a la mitad del valor actual */
   color: #6c7a75;
   display: flex;
   flex-wrap: wrap; /* Evita que se desborde en varias líneas */
@@ -112,7 +112,7 @@ h2 {
 
 footer {
   background: #f2f2f2;
-  padding: 18px;
+  padding: 20px;
   text-align: center;
   font-size: 14px;
 }
@@ -124,7 +124,7 @@ footer {
     gap: 10px;
   }
    h1 {
-    font-size: 20px; /* Tamaño más pequeño para móviles */
+    font-size: 18px; /* Tamaño más pequeño para móviles */
   }
 }
 
