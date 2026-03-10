@@ -142,12 +142,12 @@ footer {
 
 /* Ajuste del interlineado global en el bloque del artículo */
 section, .breadcrumbs, h1, h2, p {
-  line-height: 1.1; /* Reduce el interlineado a 1.3 (ajusta según lo desees) */
+  line-height: 1.3; /* Reduce el interlineado a 1.3 (ajusta según lo desees) */
 }
 
 /* También puedes especificar line-height para párrafos específicamente */
 section p {
-  line-height: 1.2; /* Ajuste individual para los párrafos */
+  line-height: 1.4; /* Ajuste individual para los párrafos */
 }
 
    /* Estilo para todas las imágenes destacadas (PC y móvil) */
