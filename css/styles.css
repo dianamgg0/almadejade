@@ -13,6 +13,7 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center; /* Asegura que el texto se alinee al centro */
 }
 
 header h1 {
@@ -25,17 +26,19 @@ header h1 {
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center; /* Centra el logo horizontalmente */
   gap: 12px;
+  margin-bottom: 15px; /* Agrega un espacio entre el logo y el menú */
 }
 
-/* Contenedor logo + menú */
+/* contenedor logo + menú */
 .breadcrumbs {
   font-size: 14px;
   margin-bottom: 25px;
   color: #6c7a75;
   display: flex;
-  flex-wrap: nowrap; /* Evita el salto de línea */
-  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center; /* Centra los elementos de breadcrumb */
 }
 
 .breadcrumbs a {
@@ -52,16 +55,16 @@ header h1 {
   color: #aaa;
 }
 
-/* Tamaño del logo */
+/* tamaño del logo */
 .logo img {
   height: 42px;
 }
 
-/* Menú */
+/* menú */
 nav {
   display: flex;
+  justify-content: center; /* Centra el menú */
   gap: 8px;
-  flex-wrap: wrap; /* Asegura que los enlaces se ajusten en dispositivos pequeños */
 }
 
 nav a {
@@ -69,7 +72,7 @@ nav a {
   padding: 8px 14px;
   margin: 6px;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255,255,255,0.08);
   color: #e0f2ee;
   text-decoration: none;
   font-size: 15px;
@@ -77,14 +80,14 @@ nav a {
 }
 
 nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255,255,255,0.2);
 }
 
 nav a:visited {
   color: #e0f2ee;
 }
 
-/* Contenido */
+/* contenido */
 section {
   padding: 30px 20px;
   max-width: 800px;
@@ -106,7 +109,7 @@ footer {
   font-size: 14px;
 }
 
-/* Móvil */
+/* móvil */
 @media (max-width: 600px) {
 
   .header-container {
@@ -130,7 +133,6 @@ footer {
     padding: 20px 15px;
   }
 
-  /* Mejorar la visibilidad en móviles para el breadcrumb */
   .breadcrumbs {
     flex-direction: column;
     text-align: center;
