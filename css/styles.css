@@ -13,7 +13,7 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  text-align: center; /* Asegura que el texto se alinee al centro */
+  text-align: center; /* Centra el contenido del header */
 }
 
 header h1 {
@@ -28,7 +28,7 @@ header h1 {
   align-items: center;
   justify-content: center; /* Centra el logo horizontalmente */
   gap: 12px;
-  margin-bottom: 15px; /* Agrega un espacio entre el logo y el menú */
+  margin-bottom: 15px; /* Espacio entre el logo y el menú */
 }
 
 /* contenedor logo + menú */
@@ -37,8 +37,9 @@ header h1 {
   margin-bottom: 25px;
   color: #6c7a75;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap; /* Permite que el breadcrumb se ajuste en pantallas pequeñas */
   justify-content: center; /* Centra los elementos de breadcrumb */
+  align-items: center;
 }
 
 .breadcrumbs a {
@@ -111,7 +112,6 @@ footer {
 
 /* móvil */
 @media (max-width: 600px) {
-
   .header-container {
     flex-direction: column;
     gap: 10px;
@@ -134,7 +134,7 @@ footer {
   }
 
   .breadcrumbs {
-    flex-direction: column;
-    text-align: center;
+    text-align: center; /* Centra el breadcrumb en móvil */
+    width: 100%; /* Se asegura de que ocupe el 100% del ancho */
   }
 }
