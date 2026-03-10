@@ -1,8 +1,6 @@
 User-agent: *
-
 Allow: /
-
-Disallow: /css/
-Disallow: /images/
+Disallow: /private/   # si tienes contenido privado
+# No bloquear css ni images
 
 Sitemap: https://almadejade.co/sitemap.xml
