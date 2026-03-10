@@ -137,4 +137,13 @@ footer {
     text-align: center; /* Centra el breadcrumb en móvil */
     width: 100%; /* Se asegura de que ocupe el 100% del ancho */
   }
+
+  .featured-image {
+    width: 100%;       /* ocupa todo el ancho del contenedor */
+    max-width: 1200px; /* no se estire más que su tamaño original */
+    height: auto;      /* mantiene proporción */
+    display: block;    /* elimina espacios debajo de la imagen */
+    margin: 20px auto; /* centra la imagen */
+    border-radius: 8px; /* opcional, estética */
+}
 }
