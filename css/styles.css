@@ -56,7 +56,7 @@ header h1 {
 .breadcrumbs a::after {
   content: " > ";
   color: #aaa;
-  margin-left: 4px; /* Reduce el espacio entre los elementos */
+  margin-left: 6px; /* Reduce el espacio entre los elementos */
 }
 .breadcrumbs a:hover {
   color: #4e6d59; /* Opcional: color para el hover */
