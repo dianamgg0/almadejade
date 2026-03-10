@@ -129,9 +129,11 @@ footer {
     margin: 4px;
   }
 
-  section {
-    padding: 20px 15px;
-  }
+ section {
+  padding: 30px 20px;
+  max-width: 800px;  /* Ajusta este valor si es necesario */
+  margin: auto;      /* Centra el contenedor */
+}
 
   .breadcrumbs {
     text-align: center; /* Centra el breadcrumb en móvil */
@@ -144,7 +146,7 @@ footer {
     max-width: 1200px; /* No se estira más que su tamaño original */
     height: auto;      /* Mantiene la proporción de la imagen */
     display: block;    /* Elimina espacios debajo de la imagen */
-    margin: 20px auto; /* Centra la imagen horizontalmente */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
     border-radius: 8px; /* Opcional, estética */
   }
 }
