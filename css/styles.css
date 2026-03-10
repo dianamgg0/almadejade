@@ -116,6 +116,7 @@ footer {
     flex-direction: column;
     gap: 10px;
   }
+}
 
   nav {
     justify-content: center;
@@ -149,4 +150,4 @@ footer {
     margin: 0 auto; /* Centra la imagen horizontalmente */
     border-radius: 8px; /* Opcional, estética */
   }
-}
+
