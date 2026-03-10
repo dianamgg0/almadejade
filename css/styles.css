@@ -140,10 +140,14 @@ footer {
     margin: 4px;
   }
 
- section {
-  padding: 30px 20px;
-  max-width: 800px;  /* Ajusta este valor si es necesario */
-  margin: auto;      /* Centra el contenedor */
+/* Ajuste del interlineado global en el bloque del artículo */
+section, .breadcrumbs, h1, h2, p {
+  line-height: 1.1; /* Reduce el interlineado a 1.3 (ajusta según lo desees) */
+}
+
+/* También puedes especificar line-height para párrafos específicamente */
+section p {
+  line-height: 1.2; /* Ajuste individual para los párrafos */
 }
 
    /* Estilo para todas las imágenes destacadas (PC y móvil) */
