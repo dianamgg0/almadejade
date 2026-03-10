@@ -138,12 +138,20 @@ footer {
     width: 100%; /* Se asegura de que ocupe el 100% del ancho */
   }
 
+/* Estilo para todas las imágenes destacadas (PC y móvil) */
+.featured-image {
+  width: 100%;       /* Ocupa todo el ancho del contenedor */
+  max-width: 1200px; /* No se estira más que su tamaño original */
+  height: auto;      /* Mantiene la proporción de la imagen */
+  display: block;    /* Elimina espacios debajo de la imagen */
+  margin: 20px auto; /* Centra la imagen horizontalmente */
+  border-radius: 8px; /* Opcional, estética */
+}
+
+/* Móvil */
+@media (max-width: 600px) {
   .featured-image {
-    width: 100%;       /* ocupa todo el ancho del contenedor */
-    max-width: 1200px; /* no se estire más que su tamaño original */
-    height: auto;      /* mantiene proporción */
-    display: block;    /* elimina espacios debajo de la imagen */
-    margin: 20px auto; /* centra la imagen */
-    border-radius: 8px; /* opcional, estética */
+    /* ya tiene los estilos aplicados en el bloque anterior */
+  }
 }
 }
