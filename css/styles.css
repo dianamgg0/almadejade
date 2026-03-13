@@ -129,6 +129,10 @@ footer {
    h2 {
     font-size: 20px; /* Tamaño más pequeño para móviles */
   }
+   }
+   h3 {
+    font-size: 16px; /* Tamaño más pequeño para móviles */
+  }
 }
 
   nav {
