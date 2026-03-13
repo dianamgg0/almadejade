@@ -148,7 +148,7 @@ Una vez por semana comparto rituales simples, libros transformadores
 y pequeñas ideas para vivir con más calma y claridad.
 </p>
 
-<form id="newsletter-form
+<form id="newsletter-form"
 action="https://almadejade.us8.list-manage.com/subscribe/post?u=14407f2d8dbf8957833e699ee&id=df37a15ec5"
 method="post"
 target="_blank"
@@ -253,7 +253,11 @@ las emociones y la experiencia de vivir con mayor atención.
 </footer>
 <script>
 
-const form = document.getElementById("newsletter-form")
+function setupNewsletterForm(formId, successId){
+
+const form = document.getElementById(formId)
+
+if(!form) return
 
 form.addEventListener("submit", function(e){
 
@@ -266,20 +270,28 @@ method: "POST",
 body: formData,
 mode: "no-cors"
 })
-.then(() => {
+.then(()=>{
 
 form.style.display = "none"
 
-document.getElementById("newsletter-success").style.display = "block"
+const success = document.getElementById(successId)
+
+if(success){
+success.style.display = "block"
+}
 
 })
-.catch(() => {
+.catch(()=>{
 
 alert("Hubo un error. Intenta nuevamente.")
 
 })
 
 })
+
+}
+
+setupNewsletterForm("newsletter-form","newsletter-success")
 
 </script>
 </body>
