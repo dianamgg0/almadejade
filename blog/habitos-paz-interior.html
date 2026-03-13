@@ -153,7 +153,8 @@ A menudo comienza con pequeños hábitos cotidianos que ayudan a equilibrar la m
 Una vez por semana comparto pequeñas ideas para vivir con más calma y claridad.
 </p>
 
-<form action="https://almadejade.us8.list-manage.com/subscribe/post?u=14407f2d8dbf8957833e699ee&id=df37a15ec5"
+<form id="newsletter-form-1"
+action="https://almadejade.us8.list-manage.com/subscribe/post?u=14407f2d8dbf8957833e699ee&id=df37a15ec5"
 method="post"
 target="_blank"
 class="invitation-form">
@@ -176,9 +177,14 @@ Quiero recibirlas
 Sin spam. Solo contenido consciente.  
 Puedes darte de baja cuando quieras.
 </p>
-
+ 
 </form>
-
+ 
+<div id="newsletter-success-1" style="display:none;">
+✨ Gracias por suscribirte.  
+Revisa tu correo para confirmar la suscripción.
+</div>
+ 
 </section>
 
 <h2>Por qué los hábitos influyen en nuestra paz interior🧘</h2>
@@ -255,11 +261,15 @@ Cuando estos hábitos se integran de forma natural en la vida cotidiana, comienz
   
 <section class="sacred-invitation">
 
-<p class="invitation-text">
-Una vez por semana comparto pequeñas ideas para vivir con más calma y claridad.
+<h3 class="invitation-text">
+Una pequeña pausa puede cambiar tu día.
+</h3>
+ <p class="invitation-text">
+Una vez por semana comparto pequeñas ideas para vivir con mas calma y claridad.
 </p>
 
-<form action="https://almadejade.us8.list-manage.com/subscribe/post?u=14407f2d8dbf8957833e699ee&id=df37a15ec5"
+<form id="newsletter-form-2"
+action="https://almadejade.us8.list-manage.com/subscribe/post?u=14407f2d8dbf8957833e699ee&id=df37a15ec5"
 method="post"
 target="_blank"
 class="invitation-form">
@@ -275,7 +285,7 @@ required>
 </div>
 
 <button type="submit">
-Quiero recibirlas
+Recibir nuevas reflexiones
 </button>
 
 <p class="invitation-legal">
@@ -287,6 +297,11 @@ Puedes darte de baja cuando quieras.
 
 </form>
 
+<div id="newsletter-success-2" style="display:none;">
+✨ Gracias por suscribirte.  
+Revisa tu correo para confirmar la suscripción.
+</div>
+ 
 </section>
 
 </main>
@@ -300,13 +315,19 @@ Puedes darte de baja cuando quieras.
 <a href="../disclosure.html">Aviso de afiliados</a>
 
 </footer>
+ 
 <script>
 
-document.getElementById("newsletter-form").addEventListener("submit", function(e){
+function setupNewsletterForm(formId, successId){
+
+const form = document.getElementById(formId)
+
+if(!form) return
+
+form.addEventListener("submit", function(e){
 
 e.preventDefault()
 
-const form = this
 const formData = new FormData(form)
 
 fetch(form.action.replace("/post?", "/post-json?") + "&c=?", {
@@ -314,21 +335,29 @@ method: "POST",
 body: formData,
 mode: "no-cors"
 })
-
-.then(() => {
+.then(()=>{
 
 form.style.display = "none"
-document.getElementById("newsletter-success").style.display = "block"
+
+const success = document.getElementById(successId)
+
+if(success){
+success.style.display = "block"
+}
 
 })
-
-.catch(() => {
+.catch(()=>{
 
 alert("Hubo un error. Intenta nuevamente.")
 
 })
 
 })
+
+}
+
+setupNewsletterForm("newsletter-form-1","newsletter-success-1")
+setupNewsletterForm("newsletter-form-2","newsletter-success-2")
 
 </script>
 </body>
