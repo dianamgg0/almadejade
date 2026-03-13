@@ -149,17 +149,13 @@ A menudo comienza con pequeños hábitos cotidianos que ayudan a equilibrar la m
   
 <section class="sacred-invitation">
 
-<p class="invitation-intro">
-A veces una pequeña pausa cambia el día.
-</p>
 
 <h3 class="invitation-title">
-Recibe reflexiones para cultivar paz interior
+Una pequeña pausa puede cambiar tú día.
 </h3>
 
 <p class="invitation-text">
-Una vez por semana comparto rituales simples, libros transformadores  
-y pequeñas ideas para vivir con más calma y claridad.
+Una vez por semana comparto pequeñas ideas para vivir con más calma y claridad.
 </p>
 
 <form action="https://almadejade.us8.list-manage.com/subscribe/post?u=14407f2d8dbf8957833e699ee&id=df37a15ec5"
@@ -266,17 +262,12 @@ Cuando estos hábitos se integran de forma natural en la vida cotidiana, comienz
   
 <section class="sacred-invitation">
 
-<p class="invitation-intro">
-A veces una pequeña pausa cambia el día.
-</p>
-
 <h3 class="invitation-title">
-Recibe reflexiones para cultivar paz interior
+Una pequeña pausa puede cambiar tú día.
 </h3>
 
 <p class="invitation-text">
-Una vez por semana comparto rituales simples, libros transformadores  
-y pequeñas ideas para vivir con más calma y claridad.
+Una vez por semana comparto pequeñas ideas para vivir con más calma y claridad.
 </p>
 
 <form action="https://almadejade.us8.list-manage.com/subscribe/post?u=14407f2d8dbf8957833e699ee&id=df37a15ec5"
@@ -318,7 +309,37 @@ Puedes darte de baja cuando quieras.
 <a href="../disclosure.html">Aviso de afiliados</a>
 
 </footer>
+<script>
 
+document.getElementById("newsletter-form").addEventListener("submit", function(e){
+
+e.preventDefault()
+
+const form = this
+const formData = new FormData(form)
+
+fetch(form.action.replace("/post?", "/post-json?") + "&c=?", {
+method: "POST",
+body: formData,
+mode: "no-cors"
+})
+
+.then(() => {
+
+form.style.display = "none"
+document.getElementById("newsletter-success").style.display = "block"
+
+})
+
+.catch(() => {
+
+alert("Hubo un error. Intenta nuevamente.")
+
+})
+
+})
+
+</script>
 </body>
 
 </html>
