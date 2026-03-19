@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+  <g transform="translate(256,230) scale(1.5) translate(-256,-210)"
+     fill="#D8EADF" stroke="#2E7D4F" stroke-width="16" stroke-linejoin="round">
+
+    <!-- pétalo central -->
+    <g transform="translate(0,70)">
+      <path d="M256 55 
+               C200 135 210 185 256 240
+               C302 185 312 135 256 55 Z"/>
+    </g>
+
+    <!-- pétalos exteriores -->
+    <g transform="translate(0,20)">
+      <path d="M110 210
+               C120 270 190 300 240 300
+               C200 250 170 220 110 210 Z"/>
+      <path d="M402 210
+               C392 270 322 300 272 300
+               C312 250 342 220 402 210 Z"/>
+    </g>
+
+    <!-- pétalos interiores -->
+    <g transform="translate(-20,70) rotate(-235 220 200)">
+      <path d="M220 120
+               C235 135 245 150 260 170
+               C240 220 210 270 170 290
+               C150 220 180 160 220 120 Z"/>
+    </g>
+
+    <g transform="translate(20,70) rotate(235 292 200)">
+      <path d="M292 120
+               C277 135 267 150 252 170
+               C272 220 302 270 342 290
+               C362 220 332 160 292 120 Z"/>
+    </g>
+
+    <!-- base (corregida) -->
+    
+      <path d="M160 300
+               C200 340 240 340 256 320
+               C220 310 190 300 160 300 Z"/>
+      <path d="M352 300
+               C312 340 272 340 256 320
+               C292 310 322 300 352 300 Z"/>
+  
+    <!-- botón -->
+    <g transform="translate(-25,-40) scale(1.1)">
+      <path d="M256 250
+               C225 290 230 320 256 330
+               C282 320 287 290 256 250 Z"/>
+    </g>
+
+  </g>
+
+</svg>
