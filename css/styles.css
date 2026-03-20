@@ -157,15 +157,16 @@ section p {
   line-height: 1.4; /* Ajuste individual para los párrafos */
 }
 
-   /* Estilo para todas las imágenes destacadas (PC y móvil) */
-  .featured-image {
-    width: 100%;       /* Ocupa todo el ancho del contenedor */
-    max-width: 1200px; /* No se estira más que su tamaño original */
-    height: auto;      /* Mantiene la proporción de la imagen */
-    display: block;    /* Elimina espacios debajo de la imagen */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-    border-radius: 8px; /* Opcional, estética */
-  }
+/* Imagen principal del artículo */
+.featured-image {
+  width: 100%;
+  max-width: 900px; /* más contenida que 1200px para coherencia visual */
+  height: auto;
+  display: block;
+  margin: 32px auto; /* mismo ritmo que las internas */
+  border-radius: 16px; /* igual que article-image */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* misma estética */
+}
 .sacred-invitation{
 max-width:520px;
 margin:60px auto;
@@ -231,4 +232,27 @@ background:#f0f7f2;
 border-radius:8px;
 font-size:16px;
 text-align:center;
+}
+figure {
+  margin: 32px auto;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+.article-image {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: 28px auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
