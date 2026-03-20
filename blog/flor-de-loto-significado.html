@@ -211,15 +211,105 @@ En Alma de Jade, el loto representa el cuidado interior como base de una vida co
 Tal vez hoy, como la flor de loto, tu proceso también esté ocurriendo en silencio.
 </p>
 
+ <!-- Formulario --> 
+  
+<section class="sacred-invitation">
+
+<h3 class="invitation-text">
+Una pequeña pausa puede cambiar tu día.
+</h3>
+
+<form id="newsletter-form-2"
+action="https://almadejade.us8.list-manage.com/subscribe/post?u=14407f2d8dbf8957833e699ee&id=df37a15ec5"
+method="post"
+class="invitation-form">
+
+<input 
+type="email" 
+name="EMAIL"
+placeholder="Tu correo electrónico"
+required>
+
+<div style="position:absolute;left:-5000px;" aria-hidden="true">
+<input type="text" name="b_14407f2d8dbf8957833e699ee_df37a15ec5" tabindex="-1">
+</div>
+
+<button type="submit">
+Recibir una reflexión por semana
+</button>
+
+<p class="invitation-legal">
+Sin spam. Solo contenido consciente.  
+Puedes darte de baja cuando quieras.
+</p>
+</form>
 </section>
+
+
+
+<div id="newsletter-success-2" style="display:none;">
+✨ Gracias por suscribirte.  
+Revisa tu correo para confirmar la suscripción.
+</div>
+ 
+</section>
+
 </main>
 
 <footer>
-<p><a href="/contact.html">Contacto</a></p>
+<p> 
+<a href="/contact.html">Contacto</a>
+</p>
 <p>© 2026 Alma de Jade</p>
 <a href="../privacy.html">Política de privacidad</a> |
 <a href="../disclosure.html">Aviso de afiliados</a>
-</footer>
 
+</footer>
+ 
+<script>
+
+function setupNewsletterForm(formId, successId){
+
+const form = document.getElementById(formId)
+
+if(!form) return
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault()
+
+const formData = new FormData(form)
+
+fetch(form.action.replace("/post?", "/post-json?") + "&c=?", {
+method: "POST",
+body: formData,
+mode: "no-cors"
+})
+.then(()=>{
+
+form.style.display = "none"
+
+const success = document.getElementById(successId)
+
+if(success){
+success.style.display = "block"
+}
+
+})
+.catch(()=>{
+
+alert("Hubo un error. Intenta nuevamente.")
+
+})
+
+})
+
+}
+
+setupNewsletterForm("newsletter-form-1","newsletter-success-1")
+setupNewsletterForm("newsletter-form-2","newsletter-success-2")
+
+</script>
 </body>
+
 </html>
