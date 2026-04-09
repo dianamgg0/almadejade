@@ -8,15 +8,11 @@ body {
 
 header {
   background:
-    linear-gradient(
-      rgba(15,31,28,0.92),
-      rgba(15,31,28,0.96)
-    ),
-    url("../images/jade-texture.png");
+    radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    #0f1f1c;
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: 3px 3px, 5px 5px;
 
   color: white;
   padding: 20px;
