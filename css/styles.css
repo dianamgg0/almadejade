@@ -3,17 +3,28 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  background:#F4F7F5;
 }
 
 header {
-  background: #0f1f1c;
+  background:
+    linear-gradient(
+      rgba(15,31,28,0.92),
+      rgba(15,31,28,0.96)
+    ),
+    url("../images/jade-texture.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   color: white;
   padding: 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  text-align: center; /* Centra el contenido del header */
+  text-align: center;
 }
 
 header h1 {
