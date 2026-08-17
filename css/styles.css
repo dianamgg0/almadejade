@@ -480,3 +480,96 @@ figcaption {
     }
 
 }
+
+/* =========================================
+   VIDEO DE CALMA
+========================================= */
+
+.video-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.video-section h2 {
+    margin-bottom: 1rem;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.video-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    margin: 0 auto;
+    border-radius: 18px;
+    object-fit: contain;
+    background: #000;
+}
+
+.sound-button {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: none;
+    border-radius: 30px;
+
+    padding: 0.75rem 1.3rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: #333;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.sound-button:hover {
+    transform: translateX(-50%) scale(1.03);
+}
+
+.video-caption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+
+@media (max-width: 600px) {
+
+    .video-container {
+        max-width: 100%;
+    }
+
+    .video-wrapper video {
+        max-height: 75vh;
+        border-radius: 14px;
+    }
+
+    .sound-button {
+        bottom: 14px;
+        padding: 0.65rem 1.1rem;
+        font-size: 0.85rem;
+    }
+
+}
