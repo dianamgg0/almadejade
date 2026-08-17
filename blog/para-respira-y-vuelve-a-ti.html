@@ -105,7 +105,31 @@ gtag('config', 'G-S3JK1LJXM4');
 
 </head>
 
+<script>
 
+const calmVideo = document.getElementById("calm-video");
+const soundButton = document.getElementById("sound-button");
+
+if (calmVideo && soundButton) {
+
+    soundButton.addEventListener("click", function () {
+
+        calmVideo.muted = false;
+
+        calmVideo.volume = 1;
+
+        soundButton.textContent = "🔇 Silenciar";
+
+        soundButton.setAttribute(
+            "aria-label",
+            "Silenciar video"
+        );
+
+    });
+
+}
+
+</script>
 <body>
 
 
@@ -208,8 +232,26 @@ A veces solo necesitamos detenernos unos minutos, respirar y recordar que tambi�
 
 <figure class="video-container">
 
+<section class="video-section">
+
+<h2>
+Un momento para volver a ti
+</h2>
+
+<p>
+A veces solo necesitamos detenernos unos minutos, respirar y recordar que también podemos crear un espacio de calma dentro de nosotros.
+</p>
+
+
+<div class="video-container">
+
+<div class="video-wrapper">
+
 <video
-controls
+id="calm-video"
+autoplay
+muted
+loop
 playsinline
 preload="metadata"
 poster="../images/jardin-calma.jpg"
@@ -227,14 +269,25 @@ Tu navegador no puede reproducir este video.
 </video>
 
 
-<figcaption>
-Respira lentamente y permite que este momento sea solo para ti.
-</figcaption>
+<button
+type="button"
+id="sound-button"
+class="sound-button"
+aria-label="Activar sonido"
+>
+🔊 Activar sonido
+</button>
 
-</figure>
+</div>
+
+
+<p class="video-caption">
+Respira lentamente y permite que este momento sea solo para ti.
+</p>
+
+</div>
 
 </section>
-
 
 <h2>
 Un jardín para volver a respirar
