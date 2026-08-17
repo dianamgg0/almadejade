@@ -84,50 +84,7 @@ content="https://almadejade.co/images/jardin-calma.jpg"
 
 <!-- Google Analytics -->
 
-<script
-async
-src="https://www.googletagmanager.com/gtag/js?id=G-S3JK1LJXM4">
-</script>
-
-<script>
-
-const calmVideo = document.getElementById("calm-video");
-const soundButton = document.getElementById("sound-button");
-
-if (calmVideo && soundButton) {
-
-    soundButton.addEventListener("click", function () {
-
-        if (calmVideo.muted) {
-
-            calmVideo.muted = false;
-            calmVideo.volume = 1;
-
-            soundButton.textContent = "🔇 Silenciar";
-            soundButton.setAttribute(
-                "aria-label",
-                "Silenciar video"
-            );
-
-        } else {
-
-            calmVideo.muted = true;
-
-            soundButton.textContent = "🔊 Activar sonido";
-            soundButton.setAttribute(
-                "aria-label",
-                "Activar sonido"
-            );
-
-        }
-
-    });
-
-}
-
-</script>
 <body>
-
 
 <header>
 
@@ -214,19 +171,7 @@ Cierra los ojos por un momento, respira profundamente y permite que este pequeñ
 </p>
 
 
-<section class="video-section">
 
-<h2>
-Un momento para volver a ti
-</h2>
-
-
-<p>
-A veces solo necesitamos detenernos unos minutos, respirar y recordar que también podemos crear un espacio de calma dentro de nosotros.
-</p>
-
-
-<figure class="video-container">
 
 <section class="video-section">
 
@@ -237,7 +182,6 @@ Un momento para volver a ti
 <p>
 A veces solo necesitamos detenernos unos minutos, respirar y recordar que también podemos crear un espacio de calma dentro de nosotros.
 </p>
-
 
 <div class="video-container">
 
@@ -264,7 +208,6 @@ Tu navegador no puede reproducir este video.
 
 </video>
 
-
 <button
 type="button"
 id="sound-button"
@@ -275,7 +218,6 @@ aria-label="Activar sonido"
 </button>
 
 </div>
-
 
 <p class="video-caption">
 Respira lentamente y permite que este momento sea solo para ti.
@@ -640,6 +582,52 @@ setupNewsletterForm(
 "newsletter-form-2",
 "newsletter-success-2"
 );
+
+</script>
+
+
+<script
+async
+src="https://www.googletagmanager.com/gtag/js?id=G-S3JK1LJXM4">
+</script>
+
+<script>
+
+const calmVideo = document.getElementById("calm-video");
+const soundButton = document.getElementById("sound-button");
+
+if (calmVideo && soundButton) {
+
+    soundButton.addEventListener("click", function () {
+
+        if (calmVideo.muted) {
+
+            calmVideo.muted = false;
+            calmVideo.volume = 1;
+
+            soundButton.textContent = "🔇 Silenciar";
+
+            soundButton.setAttribute(
+                "aria-label",
+                "Silenciar video"
+            );
+
+        } else {
+
+            calmVideo.muted = true;
+
+            soundButton.textContent = "🔊 Activar sonido";
+
+            soundButton.setAttribute(
+                "aria-label",
+                "Activar sonido"
+            );
+
+        }
+
+    });
+
+}
 
 </script>
 
