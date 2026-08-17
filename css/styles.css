@@ -263,3 +263,220 @@ figcaption {
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+/* =========================================
+   VIDEO - RESPIRA Y VUELVE A TI
+========================================= */
+
+.video-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.video-section h2 {
+    margin-bottom: 1rem;
+}
+
+.video-container {
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+.video-container video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    margin: 0 auto;
+    border-radius: 18px;
+    object-fit: contain;
+}
+
+.video-container figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+/* =========================================
+   BLOQUE DE SOLIDARIDAD
+========================================= */
+
+.solidarity-section {
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    max-width: 850px;
+    text-align: center;
+    border-radius: 22px;
+    background: #f5f1e8;
+    border: 1px solid rgba(80, 80, 60, 0.12);
+}
+
+.solidarity-content {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.solidarity-icon {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.solidarity-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.solidarity-section p {
+    line-height: 1.7;
+}
+
+.solidarity-button {
+    display: inline-block;
+    margin: 1.5rem 0 1rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.solidarity-note {
+    font-size: 0.82rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+}
+
+/* =========================================
+   AJUSTE PARA MOVILES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .video-container {
+        max-width: 100%;
+    }
+
+    .video-container video {
+        max-height: 75vh;
+        border-radius: 14px;
+    }
+
+    .solidarity-section {
+        margin: 3rem 0;
+        padding: 2.2rem 1.3rem;
+        border-radius: 18px;
+    }
+
+    .solidarity-button {
+        padding: 0.8rem 1.5rem;
+    }
+
+}/* =========================================
+   VIDEO - RESPIRA Y VUELVE A TI
+========================================= */
+
+.video-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.video-section h2 {
+    margin-bottom: 1rem;
+}
+
+.video-container {
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+.video-container video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    margin: 0 auto;
+    border-radius: 18px;
+    object-fit: contain;
+}
+
+.video-container figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   BLOQUE DE SOLIDARIDAD
+========================================= */
+
+.solidarity-section {
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    max-width: 850px;
+    text-align: center;
+    border-radius: 22px;
+    background: #f5f1e8;
+    border: 1px solid rgba(80, 80, 60, 0.12);
+}
+
+.solidarity-content {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.solidarity-icon {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.solidarity-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.solidarity-section p {
+    line-height: 1.7;
+}
+
+.solidarity-button {
+    display: inline-block;
+    margin: 1.5rem 0 1rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.solidarity-note {
+    font-size: 0.82rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+}
+
+
+/* =========================================
+   AJUSTE PARA MOVILES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .video-container {
+        max-width: 100%;
+    }
+
+    .video-container video {
+        max-height: 75vh;
+        border-radius: 14px;
+    }
+
+    .solidarity-section {
+        margin: 3rem 0;
+        padding: 2.2rem 1.3rem;
+        border-radius: 18px;
+    }
+
+    .solidarity-button {
+        padding: 0.8rem 1.5rem;
+    }
+
+}
