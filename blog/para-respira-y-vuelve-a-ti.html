@@ -91,22 +91,6 @@ src="https://www.googletagmanager.com/gtag/js?id=G-S3JK1LJXM4">
 
 <script>
 
-window.dataLayer = window.dataLayer || [];
-
-function gtag(){
-    dataLayer.push(arguments);
-}
-
-gtag('js', new Date());
-
-gtag('config', 'G-S3JK1LJXM4');
-
-</script>
-
-</head>
-
-<script>
-
 const calmVideo = document.getElementById("calm-video");
 const soundButton = document.getElementById("sound-button");
 
@@ -114,16 +98,28 @@ if (calmVideo && soundButton) {
 
     soundButton.addEventListener("click", function () {
 
-        calmVideo.muted = false;
+        if (calmVideo.muted) {
 
-        calmVideo.volume = 1;
+            calmVideo.muted = false;
+            calmVideo.volume = 1;
 
-        soundButton.textContent = "🔇 Silenciar";
+            soundButton.textContent = "🔇 Silenciar";
+            soundButton.setAttribute(
+                "aria-label",
+                "Silenciar video"
+            );
 
-        soundButton.setAttribute(
-            "aria-label",
-            "Silenciar video"
-        );
+        } else {
+
+            calmVideo.muted = true;
+
+            soundButton.textContent = "🔊 Activar sonido";
+            soundButton.setAttribute(
+                "aria-label",
+                "Activar sonido"
+            );
+
+        }
 
     });
 
