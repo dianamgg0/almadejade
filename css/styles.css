@@ -1251,3 +1251,484 @@ figcaption {
     }
 
 }
+
+/* =========================================================
+   RECOMENDACIÓN DE TENIS
+   HOKA BONDI 9
+   ========================================================= */
+
+.shoe-recommendation {
+
+    width: 100%;
+    max-width: 760px;
+
+    margin: 55px auto;
+
+    text-align: center;
+
+}
+
+
+/* ---------------------------------------------------------
+   INTRODUCCIÓN
+   --------------------------------------------------------- */
+
+.shoe-recommendation > p {
+
+    max-width: 620px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+/* ---------------------------------------------------------
+   TARJETA DEL PRODUCTO
+   --------------------------------------------------------- */
+
+.shoe-card {
+
+    display: block;
+
+    width: min(100%, 560px);
+
+    margin: 32px auto 0;
+
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #faf8f5 55%,
+            #eee8e1 100%
+        );
+
+    border: 1px solid rgba(100, 90, 80, 0.08);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.11),
+        0 4px 10px rgba(0, 0, 0, 0.05);
+
+    text-decoration: none;
+
+    color: inherit;
+
+    position: relative;
+
+    animation:
+        shoeFloat 5.5s ease-in-out infinite;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   IMAGEN
+   --------------------------------------------------------- */
+
+.shoe-image-container {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border-radius: 21px;
+
+}
+
+
+.shoe-image-container img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 21px;
+
+    transition:
+        transform 0.6s ease;
+
+}
+
+
+/* Marco interior */
+
+.shoe-image-container::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 21px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    pointer-events: none;
+
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+   --------------------------------------------------------- */
+
+.shoe-card:hover {
+
+    animation-play-state: paused;
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.16),
+        0 7px 15px rgba(0, 0, 0, 0.07);
+
+}
+
+
+.shoe-card:hover
+.shoe-image-container img {
+
+    transform:
+        scale(1.025);
+
+}
+
+
+/* ---------------------------------------------------------
+   CONTENIDO
+   --------------------------------------------------------- */
+
+.shoe-content {
+
+    padding:
+        23px 15px 12px;
+
+}
+
+
+.shoe-label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size:
+        0.72rem;
+
+    letter-spacing:
+        0.12em;
+
+    font-weight:
+        600;
+
+    color:
+        #7a756d;
+
+}
+
+
+.shoe-content h3 {
+
+    margin:
+        0 0 12px;
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        600;
+
+    color:
+        #4d4038;
+
+}
+
+
+.shoe-content p {
+
+    max-width:
+        490px;
+
+    margin:
+        0 auto 19px;
+
+    font-size:
+        0.95rem;
+
+    line-height:
+        1.65;
+
+    color:
+        #756961;
+
+}
+
+
+/* ---------------------------------------------------------
+   BOTÓN
+   --------------------------------------------------------- */
+
+.shoe-button {
+
+    display:
+        inline-block;
+
+    padding:
+        12px 24px;
+
+    border-radius:
+        30px;
+
+    background:
+        #5d7565;
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.93rem;
+
+    font-weight:
+        600;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.11);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.shoe-card:hover .shoe-button {
+
+    background:
+        #4f6657;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 17px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* ---------------------------------------------------------
+   NOTA DE AFILIADO
+   --------------------------------------------------------- */
+
+.shoe-note {
+
+    max-width:
+        500px;
+
+    margin:
+        18px auto 0;
+
+    padding:
+        0 15px;
+
+    font-size:
+        0.78rem !important;
+
+    line-height:
+        1.5;
+
+    opacity:
+        0.72;
+
+}
+
+
+/* ---------------------------------------------------------
+   ANIMACIÓN
+   --------------------------------------------------------- */
+
+@keyframes shoeFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .shoe-card {
+
+        width:
+            min(100%, 510px);
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .shoe-recommendation {
+
+        margin:
+            40px auto;
+
+    }
+
+
+    .shoe-card {
+
+        width:
+            calc(100% - 16px);
+
+        padding:
+            8px;
+
+        border-radius:
+            22px;
+
+        animation-duration:
+            6s;
+
+    }
+
+
+    .shoe-image-container {
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .shoe-image-container img {
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .shoe-image-container::after {
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .shoe-content {
+
+        padding:
+            20px 8px 9px;
+
+    }
+
+
+    .shoe-content h3 {
+
+        font-size:
+            1.25rem;
+
+    }
+
+
+    .shoe-content p {
+
+        font-size:
+            0.92rem;
+
+    }
+
+
+    .shoe-label {
+
+        font-size:
+            0.67rem;
+
+    }
+
+
+    .shoe-button {
+
+        padding:
+            11px 20px;
+
+        font-size:
+            0.89rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .shoe-card {
+
+        animation:
+            none;
+
+        transition:
+            none;
+
+    }
+
+
+    .shoe-card:hover {
+
+        transform:
+            none;
+
+    }
+
+
+    .shoe-card:hover
+    .shoe-image-container img {
+
+        transform:
+            none;
+
+    }
+
+}
