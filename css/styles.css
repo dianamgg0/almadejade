@@ -573,3 +573,388 @@ figcaption {
     }
 
 }
+
+/* =========================================================
+   RECOMENDACIÓN DE PRODUCTO
+   Set de libretas
+   ========================================================= */
+
+.product-recommendation {
+    width: 100%;
+    max-width: 760px;
+    margin: 55px auto;
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   Tarjeta visual de la libreta
+   --------------------------------------------------------- */
+
+.product-recommendation > a:first-of-type {
+    display: block;
+    width: min(100%, 560px);
+    margin: 30px auto 0;
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #faf7f3 55%,
+            #f0e9e1 100%
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.11),
+        0 4px 10px rgba(0, 0, 0, 0.05);
+
+    text-decoration: none;
+
+    position: relative;
+
+    animation:
+        notebookFloat 5s ease-in-out infinite;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Imagen cuadrada
+   --------------------------------------------------------- */
+
+.product-recommendation > a:first-of-type img {
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 21px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+
+    transition:
+        transform 0.6s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   Marco interior sutil
+   --------------------------------------------------------- */
+
+.product-recommendation > a:first-of-type::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+
+    border-radius: 21px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    pointer-events: none;
+
+}
+
+
+/* ---------------------------------------------------------
+   Efecto al pasar el mouse
+   --------------------------------------------------------- */
+
+.product-recommendation > a:first-of-type:hover {
+
+    animation-play-state: paused;
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.16),
+        0 7px 15px rgba(0, 0, 0, 0.07);
+
+}
+
+
+.product-recommendation > a:first-of-type:hover img {
+
+    transform: scale(1.025);
+
+}
+
+
+/* ---------------------------------------------------------
+   Texto principal después de la imagen
+   --------------------------------------------------------- */
+
+.product-recommendation > p:nth-of-type(3) {
+
+    max-width: 560px;
+
+    margin:
+        25px auto 12px;
+
+    padding:
+        0 15px;
+
+    line-height: 1.65;
+
+}
+
+
+/* ---------------------------------------------------------
+   Texto que introduce el enlace
+   --------------------------------------------------------- */
+
+.product-recommendation > p:nth-of-type(4) {
+
+    margin:
+        8px auto 18px;
+
+    padding:
+        0 15px;
+
+}
+
+
+/* ---------------------------------------------------------
+   Botón de Amazon
+   --------------------------------------------------------- */
+
+.product-recommendation .solidarity-button {
+
+    display: inline-block;
+
+    padding:
+        12px 25px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   Nota de afiliado
+   --------------------------------------------------------- */
+
+.product-recommendation .product-note {
+
+    max-width: 520px;
+
+    margin:
+        18px auto 0;
+
+    padding:
+        0 15px;
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+
+    opacity: 0.75;
+
+}
+
+
+/* ---------------------------------------------------------
+   Animación sutil
+   --------------------------------------------------------- */
+
+@keyframes notebookFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .product-recommendation {
+
+        margin:
+            45px auto;
+
+    }
+
+    .product-recommendation > a:first-of-type {
+
+        width:
+            min(100%, 500px);
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .product-recommendation {
+
+        margin:
+            38px auto;
+
+    }
+
+
+    .product-recommendation > a:first-of-type {
+
+        width:
+            calc(100% - 16px);
+
+        padding:
+            8px;
+
+        border-radius:
+            22px;
+
+        animation-duration:
+            6s;
+
+    }
+
+
+    .product-recommendation > a:first-of-type img {
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .product-recommendation > a:first-of-type::after {
+
+        top:
+            8px;
+
+        left:
+            8px;
+
+        right:
+            8px;
+
+        bottom:
+            8px;
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .product-recommendation > p:nth-of-type(3) {
+
+        padding:
+            0 10px;
+
+        font-size:
+            0.95rem;
+
+    }
+
+
+    .product-recommendation > p:nth-of-type(4) {
+
+        padding:
+            0 10px;
+
+        font-size:
+            0.94rem;
+
+    }
+
+
+    .product-recommendation .solidarity-button {
+
+        padding:
+            11px 22px;
+
+    }
+
+
+    .product-recommendation .product-note {
+
+        padding:
+            0 12px;
+
+        font-size:
+            0.78rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   Evita animaciones para usuarios que las hayan desactivado
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .product-recommendation > a:first-of-type {
+
+        animation:
+            none;
+
+        transition:
+            none;
+
+    }
+
+
+    .product-recommendation > a:first-of-type:hover {
+
+        transform:
+            none;
+
+    }
+
+
+    .product-recommendation > a:first-of-type:hover img {
+
+        transform:
+            none;
+
+    }
+
+}
