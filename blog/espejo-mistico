@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Blog | Alma de Jade</title>
+
+<meta name="description" content="Artículos sobre crecimiento personal, espiritualidad consciente, libros transformadores y prácticas para cultivar paz interior.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../css/styles.css">
+
+<!-- Preload del logo -->
+
+<link rel="preload" href="/images/logo-loto.svg" as="image" type="image/svg+xml">
+
+<!-- Favicons -->
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Open Graph -->
+
+<meta property="og:title" content="Blog | Alma de Jade">
+<meta property="og:description" content="Artículos sobre crecimiento personal, espiritualidad consciente, libros transformadores y prácticas para cultivar paz interior.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://almadejade.co/blog/">
+<meta property="og:image" content="https://almadejade.co/images/almadejade.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | Alma de Jade">
+<meta name="twitter:description" content="Artículos sobre crecimiento personal, espiritualidad consciente, libros transformadores y prácticas para cultivar paz interior.">
+<meta name="twitter:image" content="https://almadejade.co/images/almadejade.jpg">
+
+<!-- Canonical -->
+
+<link rel="canonical" href="https://almadejade.co/blog/">
+
+<!-- Schema -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Alma de Jade",
+  "description": "Artículos sobre crecimiento personal, espiritualidad consciente, libros transformadores y prácticas para cultivar paz interior.",
+  "url": "https://almadejade.co/blog/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Alma de Jade",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://almadejade.co/images/logo-loto.svg"
+    }
+  }
+}
+</script>
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S3JK1LJXM4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S3JK1LJXM4');
+</script>
+  
+</head>
+
+<body>
+
+<header>
+
+<div class="header-container">
+<div class="logo">
+<img src="/images/logo-loto.svg" alt="Alma de Jade">
+<h1>Alma de Jade</h1>
+</div>
+
+<nav>
+<a href="/">Inicio</a>
+<a href="/about.html">Sobre mí</a>
+<a href="/blog/">Blog</a>
+</nav>
+
+</div>
+
+</header>
+
+<body>
+
+<h1>
+🌿 Espejito, espejito... <br>
+refleja mi divinidad 🌿
+</h1>
+
+<div class="mirror-frame">
+
+  <img src="Espejo.png" class="mirror-image">
+
+  <div class="reflection">
+    <img id="uploadedImage">
+  </div>
+  
+  <div class="light-rays"></div>
+
+</div>
+
+<div class="controls">
+
+<input type="file" id="imageUpload" accept="image/*" hidden>
+  
+<p id="magicText">
+    🍃 Tu reflejo revela tu divinidad 🍃
+</p>
+  
+<button class="magic-btn" onclick="document.getElementById('imageUpload').click()">
+📷 Sube tu imagen y descubre tu revelación
+</button>
+
+<button class="magic-btn" id="downloadBtn" style="display:none;">
+🌼 Descargar mi revelación 🌼
+</button>
+
+</div>
+
+<script>
+
+const frases = [
+"🏵️ Tu reflejo revela tu divinidad 🏵️",
+"🪷 La luz que buscas vive en ti 🪷",
+"☘️ Tu esencia ilumina el camino ☘️",
+"🌻 Eres la magia que contemplas 🌻",
+"🌹 Tu alma brilla sin límites 🌹",
+"🪻 Dentro de ti habita el misterio 🪻",
+"🌱 Tu luz interior despierta hoy 🌱",
+"🌺 Eres reflejo de lo eterno 🌺",
+"💮 La divinidad vive en tu mirada 💮",
+"🌿 Tu espíritu resplandece 🌿"
+];
+
+let fraseActual = "";  
+  
+const upload = document.getElementById('imageUpload');
+const uploadedImage = document.getElementById('uploadedImage');
+const downloadBtn = document.getElementById('downloadBtn');
+const magicText = document.getElementById('magicText');
+
+/* SUBIR IMAGEN */
+
+upload.addEventListener('change', function(e){
+
+const file = e.target.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = function(event){
+
+uploadedImage.src = event.target.result;
+
+fraseActual = frases[Math.floor(Math.random() * frases.length)];
+
+magicText.textContent = fraseActual;
+
+magicText.style.display = "block";
+downloadBtn.style.display = "inline-block";
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+
+/* DESCARGAR */
+
+downloadBtn.addEventListener('click', function(){
+
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+
+const frame = new Image();
+frame.src = "Espejo.png";
+
+frame.onload = function(){
+
+const ratio = frame.height / frame.width;
+
+canvas.width = 1000;
+canvas.height = 1000 * ratio;
+
+ctx.fillStyle = "#e3d5c0";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ctx.drawImage(frame,0,0,canvas.width,canvas.height);
+
+const user = new Image();
+user.src = uploadedImage.src;
+
+user.onload = function(){
+
+const x = canvas.width * 0.145;
+const y = canvas.height * 0.195;
+const w = canvas.width * 0.7;
+const h = canvas.height * 0.63;
+
+ctx.save();
+
+ctx.beginPath();
+
+ctx.ellipse(
+x + w/2,
+y + h/2,
+w/2,
+h/2,
+0,
+0,
+Math.PI * 2
+);
+
+ctx.clip();
+
+/* cover */
+
+const imgRatio = user.width / user.height;
+const boxRatio = w / h;
+
+let dw, dh, ox=0, oy=0;
+
+if(imgRatio > boxRatio){
+dh = h;
+dw = h * imgRatio;
+ox = (w - dw)/2;
+}else{
+dw = w;
+dh = w / imgRatio;
+oy = (h - dh)/2;
+}
+
+ctx.drawImage(user,x+ox,y+oy,dw,dh);
+
+ctx.restore();
+
+/* TEXTO REVELACION */
+
+ctx.save();
+
+ctx.font = "italic 60px 'Cormorant Garamond'";
+ctx.textAlign = "center";
+ctx.textBaseline = "bottom";
+
+/* relleno dorado */
+ctx.fillStyle = "#635045";
+
+/* borde oscuro */
+
+
+/* glow suave */
+ctx.shadowColor = "rgba(0,0,0,0.45)";
+ctx.shadowBlur = 18;
+ctx.shadowOffsetX = 0;
+ctx.shadowOffsetY = 2;
+
+const text = fraseActual;
+const xText = canvas.width / 2;
+const yText = canvas.height - 25;
+
+/* borde primero */
+ctx.strokeText(text, xText, yText);
+
+/* relleno encima */
+ctx.fillText(text, xText, yText);
+
+ctx.restore();
+
+/* DESCARGA */
+
+const link=document.createElement("a");
+link.download="mi-revelacion.png";
+link.href=canvas.toDataURL();
+link.click();
+
+};
+
+};
+
+});
+
+</script>
+
+<footer>
+<p> 
+<a href="/contact.html">Contacto</a>
+</p>
+<p>© 2026 Alma de Jade</p>
+<a href="/privacy.html">Política de privacidad</a> | <a href="/disclosure.html">Aviso de afiliados</a>
+
+</footer>
+
+</body>
+</html>
