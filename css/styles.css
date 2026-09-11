@@ -140,7 +140,7 @@ footer {
    h3 {
     font-size: 16px; /* Tamaño más pequeño para móviles */
   }
-
+}
 
   nav {
     justify-content: center;
@@ -482,184 +482,1253 @@ figcaption {
 }
 
 /* =========================================
-   AJUSTE ESPEJO MISTICO
+   VIDEO DE CALMA
 ========================================= */
 
-body {
-  background: radial-gradient(circle at center, #f5ebd9 0%, #e3d5c0 60%, #cca387 100%);
-  color: #725e52;
-  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-  font-style: italic;
-  text-align: center;
-  padding: 20px;
-  overflow-x: hidden;
+.video-section {
+    margin: 3rem 0;
+    text-align: center;
 }
 
-/* TITULO */
-
-h1 {
-  font-size: 3.2rem;
-  color: #635045;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-  margin-bottom: 5px;
-  font-weight: 400;
+.video-section h2 {
+    margin-bottom: 1rem;
 }
 
-/* MARCO ESPEJO */
-
-.mirror-frame {
-  position: relative;
-  width: min(650px, 92vw);
-  margin: auto;
-
-  /* RELACION REAL DEL ESPEJO */
-  aspect-ratio: 768 / 1024;
+.video-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
 }
 
-/* IMAGEN ESPEJO */
-
-.mirror-image {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: contain;
-  display: block;
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-/* REFLEJO OVALO */
-
-.reflection {
-  position: absolute;
-
-  top: 19.5%;
-  left: 18.5%;
-
-  width: 62%;
-  height: 63%;
-
-  overflow: hidden;
-  border-radius: 50% / 60%;
-
-  box-shadow: inset 0 0 20px rgba(120, 100, 85, 0.25);
+.video-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    margin: 0 auto;
+    border-radius: 18px;
+    object-fit: contain;
+    background: #000;
 }
 
-.reflection img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: sepia(0.15) contrast(0.95) brightness(1.02);
+.sound-button {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: none;
+    border-radius: 30px;
+
+    padding: 0.75rem 1.3rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: #333;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
 
-/* TEXTO MAGICO */
-
-#magicText {
-  margin-top: 20px;
-  font-size: 2.2rem;
-  color: #635045;
-  display: none;
-  line-height: 1.4;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+.sound-button:hover {
+    transform: translateX(-50%) scale(1.03);
 }
 
-/* BOTONES */
-
-.controls {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+.video-caption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    opacity: 0.75;
 }
 
-.magic-btn {
-  background: transparent;
-  border: 1.5px solid #a89484;
-  border-radius: 30px;
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  color: #635045;
-  cursor: pointer;
-  font-family: inherit;
-  font-style: normal;
-  transition: all 0.3s ease;
-  width: min(320px, 85%);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+
+@media (max-width: 600px) {
+
+    .video-container {
+        max-width: 100%;
+    }
+
+    .video-wrapper video {
+        max-height: 75vh;
+        border-radius: 14px;
+    }
+
+    .sound-button {
+        bottom: 14px;
+        padding: 0.65rem 1.1rem;
+        font-size: 0.85rem;
+    }
+
 }
 
-/* Estilo para el botón principal/secundario como en la imagen */
-.magic-btn:last-child {
-  background: #bfa895;
-  color: #ffffff;
-  border: none;
-  box-shadow: 0 4px 15px rgba(140, 115, 95, 0.2);
+/* =========================================================
+   RECOMENDACIÓN DE PRODUCTO
+   Set de libretas
+   ========================================================= */
+
+.product-recommendation {
+    width: 100%;
+    max-width: 760px;
+    margin: 55px auto;
+    text-align: center;
 }
 
-.magic-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+
+/* ---------------------------------------------------------
+   Tarjeta visual de la libreta
+   --------------------------------------------------------- */
+
+.product-recommendation > a:first-of-type {
+    display: block;
+    width: min(100%, 560px);
+    margin: 30px auto 0;
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #faf7f3 55%,
+            #f0e9e1 100%
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.11),
+        0 4px 10px rgba(0, 0, 0, 0.05);
+
+    text-decoration: none;
+
+    position: relative;
+
+    animation:
+        notebookFloat 5s ease-in-out infinite;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-/* MOBILE */
+
+/* ---------------------------------------------------------
+   Imagen cuadrada
+   --------------------------------------------------------- */
+
+.product-recommendation > a:first-of-type img {
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 21px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+
+    transition:
+        transform 0.6s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   Marco interior sutil
+   --------------------------------------------------------- */
+
+.product-recommendation > a:first-of-type::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+
+    border-radius: 21px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    pointer-events: none;
+
+}
+
+
+/* ---------------------------------------------------------
+   Efecto al pasar el mouse
+   --------------------------------------------------------- */
+
+.product-recommendation > a:first-of-type:hover {
+
+    animation-play-state: paused;
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.16),
+        0 7px 15px rgba(0, 0, 0, 0.07);
+
+}
+
+
+.product-recommendation > a:first-of-type:hover img {
+
+    transform: scale(1.025);
+
+}
+
+
+/* ---------------------------------------------------------
+   Texto principal después de la imagen
+   --------------------------------------------------------- */
+
+.product-recommendation > p:nth-of-type(3) {
+
+    max-width: 560px;
+
+    margin:
+        25px auto 12px;
+
+    padding:
+        0 15px;
+
+    line-height: 1.65;
+
+}
+
+
+/* ---------------------------------------------------------
+   Texto que introduce el enlace
+   --------------------------------------------------------- */
+
+.product-recommendation > p:nth-of-type(4) {
+
+    margin:
+        8px auto 18px;
+
+    padding:
+        0 15px;
+
+}
+
+
+/* ---------------------------------------------------------
+   Botón de Amazon
+   --------------------------------------------------------- */
+
+.product-recommendation .solidarity-button {
+
+    display: inline-block;
+
+    padding:
+        12px 25px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   Nota de afiliado
+   --------------------------------------------------------- */
+
+.product-recommendation .product-note {
+
+    max-width: 520px;
+
+    margin:
+        18px auto 0;
+
+    padding:
+        0 15px;
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+
+    opacity: 0.75;
+
+}
+
+
+/* ---------------------------------------------------------
+   Animación sutil
+   --------------------------------------------------------- */
+
+@keyframes notebookFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 768px) {
 
-  h1 {
-    font-size: 1.6rem;
-  }
+    .product-recommendation {
 
-  .mirror-frame {
-    width: 92vw;
-  }
+        margin:
+            45px auto;
 
-  .magic-btn {
-    width: 90%;
-    font-size: 0.8rem;
-  }
+    }
 
-  #magicText {
-    font-size: 1.2rem;
-  }
+    .product-recommendation > a:first-of-type {
+
+        width:
+            min(100%, 500px);
+
+    }
 
 }
 
-/* EFECTOS DE LUZ ETÉREA */
 
-.light-rays {
-  position: absolute;
-  top: 19.5%;
-  left: 18.5%;
-  width: 62%;
-  height: 63%;
-  pointer-events: none;
-  overflow: hidden;
-  border-radius: 50% / 60%;
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .product-recommendation {
+
+        margin:
+            38px auto;
+
+    }
+
+
+    .product-recommendation > a:first-of-type {
+
+        width:
+            calc(100% - 16px);
+
+        padding:
+            8px;
+
+        border-radius:
+            22px;
+
+        animation-duration:
+            6s;
+
+    }
+
+
+    .product-recommendation > a:first-of-type img {
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .product-recommendation > a:first-of-type::after {
+
+        top:
+            8px;
+
+        left:
+            8px;
+
+        right:
+            8px;
+
+        bottom:
+            8px;
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .product-recommendation > p:nth-of-type(3) {
+
+        padding:
+            0 10px;
+
+        font-size:
+            0.95rem;
+
+    }
+
+
+    .product-recommendation > p:nth-of-type(4) {
+
+        padding:
+            0 10px;
+
+        font-size:
+            0.94rem;
+
+    }
+
+
+    .product-recommendation .solidarity-button {
+
+        padding:
+            11px 22px;
+
+    }
+
+
+    .product-recommendation .product-note {
+
+        padding:
+            0 12px;
+
+        font-size:
+            0.78rem;
+
+    }
+
 }
 
-.light-rays::before {
-  content: "";
-  position: absolute;
-  inset: -50%;
 
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.15) 30%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0.15) 70%,
-    rgba(255, 255, 255, 0) 100%
-  );
+/* =========================================================
+   ACCESIBILIDAD
+   Evita animaciones para usuarios que las hayan desactivado
+   ========================================================= */
 
-  animation: lightMove 5s linear infinite;
+@media (prefers-reduced-motion: reduce) {
+
+    .product-recommendation > a:first-of-type {
+
+        animation:
+            none;
+
+        transition:
+            none;
+
+    }
+
+
+    .product-recommendation > a:first-of-type:hover {
+
+        transform:
+            none;
+
+    }
+
+
+    .product-recommendation > a:first-of-type:hover img {
+
+        transform:
+            none;
+
+    }
+
 }
 
-@keyframes lightMove {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
+/* =========================================================
+   RUTA DE RITUALES
+   Enlaces entre artículos relacionados
+   ========================================================= */
+
+.ritual-links {
+    max-width: 760px;
+    margin: 55px auto;
+    padding: 32px 24px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    background: linear-gradient(
+        145deg,
+        #faf8f4,
+        #f4efe8
+    );
+
+    border: 1px solid rgba(110, 95, 80, 0.10);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+.ritual-links h3 {
+    margin:
+        0 0 10px;
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        600;
+
+    color:
+        #4d4038;
+}
+
+
+.ritual-links-intro {
+    max-width:
+        560px;
+
+    margin:
+        0 auto 25px;
+
+    line-height:
+        1.65;
+
+    color:
+        #756961;
+}
+
+
+/* ---------------------------------------------------------
+   TARJETAS
+   --------------------------------------------------------- */
+
+.ritual-links-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        18px;
+
+    margin-top:
+        25px;
+}
+
+
+.ritual-link-card {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    padding:
+        23px 18px;
+
+    border-radius:
+        19px;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    border:
+        1px solid rgba(110, 95, 80, 0.08);
+
+    text-decoration:
+        none;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.ritual-link-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.09);
+
+}
+
+
+/* ---------------------------------------------------------
+   ICONO
+   --------------------------------------------------------- */
+
+.ritual-link-icon {
+
+    display:
+        block;
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        2rem;
+
+    line-height:
+        1;
+}
+
+
+/* ---------------------------------------------------------
+   TÍTULO
+   --------------------------------------------------------- */
+
+.ritual-link-title {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    font-size:
+        1.05rem;
+
+    font-weight:
+        600;
+
+    color:
+        #4d4038;
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPCIÓN
+   --------------------------------------------------------- */
+
+.ritual-link-description {
+
+    display:
+        block;
+
+    font-size:
+        0.88rem;
+
+    line-height:
+        1.5;
+
+    color:
+        #756961;
+}
+
+
+/* ---------------------------------------------------------
+   ENLACE TEXTUAL
+   --------------------------------------------------------- */
+
+.ritual-link-read {
+
+    display:
+        block;
+
+    margin-top:
+        14px;
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        600;
+
+    color:
+        #5d7565;
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .ritual-links {
+
+        margin:
+            40px 8px;
+
+        padding:
+            27px 15px;
+
+        border-radius:
+            20px;
+
+    }
+
+
+    .ritual-links h3 {
+
+        font-size:
+            1.25rem;
+
+    }
+
+
+    .ritual-links-intro {
+
+        font-size:
+            0.93rem;
+
+    }
+
+
+    .ritual-links-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            13px;
+
+    }
+
+
+    .ritual-link-card {
+
+        padding:
+            19px 15px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ritual-link-card {
+
+        transition:
+            none;
+
+    }
+
+
+    .ritual-link-card:hover {
+
+        transform:
+            none;
+
+    }
+
+}
+
+/* =========================================================
+   RECOMENDACIÓN DE TENIS
+   HOKA BONDI 9
+   ========================================================= */
+
+.shoe-recommendation {
+
+    width: 100%;
+    max-width: 760px;
+
+    margin: 55px auto;
+
+    text-align: center;
+
+}
+
+
+/* ---------------------------------------------------------
+   INTRODUCCIÓN
+   --------------------------------------------------------- */
+
+.shoe-recommendation > p {
+
+    max-width: 620px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+/* ---------------------------------------------------------
+   TARJETA DEL PRODUCTO
+   --------------------------------------------------------- */
+
+.shoe-card {
+
+    display: block;
+
+    width: min(100%, 560px);
+
+    margin: 32px auto 0;
+
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #faf8f5 55%,
+            #eee8e1 100%
+        );
+
+    border: 1px solid rgba(100, 90, 80, 0.08);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.11),
+        0 4px 10px rgba(0, 0, 0, 0.05);
+
+    text-decoration: none;
+
+    color: inherit;
+
+    position: relative;
+
+    animation:
+        shoeFloat 5.5s ease-in-out infinite;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   IMAGEN
+   --------------------------------------------------------- */
+
+.shoe-image-container {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border-radius: 21px;
+
+}
+
+
+.shoe-image-container img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 21px;
+
+    transition:
+        transform 0.6s ease;
+
+}
+
+
+/* Marco interior */
+
+.shoe-image-container::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 21px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    pointer-events: none;
+
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+   --------------------------------------------------------- */
+
+.shoe-card:hover {
+
+    animation-play-state: paused;
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.16),
+        0 7px 15px rgba(0, 0, 0, 0.07);
+
+}
+
+
+.shoe-card:hover
+.shoe-image-container img {
+
+    transform:
+        scale(1.025);
+
+}
+
+
+/* ---------------------------------------------------------
+   CONTENIDO
+   --------------------------------------------------------- */
+
+.shoe-content {
+
+    padding:
+        23px 15px 12px;
+
+}
+
+
+.shoe-label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size:
+        0.72rem;
+
+    letter-spacing:
+        0.12em;
+
+    font-weight:
+        600;
+
+    color:
+        #7a756d;
+
+}
+
+
+.shoe-content h3 {
+
+    margin:
+        0 0 12px;
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        600;
+
+    color:
+        #4d4038;
+
+}
+
+
+.shoe-content p {
+
+    max-width:
+        490px;
+
+    margin:
+        0 auto 19px;
+
+    font-size:
+        0.95rem;
+
+    line-height:
+        1.65;
+
+    color:
+        #756961;
+
+}
+
+
+/* ---------------------------------------------------------
+   BOTÓN
+   --------------------------------------------------------- */
+
+.shoe-button {
+
+    display:
+        inline-block;
+
+    padding:
+        12px 24px;
+
+    border-radius:
+        30px;
+
+    background:
+        #5d7565;
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.93rem;
+
+    font-weight:
+        600;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.11);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.shoe-card:hover .shoe-button {
+
+    background:
+        #4f6657;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 17px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* ---------------------------------------------------------
+   NOTA DE AFILIADO
+   --------------------------------------------------------- */
+
+.shoe-note {
+
+    max-width:
+        500px;
+
+    margin:
+        18px auto 0;
+
+    padding:
+        0 15px;
+
+    font-size:
+        0.78rem !important;
+
+    line-height:
+        1.5;
+
+    opacity:
+        0.72;
+
+}
+
+
+/* ---------------------------------------------------------
+   ANIMACIÓN
+   --------------------------------------------------------- */
+
+@keyframes shoeFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .shoe-card {
+
+        width:
+            min(100%, 510px);
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .shoe-recommendation {
+
+        margin:
+            40px auto;
+
+    }
+
+
+    .shoe-card {
+
+        width:
+            calc(100% - 16px);
+
+        padding:
+            8px;
+
+        border-radius:
+            22px;
+
+        animation-duration:
+            6s;
+
+    }
+
+
+    .shoe-image-container {
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .shoe-image-container img {
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .shoe-image-container::after {
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .shoe-content {
+
+        padding:
+            20px 8px 9px;
+
+    }
+
+
+    .shoe-content h3 {
+
+        font-size:
+            1.25rem;
+
+    }
+
+
+    .shoe-content p {
+
+        font-size:
+            0.92rem;
+
+    }
+
+
+    .shoe-label {
+
+        font-size:
+            0.67rem;
+
+    }
+
+
+    .shoe-button {
+
+        padding:
+            11px 20px;
+
+        font-size:
+            0.89rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .shoe-card {
+
+        animation:
+            none;
+
+        transition:
+            none;
+
+    }
+
+
+    .shoe-card:hover {
+
+        transform:
+            none;
+
+    }
+
+
+    .shoe-card:hover
+    .shoe-image-container img {
+
+        transform:
+            none;
+
+    }
+
 }
