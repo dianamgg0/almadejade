@@ -1,13 +1,7 @@
-```javascript
 // ============================================
 // ESPEJO MÍSTICO
 // Reconocimiento facial con MediaPipe
 // ============================================
-
-import {
-    FaceLandmarker,
-    FilesetResolver
-} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/vision_bundle.mjs";
 
 let faceLandmarker = null;
 let inicializacion = null;
@@ -19,7 +13,6 @@ let inicializacion = null;
 
 async function inicializarReconocimiento() {
 
-    // Si ya estamos inicializando, esperamos el mismo proceso
     if (inicializacion) {
         return inicializacion;
     }
@@ -66,7 +59,6 @@ async function inicializarReconocimiento() {
                 error
             );
 
-            // Permitimos volver a intentarlo si falló
             inicializacion = null;
 
             return false;
@@ -84,8 +76,8 @@ async function inicializarReconocimiento() {
 
 async function analizarRostro(imagen) {
 
-    // Esperar a que MediaPipe esté listo
-    const listo = await inicializarReconocimiento();
+    const listo =
+        await inicializarReconocimiento();
 
     if (!listo || !faceLandmarker) {
 
@@ -139,7 +131,7 @@ async function analizarRostro(imagen) {
 
 
 // --------------------------------------------
-// Exponer las funciones al HTML
+// Exponer al HTML
 // --------------------------------------------
 
 window.EspejoFacial = {
@@ -152,8 +144,7 @@ window.EspejoFacial = {
 
 
 // --------------------------------------------
-// Comenzar carga automáticamente
+// Iniciar automáticamente
 // --------------------------------------------
 
 inicializarReconocimiento();
-```
