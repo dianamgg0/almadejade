@@ -699,15 +699,24 @@ async function analizarRostro(imagen) {
         );
 
 
-        return {
+       const patrones =
+    extraerPatrones(
+        caracteristicas
+    );
 
-            landmarks:
-                landmarks,
 
-            caracteristicas:
-                caracteristicas
+return {
 
-        };
+    landmarks:
+        landmarks,
+
+    caracteristicas:
+        caracteristicas,
+
+    patrones:
+        patrones
+
+};
 
 
     } catch (error) {
