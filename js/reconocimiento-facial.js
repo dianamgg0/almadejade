@@ -293,62 +293,123 @@ const altoBocaFinal =
     */
 
 
-    const centroX =
-        (p[234].x + p[454].x) / 2;
+    // ============================================
+// SIMETRÍA FACIAL
+// ============================================
+
+// Eje central aproximado del rostro
+const centroX =
+    (p[234].x + p[454].x) / 2;
 
 
-    function diferenciaSimetria(izquierda, derecha) {
+// Pares de landmarks izquierda ↔ derecha
+const paresSimetria = [
 
-        const distanciaIzquierda =
-            Math.abs(
-                izquierda.x - centroX
-            );
+    // Ojos
+    [33, 263],
+    [133, 362],
+    [159, 386],
+    [145, 374],
 
-        const distanciaDerecha =
-            Math.abs(
-                derecha.x - centroX
-            );
+    // Cejas
+    [70, 300],
+    [107, 336],
+
+    // Parte superior de la nariz
+    [168, 6],
+
+    // Laterales de la nariz
+    [129, 358],
+
+    // Boca
+    [61, 291],
+    [78, 308],
+    [95, 324],
+
+    // Mejillas
+    [50, 280],
+    [101, 330],
+
+    // Mandíbula / contorno
+    [172, 397],
+    [150, 379],
+    [176, 400]
+];
 
 
-        return Math.abs(
+// --------------------------------------------
+// Calcular diferencia de un par
+// --------------------------------------------
+
+function diferenciaPar(izquierda, derecha) {
+
+    // Distancia horizontal respecto al eje
+    const distanciaIzquierda =
+        Math.abs(
+            izquierda.x - centroX
+        );
+
+    const distanciaDerecha =
+        Math.abs(
+            derecha.x - centroX
+        );
+
+    const diferenciaHorizontal =
+        Math.abs(
             distanciaIzquierda -
             distanciaDerecha
         );
-    }
 
 
-    const simetriaOjos =
-        diferenciaSimetria(
-            p[33],
-            p[263]
+    // Diferencia vertical
+    const diferenciaVertical =
+        Math.abs(
+            izquierda.y -
+            derecha.y
         );
 
 
-    const simetriaBoca =
-        diferenciaSimetria(
-            p[61],
-            p[291]
+    // Combinamos ambas diferencias
+    return Math.sqrt(
+        diferenciaHorizontal *
+        diferenciaHorizontal +
+
+        diferenciaVertical *
+        diferenciaVertical
+    );
+}
+
+
+// --------------------------------------------
+// Calcular asimetría promedio
+// --------------------------------------------
+
+let sumaAsimetria = 0;
+
+for (const par of paresSimetria) {
+
+    const izquierda = p[par[0]];
+    const derecha = p[par[1]];
+
+    sumaAsimetria +=
+        diferenciaPar(
+            izquierda,
+            derecha
         );
+}
 
 
-    const simetriaNariz =
-        diferenciaSimetria(
-            p[129],
-            p[358]
-        );
+// Promedio de todos los pares
+const asimetriaPromedio =
+    sumaAsimetria /
+    paresSimetria.length;
 
 
-    const diferenciaSimetriaTotal =
-        (
-            simetriaOjos +
-            simetriaBoca +
-            simetriaNariz
-        ) / 3;
-
-
-    const simetriaNormalizada =
-        diferenciaSimetriaTotal /
-        anchoRostro;
+// Normalización respecto al tamaño
+// del rostro
+const simetriaNormalizada =
+    asimetriaPromedio /
+    anchoRostro;
 
 
     // ========================================
@@ -444,7 +505,9 @@ const altoBocaFinal =
         simetria: {
 
             horizontal:
-                simetriaNormalizada
+                simetriaNormalizada,
+            promedio:
+        asimetriaPromedio
         }
 
     };
