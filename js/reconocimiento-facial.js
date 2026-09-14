@@ -210,19 +210,23 @@ function extraerCaracteristicas(landmarks) {
         de la abertura.
     */
 
-    const bocaSuperior =
-        p[13];
-
-    const bocaInferior =
-        p[14];
-
-
     const altoBoca =
-        distancia(
-            bocaSuperior,
-            bocaInferior
-        );
+    distancia(
+        p[13],
+        p[14]
+    );
 
+const altoBocaExterno =
+    distancia(
+        p[0],
+        p[17]
+    );
+
+const altoBocaFinal =
+    Math.max(
+        altoBoca,
+        altoBocaExterno * 0.15
+    );
 
     // ========================================
     // NORMALIZACIÓN
@@ -264,7 +268,7 @@ function extraerCaracteristicas(landmarks) {
         anchoBoca / anchoRostro;
 
     const altoBocaN =
-        altoBoca / altoRostro;
+        altoBocaFinal / altoRostro;
 
 
     // ========================================
@@ -433,7 +437,7 @@ function extraerCaracteristicas(landmarks) {
 
             proporcion:
                 anchoBoca /
-                altoBoca
+                altoBocaFinal
         },
 
 
