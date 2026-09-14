@@ -3,6 +3,12 @@
 // Reconocimiento facial con MediaPipe
 // ============================================
 
+import {
+    FaceLandmarker,
+    FilesetResolver
+} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/vision_bundle.mjs";
+
+
 let faceLandmarker = null;
 let inicializacion = null;
 
@@ -23,15 +29,18 @@ async function inicializarReconocimiento() {
 
             console.log("✨ Cargando reconocimiento facial...");
 
-            const vision = await FilesetResolver.forVisionTasks(
-                "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm"
-            );
+            const vision =
+                await FilesetResolver.forVisionTasks(
+                    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
+                );
+
 
             faceLandmarker =
                 await FaceLandmarker.createFromOptions(
                     vision,
                     {
                         baseOptions: {
+
                             modelAssetPath:
                                 "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
 
@@ -48,9 +57,13 @@ async function inicializarReconocimiento() {
                     }
                 );
 
-            console.log("✨ Reconocimiento facial listo");
+
+            console.log(
+                "✨ Reconocimiento facial listo"
+            );
 
             return true;
+
 
         } catch (error) {
 
@@ -66,6 +79,7 @@ async function inicializarReconocimiento() {
 
     })();
 
+
     return inicializacion;
 }
 
@@ -79,6 +93,7 @@ async function analizarRostro(imagen) {
     const listo =
         await inicializarReconocimiento();
 
+
     if (!listo || !faceLandmarker) {
 
         console.error(
@@ -88,12 +103,17 @@ async function analizarRostro(imagen) {
         return null;
     }
 
+
     try {
 
-        console.log("🔎 Analizando rostro...");
+        console.log(
+            "🔎 Analizando rostro..."
+        );
+
 
         const resultado =
             faceLandmarker.detect(imagen);
+
 
         if (
             !resultado.faceLandmarks ||
@@ -107,8 +127,10 @@ async function analizarRostro(imagen) {
             return null;
         }
 
+
         const landmarks =
             resultado.faceLandmarks[0];
+
 
         console.log(
             "✨ Rostro detectado:",
@@ -116,7 +138,9 @@ async function analizarRostro(imagen) {
             "puntos"
         );
 
+
         return landmarks;
+
 
     } catch (error) {
 
@@ -136,9 +160,11 @@ async function analizarRostro(imagen) {
 
 window.EspejoFacial = {
 
-    inicializar: inicializarReconocimiento,
+    inicializar:
+        inicializarReconocimiento,
 
-    analizar: analizarRostro
+    analizar:
+        analizarRostro
 
 };
 
