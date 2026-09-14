@@ -3,11 +3,6 @@
 // Reconocimiento facial con MediaPipe
 // ============================================
 
-import {
-    FaceLandmarker,
-    FilesetResolver
-} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22/+esm";
-
 let faceLandmarker = null;
 
 
@@ -20,7 +15,7 @@ async function inicializarReconocimiento() {
     try {
 
         const vision = await FilesetResolver.forVisionTasks(
-            "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22/wasm"
+            "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm"
         );
 
         faceLandmarker = await FaceLandmarker.createFromOptions(
@@ -50,7 +45,7 @@ async function inicializarReconocimiento() {
     } catch (error) {
 
         console.error(
-            "No fue posible inicializar el reconocimiento facial:",
+            "❌ No fue posible inicializar el reconocimiento facial:",
             error
         );
 
@@ -68,7 +63,7 @@ async function analizarRostro(imagen) {
     if (!faceLandmarker) {
 
         console.warn(
-            "El reconocimiento facial todavía no está listo."
+            "⚠️ El reconocimiento facial todavía no está listo."
         );
 
         return null;
@@ -103,7 +98,7 @@ async function analizarRostro(imagen) {
     } catch (error) {
 
         console.error(
-            "Error analizando el rostro:",
+            "❌ Error analizando el rostro:",
             error
         );
 
@@ -113,7 +108,7 @@ async function analizarRostro(imagen) {
 
 
 // --------------------------------------------
-// Exponer las funciones al HTML
+// Exponer funciones al HTML
 // --------------------------------------------
 
 window.EspejoFacial = {
