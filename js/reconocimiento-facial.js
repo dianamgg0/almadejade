@@ -649,11 +649,11 @@ function extraerPatrones(caracteristicas) {
     let equilibrio;
 
 
-    if (simetria.horizontal < 0.03) {
+    if (simetria.horizontal < 0.06) {
 
         equilibrio = "alto";
 
-    } else if (simetria.horizontal < 0.07) {
+    } else if (simetria.horizontal < 0.1) {
 
         equilibrio = "moderado";
 
