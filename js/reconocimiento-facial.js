@@ -704,7 +704,11 @@ async function analizarRostro(imagen) {
         caracteristicas
     );
 
-
+console.log(
+    "✨ Patrones simbólicos:",
+    patrones
+);
+        
 return {
 
     landmarks:
