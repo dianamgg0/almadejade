@@ -453,6 +453,186 @@ const altoBocaFinal =
     return caracteristicas;
 }
 
+// ============================================
+// EXTRAER PATRONES SIMBÓLICOS
+// ============================================
+
+function extraerPatrones(caracteristicas) {
+
+    const rostro =
+        caracteristicas.rostro;
+
+    const ojos =
+        caracteristicas.ojos;
+
+    const cejas =
+        caracteristicas.cejas;
+
+    const nariz =
+        caracteristicas.nariz;
+
+    const boca =
+        caracteristicas.boca;
+
+    const simetria =
+        caracteristicas.simetria;
+
+
+    // ========================================
+    // FORMA GENERAL DEL ROSTRO
+    // ========================================
+
+    let formaRostro;
+
+
+    if (rostro.proporcion < 0.78) {
+
+        formaRostro = "alargado";
+
+    } else if (rostro.proporcion < 0.92) {
+
+        formaRostro = "equilibrado";
+
+    } else {
+
+        formaRostro = "amplio";
+    }
+
+
+    // ========================================
+    // APERTURA DE LA MIRADA
+    // ========================================
+
+    const aperturaOjoIzquierdo =
+        ojos.izquierdo.proporcion;
+
+    const aperturaOjoDerecho =
+        ojos.derecho.proporcion;
+
+
+    const aperturaOjosPromedio =
+        (
+            aperturaOjoIzquierdo +
+            aperturaOjoDerecho
+        ) / 2;
+
+
+    let mirada;
+
+
+    if (aperturaOjosPromedio > 3.2) {
+
+        mirada = "abierta";
+
+    } else if (aperturaOjosPromedio > 2.4) {
+
+        mirada = "serena";
+
+    } else {
+
+        mirada = "profunda";
+    }
+
+
+    // ========================================
+    // EQUILIBRIO DE LAS CEJAS
+    // ========================================
+
+    const diferenciaCejas =
+        Math.abs(
+            cejas.izquierda -
+            cejas.derecha
+        );
+
+
+    let cejasPatron;
+
+
+    if (diferenciaCejas < 0.015) {
+
+        cejasPatron = "equilibradas";
+
+    } else {
+
+        cejasPatron = "asimetría_sutil";
+    }
+
+
+    // ========================================
+    // PROPORCIÓN DE LA NARIZ
+    // ========================================
+
+    let narizPatron;
+
+
+    if (nariz.proporcion < 0.85) {
+
+        narizPatron = "compacta";
+
+    } else if (nariz.proporcion < 1.05) {
+
+        narizPatron = "proporcionada";
+
+    } else {
+
+        narizPatron = "alargada";
+    }
+
+
+    // ========================================
+    // SIMETRÍA
+    // ========================================
+
+    let equilibrio;
+
+
+    if (simetria.horizontal < 0.03) {
+
+        equilibrio = "alto";
+
+    } else if (simetria.horizontal < 0.07) {
+
+        equilibrio = "moderado";
+
+    } else {
+
+        equilibrio = "orgánico";
+    }
+
+
+    // ========================================
+    // RESULTADO
+    // ========================================
+
+    return {
+
+        formaRostro,
+
+        mirada,
+
+        cejas:
+            cejasPatron,
+
+        nariz:
+            narizPatron,
+
+        equilibrio,
+
+        valores: {
+
+            proporcionRostro:
+                rostro.proporcion,
+
+            aperturaMirada:
+                aperturaOjosPromedio,
+
+            simetria:
+                simetria.horizontal
+        }
+
+    };
+}
+
 
 // ============================================
 // ANALIZAR UNA IMAGEN
