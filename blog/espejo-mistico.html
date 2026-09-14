@@ -74,6 +74,8 @@
 
   gtag('config', 'G-S3JK1LJXM4');
 </script>
+
+<script type="module" src="../js/reconocimiento-facial.js"></script>
   
 </head>
 
@@ -115,6 +117,14 @@ refleja mi divinidad 🌿
   <div class="reflection">
     <img id="uploadedImage">
   </div>
+<!-- Reconocimiento inicial -->
+<div id="faceAnalysis" style="display:none;">
+
+    <p id="analysisStatus">
+        ✨ Observando tu reflejo...
+    </p>
+
+</div>
   
   <div class="light-rays"></div>
 
@@ -181,12 +191,49 @@ magicText.textContent = fraseActual;
 magicText.style.display = "block";
 downloadBtn.style.display = "inline-block";
 
+ const faceAnalysis =
+    document.getElementById("faceAnalysis");
+
+const analysisStatus =
+    document.getElementById("analysisStatus");
+
+faceAnalysis.style.display = "block";
+
+analysisStatus.textContent =
+    "✨ Observando tu reflejo..."; 
+
 };
+
 
 reader.readAsDataURL(file);
 
 });
 
+uploadedImage.onload = async function() {
+
+    const landmarks =
+        await window.EspejoFacial.analizar(
+            uploadedImage
+        );
+
+    if (landmarks) {
+
+        analysisStatus.textContent =
+            "✨ He encontrado tu reflejo.";
+
+        console.log(
+            "Landmarks:",
+            landmarks
+        );
+
+    } else {
+
+        analysisStatus.textContent =
+            "No pude encontrar un rostro claro en la imagen.";
+
+    }
+
+};
 
 /* DESCARGAR */
 
