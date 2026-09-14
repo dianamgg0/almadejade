@@ -122,35 +122,12 @@ function puntoMedio(a, b) {
 
 function extraerCaracteristicas(landmarks) {
 
-    /*
-        Algunos landmarks importantes de MediaPipe:
-
-        10   → parte superior del rostro
-        152  → barbilla
-
-        33   → esquina externa ojo izquierdo
-        133  → esquina interna ojo izquierdo
-
-        362  → esquina interna ojo derecho
-        263  → esquina externa ojo derecho
-
-        61   → extremo izquierdo de la boca
-        291  → extremo derecho de la boca
-
-        1    → zona central de la nariz
-        4    → parte inferior de la nariz
-
-        234  → lado izquierdo del rostro
-        454  → lado derecho del rostro
-    */
-
-
     const p = landmarks;
 
 
-    // ----------------------------------------
+    // ========================================
     // ROSTRO
-    // ----------------------------------------
+    // ========================================
 
     const anchoRostro =
         distancia(p[234], p[454]);
@@ -163,9 +140,9 @@ function extraerCaracteristicas(landmarks) {
         anchoRostro / altoRostro;
 
 
-    // ----------------------------------------
+    // ========================================
     // OJOS
-    // ----------------------------------------
+    // ========================================
 
     const ojoIzquierdoAncho =
         distancia(p[33], p[133]);
@@ -188,9 +165,9 @@ function extraerCaracteristicas(landmarks) {
         );
 
 
-    // ----------------------------------------
+    // ========================================
     // CEJAS
-    // ----------------------------------------
+    // ========================================
 
     const cejaIzquierda =
         distancia(p[70], p[107]);
@@ -199,9 +176,9 @@ function extraerCaracteristicas(landmarks) {
         distancia(p[300], p[336]);
 
 
-    // ----------------------------------------
+    // ========================================
     // NARIZ
-    // ----------------------------------------
+    // ========================================
 
     const anchoNariz =
         distancia(p[129], p[358]);
@@ -210,45 +187,179 @@ function extraerCaracteristicas(landmarks) {
         distancia(p[6], p[2]);
 
 
-    // ----------------------------------------
+    // ========================================
     // BOCA
-    // ----------------------------------------
+    // ========================================
 
     const anchoBoca =
         distancia(p[61], p[291]);
 
+
+    /*
+        En lugar de 13 → 14,
+        utilizamos los puntos internos
+        superior e inferior de la boca.
+
+        13 → labio superior interior
+        14 → labio inferior interior
+
+        Pero para evitar que una pequeña
+        variación de esos puntos produzca
+        valores exagerados, utilizamos
+        también los extremos verticales
+        de la abertura.
+    */
+
+    const bocaSuperior =
+        p[13];
+
+    const bocaInferior =
+        p[14];
+
+
     const altoBoca =
-        distancia(p[13], p[14]);
-
-
-    // ----------------------------------------
-    // SIMETRÍA
-    // ----------------------------------------
-
-    const centroRostro = {
-        x: (p[234].x + p[454].x) / 2,
-        y: (p[234].y + p[454].y) / 2
-    };
-
-
-    const simetriaHorizontal =
-        Math.abs(
-            (p[10].x - centroRostro.x) +
-            (p[152].x - centroRostro.x)
+        distancia(
+            bocaSuperior,
+            bocaInferior
         );
 
 
-    // ----------------------------------------
+    // ========================================
+    // NORMALIZACIÓN
+    // ========================================
+
+    const ojoIzquierdoAnchoN =
+        ojoIzquierdoAncho / anchoRostro;
+
+    const ojoDerechoAnchoN =
+        ojoDerechoAncho / anchoRostro;
+
+
+    const ojoIzquierdoAltoN =
+        ojoIzquierdoAlto / altoRostro;
+
+    const ojoDerechoAltoN =
+        ojoDerechoAlto / altoRostro;
+
+
+    const separacionOjosN =
+        separacionOjos / anchoRostro;
+
+
+    const cejaIzquierdaN =
+        cejaIzquierda / anchoRostro;
+
+    const cejaDerechaN =
+        cejaDerecha / anchoRostro;
+
+
+    const anchoNarizN =
+        anchoNariz / anchoRostro;
+
+    const largoNarizN =
+        largoNariz / altoRostro;
+
+
+    const anchoBocaN =
+        anchoBoca / anchoRostro;
+
+    const altoBocaN =
+        altoBoca / altoRostro;
+
+
+    // ========================================
+    // SIMETRÍA FACIAL
+    // ========================================
+
+    /*
+        Comparamos puntos equivalentes
+        de ambos lados del rostro.
+
+        Utilizamos:
+
+        234 ↔ 454
+        33  ↔ 263
+        133 ↔ 362
+        61  ↔ 291
+        129 ↔ 358
+
+        La idea es medir cuánto se
+        diferencian las distancias
+        respecto al centro del rostro.
+    */
+
+
+    const centroX =
+        (p[234].x + p[454].x) / 2;
+
+
+    function diferenciaSimetria(izquierda, derecha) {
+
+        const distanciaIzquierda =
+            Math.abs(
+                izquierda.x - centroX
+            );
+
+        const distanciaDerecha =
+            Math.abs(
+                derecha.x - centroX
+            );
+
+
+        return Math.abs(
+            distanciaIzquierda -
+            distanciaDerecha
+        );
+    }
+
+
+    const simetriaOjos =
+        diferenciaSimetria(
+            p[33],
+            p[263]
+        );
+
+
+    const simetriaBoca =
+        diferenciaSimetria(
+            p[61],
+            p[291]
+        );
+
+
+    const simetriaNariz =
+        diferenciaSimetria(
+            p[129],
+            p[358]
+        );
+
+
+    const diferenciaSimetriaTotal =
+        (
+            simetriaOjos +
+            simetriaBoca +
+            simetriaNariz
+        ) / 3;
+
+
+    const simetriaNormalizada =
+        diferenciaSimetriaTotal /
+        anchoRostro;
+
+
+    // ========================================
     // RESULTADO
-    // ----------------------------------------
+    // ========================================
 
     const caracteristicas = {
 
         rostro: {
 
-            ancho: anchoRostro,
+            ancho:
+                anchoRostro,
 
-            alto: altoRostro,
+            alto:
+                altoRostro,
 
             proporcion:
                 proporcionRostro
@@ -259,9 +370,11 @@ function extraerCaracteristicas(landmarks) {
 
             izquierdo: {
 
-                ancho: ojoIzquierdoAncho,
+                ancho:
+                    ojoIzquierdoAnchoN,
 
-                alto: ojoIzquierdoAlto,
+                alto:
+                    ojoIzquierdoAltoN,
 
                 proporcion:
                     ojoIzquierdoAncho /
@@ -270,9 +383,11 @@ function extraerCaracteristicas(landmarks) {
 
             derecho: {
 
-                ancho: ojoDerechoAncho,
+                ancho:
+                    ojoDerechoAnchoN,
 
-                alto: ojoDerechoAlto,
+                alto:
+                    ojoDerechoAltoN,
 
                 proporcion:
                     ojoDerechoAncho /
@@ -280,27 +395,27 @@ function extraerCaracteristicas(landmarks) {
             },
 
             separacion:
-                separacionOjos
+                separacionOjosN
         },
 
 
         cejas: {
 
             izquierda:
-                cejaIzquierda,
+                cejaIzquierdaN,
 
             derecha:
-                cejaDerecha
+                cejaDerechaN
         },
 
 
         nariz: {
 
             ancho:
-                anchoNariz,
+                anchoNarizN,
 
             largo:
-                largoNariz,
+                largoNarizN,
 
             proporcion:
                 largoNariz /
@@ -311,10 +426,10 @@ function extraerCaracteristicas(landmarks) {
         boca: {
 
             ancho:
-                anchoBoca,
+                anchoBocaN,
 
             alto:
-                altoBoca,
+                altoBocaN,
 
             proporcion:
                 anchoBoca /
@@ -325,7 +440,7 @@ function extraerCaracteristicas(landmarks) {
         simetria: {
 
             horizontal:
-                simetriaHorizontal
+                simetriaNormalizada
         }
 
     };
