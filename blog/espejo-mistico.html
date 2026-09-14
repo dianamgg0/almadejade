@@ -211,27 +211,35 @@ reader.readAsDataURL(file);
 
 uploadedImage.onload = async function() {
 
-    const landmarks =
-        await window.EspejoFacial.analizar(
-            uploadedImage
-        );
+    const resultado =
+    await window.EspejoFacial.analizar(
+        uploadedImage
+    );
 
-    if (landmarks) {
 
-        analysisStatus.textContent =
-            "✨ He encontrado tu reflejo.";
+if (resultado) {
 
-        console.log(
-            "Landmarks:",
-            landmarks
-        );
+    analysisStatus.textContent =
+        "✨ He encontrado tu reflejo.";
 
-    } else {
 
-        analysisStatus.textContent =
-            "No pude encontrar un rostro claro en la imagen.";
+    console.log(
+        "Landmarks:",
+        resultado.landmarks
+    );
 
-    }
+
+    console.log(
+        "🌿 Características:",
+        resultado.caracteristicas
+    );
+
+} else {
+
+    analysisStatus.textContent =
+        "No pude encontrar un rostro claro en la imagen.";
+
+}
 
 };
 
