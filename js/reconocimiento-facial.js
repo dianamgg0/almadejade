@@ -919,7 +919,15 @@ console.log(
     "✨ Patrones simbólicos:",
     patrones
 );
-        
+
+const revelacion =
+    generarRevelacion(resultado.patrones);
+
+console.log(
+    "🌿 Revelación:",
+    revelacion
+);
+
 return {
 
     landmarks:
@@ -945,7 +953,114 @@ return {
     }
 }
 
+const revelaciones = {
 
+    profundidad:
+        "Hay en ti una mirada hacia lo profundo, una inclinación a descubrir lo que se encuentra más allá de lo evidente.",
+
+    balance:
+        "Tu reflejo sugiere una naturaleza que busca el equilibrio y encuentra belleza en los puntos medios.",
+
+    presencia:
+        "Tu reflejo transmite una presencia que no necesita imponerse para hacerse notar.",
+
+
+    curiosidad:
+        "Tu mirada simbólicamente habla de curiosidad, de una mente que disfruta descubrir y explorar.",
+
+    calma:
+        "Tu mirada transmite una energía serena, como quien observa antes de dejarse llevar.",
+
+    misterio:
+        "Tu mirada guarda un matiz de misterio, como si siempre conservara una parte de sí misma por descubrir.",
+
+
+    armonía:
+        "Hay una sensación de armonía en tu reflejo, una forma de encontrar tu propio ritmo.",
+
+    individualidad:
+        "Tu reflejo muestra una individualidad que no necesita seguir exactamente el mismo camino que los demás.",
+
+
+    determinación:
+        "Aparece también una energía de determinación, esa fuerza tranquila que ayuda a seguir adelante.",
+
+    equilibrio:
+        "Tu reflejo sugiere una relación natural con el equilibrio y la proporción.",
+
+    dirección:
+        "Hay en tu reflejo una sensación de dirección, como quien sabe hacia dónde quiere llevar sus pasos.",
+
+
+    introspección:
+        "Tu expresión guarda algo hacia dentro, una tendencia a sentir y pensar antes de mostrarlo todo.",
+
+    expresión:
+        "Tu expresión habla de una energía que encuentra facilidad para salir y hacerse visible.",
+
+    expansión:
+        "Tu expresión transmite apertura, espontaneidad y deseo de dejar que lo que llevas dentro encuentre espacio.",
+
+
+    singularidad:
+        "Tu equilibrio tiene un matiz propio, una singularidad que forma parte de tu manera de habitar el mundo.",
+
+    atrevimiento:
+        "Tu reflejo tiene un toque de atrevimiento, como una invitación a explorar caminos menos previsibles.",
+
+    centrada:
+        "Tu reflejo sugiere una energía centrada, capaz de regresar a su propio eje incluso mientras explora."
+};
+
+const cierres = {
+
+    centrada:
+        "Tu reflejo te recuerda algo sencillo: puedes explorar nuevos caminos sin perder tu centro.",
+
+    singularidad:
+        "Tu reflejo te recuerda que no necesitas parecerte a nadie para encontrar tu propio camino.",
+
+    atrevimiento:
+        "Tu reflejo te recuerda que a veces el camino más interesante comienza justo donde termina lo conocido."
+};
+function generarRevelacion(patrones) {
+
+    const esencia =
+        revelaciones[patrones.interpretacionRostro];
+
+    const mirada =
+        revelaciones[patrones.interpretacionMirada];
+
+    const expresion =
+        revelaciones[patrones.interpretacionBoca];
+
+    const direccion =
+        revelaciones[patrones.interpretacionNariz];
+
+    const matiz =
+        revelaciones[patrones.interpretacionCejas];
+
+    const centro =
+        cierres[patrones.interpretacionEquilibrio];
+
+
+    const texto =
+
+        esencia + " " +
+
+        mirada + " " +
+
+        expresion + " " +
+
+        direccion + " " +
+
+        matiz + " " +
+
+        centro;
+
+
+    return texto;
+}
 // ============================================
 // EXPONER AL HTML
 // ============================================
