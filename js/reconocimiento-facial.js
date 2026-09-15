@@ -520,6 +520,10 @@ const simetriaNormalizada =
 // EXTRAER PATRONES SIMBÓLICOS
 // ============================================
 
+// ============================================
+// EXTRAER PATRONES SIMBÓLICOS
+// ============================================
+
 function extraerPatrones(caracteristicas) {
 
     const rostro =
@@ -547,7 +551,6 @@ function extraerPatrones(caracteristicas) {
 
     let formaRostro;
 
-
     if (rostro.proporcion < 0.78) {
 
         formaRostro = "alargado";
@@ -561,15 +564,21 @@ function extraerPatrones(caracteristicas) {
         formaRostro = "amplio";
     }
 
+
     let interpretacionRostro;
 
-if (formaRostro === "alargado") {
-    interpretacionRostro = "profundidad";
-} else if (formaRostro === "equilibrado") {
-    interpretacionRostro = "balance";
-} else {
-    interpretacionRostro = "presencia";
-}
+    if (formaRostro === "alargado") {
+
+        interpretacionRostro = "profundidad";
+
+    } else if (formaRostro === "equilibrado") {
+
+        interpretacionRostro = "balance";
+
+    } else {
+
+        interpretacionRostro = "presencia";
+    }
 
 
     // ========================================
@@ -592,7 +601,6 @@ if (formaRostro === "alargado") {
 
     let mirada;
 
-
     if (aperturaOjosPromedio > 3.2) {
 
         mirada = "abierta";
@@ -606,15 +614,22 @@ if (formaRostro === "alargado") {
         mirada = "profunda";
     }
 
-    let mirada;
 
-if (aperturaOjosPromedio > 3.2) {
-    mirada = "abierta";
-} else if (aperturaOjosPromedio > 2.4) {
-    mirada = "serena";
-} else {
-    mirada = "profunda";
-}
+    let interpretacionMirada;
+
+    if (mirada === "abierta") {
+
+        interpretacionMirada = "curiosidad";
+
+    } else if (mirada === "serena") {
+
+        interpretacionMirada = "calma";
+
+    } else {
+
+        interpretacionMirada = "misterio";
+    }
+
 
     // ========================================
     // EQUILIBRIO DE LAS CEJAS
@@ -629,7 +644,6 @@ if (aperturaOjosPromedio > 3.2) {
 
     let cejasPatron;
 
-
     if (diferenciaCejas < 0.015) {
 
         cejasPatron = "equilibradas";
@@ -639,19 +653,24 @@ if (aperturaOjosPromedio > 3.2) {
         cejasPatron = "asimetría_sutil";
     }
 
+
     let interpretacionCejas;
 
-if (cejasPatron === "equilibradas") {
-    interpretacionCejas = "armonía";
-} else {
-    interpretacionCejas = "individualidad";
-}
+    if (cejasPatron === "equilibradas") {
+
+        interpretacionCejas = "armonía";
+
+    } else {
+
+        interpretacionCejas = "individualidad";
+    }
+
+
     // ========================================
     // PROPORCIÓN DE LA NARIZ
     // ========================================
 
     let narizPatron;
-
 
     if (nariz.proporcion < 0.85) {
 
@@ -666,27 +685,34 @@ if (cejasPatron === "equilibradas") {
         narizPatron = "alargada";
     }
 
+
     let interpretacionNariz;
 
-if (narizPatron === "compacta") {
-    interpretacionNariz = "determinación";
-} else if (narizPatron === "proporcionada") {
-    interpretacionNariz = "equilibrio";
-} else {
-    interpretacionNariz = "dirección";
-}
+    if (narizPatron === "compacta") {
+
+        interpretacionNariz = "determinación";
+
+    } else if (narizPatron === "proporcionada") {
+
+        interpretacionNariz = "equilibrio";
+
+    } else {
+
+        interpretacionNariz = "dirección";
+    }
+
+
     // ========================================
     // SIMETRÍA
     // ========================================
 
     let equilibrio;
 
-
     if (simetria.horizontal < 0.06) {
 
         equilibrio = "alto";
 
-    } else if (simetria.horizontal < 0.1) {
+    } else if (simetria.horizontal < 0.10) {
 
         equilibrio = "moderado";
 
@@ -695,83 +721,122 @@ if (narizPatron === "compacta") {
         equilibrio = "orgánico";
     }
 
-    let energiaEquilibrio;
 
-if (equilibrio === "alto") {
-    energiaEquilibrio = "armonía";
-} else if (equilibrio === "moderado") {
-    energiaEquilibrio = "singularidad";
-} else {
-    energiaEquilibrio = "atrevimiento";
-}
+    let interpretacionEquilibrio;
+
+    if (equilibrio === "alto") {
+
+        interpretacionEquilibrio = "armonía";
+
+    } else if (equilibrio === "moderado") {
+
+        interpretacionEquilibrio = "singularidad";
+
+    } else {
+
+        interpretacionEquilibrio = "atrevimiento";
+    }
+
+
+    // ========================================
+    // BOCA
+    // ========================================
 
     let bocaPatron;
 
-if (boca.proporcion > 22) {
-    bocaPatron = "contenida";
-} else if (boca.proporcion > 8) {
-    bocaPatron = "expresiva";
-} else {
-    bocaPatron = "abierta";
-}
+    if (boca.proporcion > 22) {
 
-let bocaPatron;
+        bocaPatron = "contenida";
 
-if (boca.proporcion > 22) {
-    bocaPatron = "contenida";
-} else if (boca.proporcion > 8) {
-    bocaPatron = "expresiva";
-} else {
-    bocaPatron = "abierta";
-}
+    } else if (boca.proporcion > 8) {
 
-let interpretacionBoca;
+        bocaPatron = "expresiva";
 
-if (bocaPatron === "contenida") {
-    interpretacionBoca = "introspección";
-} else if (bocaPatron === "expresiva") {
-    interpretacionBoca = "expresión";
-} else {
-    interpretacionBoca = "expansión";
-}
+    } else {
+
+        bocaPatron = "abierta";
+    }
+
+
+    let interpretacionBoca;
+
+    if (bocaPatron === "contenida") {
+
+        interpretacionBoca = "introspección";
+
+    } else if (bocaPatron === "expresiva") {
+
+        interpretacionBoca = "expresión";
+
+    } else {
+
+        interpretacionBoca = "expansión";
+    }
+
 
     // ========================================
     // RESULTADO
     // ========================================
 
     return {
-    formaRostro,
-    interpretacionRostro,
 
-    mirada,
-    interpretacionMirada,
+        formaRostro:
+            formaRostro,
 
-    cejas: cejasPatron,
-    interpretacionCejas,
+        interpretacionRostro:
+            interpretacionRostro,
 
-    nariz: narizPatron,
-    interpretacionNariz,
 
-    boca: bocaPatron,
-    interpretacionBoca,
+        mirada:
+            mirada,
 
-    equilibrio,
-    interpretacionEquilibrio,
+        interpretacionMirada:
+            interpretacionMirada,
 
-    valores: {
-        proporcionRostro:
-            rostro.proporcion,
 
-        aperturaMirada:
-            aperturaOjosPromedio,
+        cejas:
+            cejasPatron,
 
-        simetria:
-            simetria.horizontal,
+        interpretacionCejas:
+            interpretacionCejas,
 
-        proporcionBoca:
-            boca.proporcion
-    }
-};
+
+        nariz:
+            narizPatron,
+
+        interpretacionNariz:
+            interpretacionNariz,
+
+
+        boca:
+            bocaPatron,
+
+        interpretacionBoca:
+            interpretacionBoca,
+
+
+        equilibrio:
+            equilibrio,
+
+        interpretacionEquilibrio:
+            interpretacionEquilibrio,
+
+
+        valores: {
+
+            proporcionRostro:
+                rostro.proporcion,
+
+            aperturaMirada:
+                aperturaOjosPromedio,
+
+            simetria:
+                simetria.horizontal,
+
+            proporcionBoca:
+                boca.proporcion
+        }
+    };
 }
 
 
