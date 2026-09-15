@@ -197,10 +197,14 @@ downloadBtn.style.display = "inline-block";
 const analysisStatus =
     document.getElementById("analysisStatus");
 
+const mirrorFrame = document.getElementById("mirrorFrame");
+
 faceAnalysis.style.display = "block";
 
 analysisStatus.textContent =
     "✨ Observando tu reflejo..."; 
+  
+mirrorFrame.classList.add("analizando");
 
 };
 
@@ -215,7 +219,7 @@ uploadedImage.onload = async function() {
     await window.EspejoFacial.analizar(
         uploadedImage
     );
-
+  mirrorFrame.classList.remove("analizando");
 
 if (resultado) {
 
