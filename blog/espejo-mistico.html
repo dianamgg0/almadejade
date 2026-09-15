@@ -223,20 +223,44 @@ uploadedImage.onload = async function() {
 
 if (resultado) {
 
+    const arquetipo =
+        resultado.revelacion.arquetipo;
+
+    const texto =
+        resultado.revelacion.texto;
+
+
     analysisStatus.textContent =
-        "✨ He encontrado tu reflejo.";
+        `${arquetipo.emoji} ${arquetipo.nombre}`;
+
+
+    magicText.innerHTML =
+        `<strong>${arquetipo.nombre}</strong><br><br>${texto}`;
+
+
+    magicText.style.display =
+        "block";
+
+
+    fraseActual =
+        `${arquetipo.emoji} ${arquetipo.nombre}\n\n${texto}`;
 
 
     console.log(
-        "Landmarks:",
-        resultado.landmarks
+        "🌙 Arquetipo:",
+        arquetipo
     );
-
 
     console.log(
-        "🌿 Características:",
-        resultado.caracteristicas
+        "✨ Dimensiones:",
+        resultado.revelacion.dimensiones
     );
+
+    console.log(
+        "🌿 Revelación:",
+        texto
+    );
+
 
 } else {
 
