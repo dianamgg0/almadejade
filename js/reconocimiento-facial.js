@@ -937,8 +937,10 @@ return {
         caracteristicas,
 
     patrones:
-        patrones
+        patrones,
 
+    revelacion:
+        revelacion
 };
 
 
@@ -952,6 +954,332 @@ return {
         return null;
     }
 }
+
+// ============================================
+// DIMENSIONES SIMBÓLICAS
+// ============================================
+
+function calcularDimensiones(patrones) {
+
+    const dimensiones = {
+
+        apertura: 0,
+
+        estructura: 0,
+
+        direccion: 0,
+
+        fluidez: 0,
+
+        contemplacion: 0
+    };
+
+
+    // ========================================
+    // FORMA DEL ROSTRO
+    // ========================================
+
+    if (patrones.interpretacionRostro === "profundidad") {
+
+        dimensiones.contemplacion += 2;
+
+    } else if (
+        patrones.interpretacionRostro === "balance"
+    ) {
+
+        dimensiones.estructura += 2;
+
+    } else if (
+        patrones.interpretacionRostro === "presencia"
+    ) {
+
+        dimensiones.apertura += 2;
+    }
+
+
+    // ========================================
+    // MIRADA
+    // ========================================
+
+    if (patrones.interpretacionMirada === "curiosidad") {
+
+        dimensiones.apertura += 2;
+
+    } else if (
+        patrones.interpretacionMirada === "calma"
+    ) {
+
+        dimensiones.fluidez += 2;
+
+    } else if (
+        patrones.interpretacionMirada === "misterio"
+    ) {
+
+        dimensiones.contemplacion += 2;
+    }
+
+
+    // ========================================
+    // CEJAS
+    // ========================================
+
+    if (patrones.interpretacionCejas === "armonía") {
+
+        dimensiones.estructura += 2;
+
+    } else if (
+        patrones.interpretacionCejas === "individualidad"
+    ) {
+
+        dimensiones.fluidez += 1;
+        dimensiones.apertura += 1;
+    }
+
+
+    // ========================================
+    // NARIZ
+    // ========================================
+
+    if (
+        patrones.interpretacionNariz === "determinación"
+    ) {
+
+        dimensiones.direccion += 2;
+
+    } else if (
+        patrones.interpretacionNariz === "equilibrio"
+    ) {
+
+        dimensiones.estructura += 2;
+
+    } else if (
+        patrones.interpretacionNariz === "dirección"
+    ) {
+
+        dimensiones.direccion += 2;
+    }
+
+
+    // ========================================
+    // BOCA
+    // ========================================
+
+    if (
+        patrones.interpretacionBoca === "introspección"
+    ) {
+
+        dimensiones.contemplacion += 2;
+
+    } else if (
+        patrones.interpretacionBoca === "expresión"
+    ) {
+
+        dimensiones.apertura += 2;
+
+    } else if (
+        patrones.interpretacionBoca === "expansión"
+    ) {
+
+        dimensiones.apertura += 2;
+        dimensiones.fluidez += 1;
+    }
+
+
+    // ========================================
+    // EQUILIBRIO
+    // ========================================
+
+    if (
+        patrones.interpretacionEquilibrio === "centrada"
+    ) {
+
+        dimensiones.estructura += 2;
+
+    } else if (
+        patrones.interpretacionEquilibrio === "singularidad"
+    ) {
+
+        dimensiones.fluidez += 1;
+        dimensiones.apertura += 1;
+
+    } else if (
+        patrones.interpretacionEquilibrio === "atrevimiento"
+    ) {
+
+        dimensiones.direccion += 2;
+        dimensiones.apertura += 1;
+    }
+
+
+    return dimensiones;
+}
+
+
+// ============================================
+// ARQUETIPOS
+// ============================================
+
+const arquetipos = {
+
+    observadora: {
+
+        nombre: "La Observadora",
+
+        emoji: "🌙",
+
+        descripcion:
+            "Tu reflejo habla de una naturaleza contemplativa, capaz de detenerse, observar y descubrir significado en aquello que otros pasan por alto.",
+
+        cierre:
+            "A veces mirar con atención también es una forma de avanzar."
+    },
+
+
+    semilla: {
+
+        nombre: "La Semilla",
+
+        emoji: "🌱",
+
+        descripcion:
+            "Tu reflejo sugiere una energía de crecimiento. Hay algo en ti que parece estar siempre preparándose para convertirse en algo nuevo.",
+
+        cierre:
+            "No todo lo que está creciendo necesita mostrarse todavía."
+    },
+
+
+    llama: {
+
+        nombre: "La Llama",
+
+        emoji: "🔥",
+
+        descripcion:
+            "Tu reflejo transmite impulso y determinación. Hay una energía que te invita a avanzar y convertir tus intenciones en movimiento.",
+
+        cierre:
+            "Tu fuerza no está solamente en avanzar, sino en saber qué merece tu energía."
+    },
+
+
+    rio: {
+
+        nombre: "El Río",
+
+        emoji: "🌊",
+
+        descripcion:
+            "Tu reflejo transmite una energía flexible y abierta. Como el agua, pareces encontrar nuevas formas de avanzar sin dejar de ser tú.",
+
+        cierre:
+            "A veces avanzar no significa luchar contra el camino, sino encontrar por dónde fluir."
+    },
+
+
+    raiz: {
+
+        nombre: "La Raíz",
+
+        emoji: "🌿",
+
+        descripcion:
+            "Tu reflejo habla de estabilidad y profundidad. Hay en ti una energía que busca sostenerse desde dentro antes de crecer hacia afuera.",
+
+        cierre:
+            "Cuanto más profundo es tu centro, más libre puede ser tu crecimiento."
+    },
+
+
+    flor: {
+
+        nombre: "La Flor",
+
+        emoji: "🌸",
+
+        descripcion:
+            "Tu reflejo transmite apertura y expresión. Hay una energía que parece encontrar belleza en mostrarse, expandirse y ocupar su propio espacio.",
+
+        cierre:
+            "Abrirte al mundo también puede ser una forma de reconocerte."
+    }
+};
+
+
+// ============================================
+// CALCULAR ARQUETIPO
+// ============================================
+
+function calcularArquetipo(dimensiones) {
+
+    const puntuaciones = {
+
+        observadora:
+            dimensiones.contemplacion * 3 +
+            dimensiones.fluidez +
+            dimensiones.apertura,
+
+        semilla:
+            dimensiones.apertura * 2 +
+            dimensiones.fluidez * 2 +
+            dimensiones.contemplacion,
+
+        llama:
+            dimensiones.direccion * 3 +
+            dimensiones.estructura * 2 +
+            dimensiones.apertura,
+
+        rio:
+            dimensiones.fluidez * 3 +
+            dimensiones.apertura * 2 +
+            dimensiones.contemplacion,
+
+        raiz:
+            dimensiones.estructura * 3 +
+            dimensiones.contemplacion +
+            dimensiones.direccion,
+
+        flor:
+            dimensiones.apertura * 3 +
+            dimensiones.fluidez +
+            dimensiones.contemplacion
+    };
+
+
+    let arquetipoGanador = "observadora";
+    let puntuacionMayor = -Infinity;
+
+
+    for (const nombre in puntuaciones) {
+
+        if (
+            puntuaciones[nombre] >
+            puntuacionMayor
+        ) {
+
+            puntuacionMayor =
+                puntuaciones[nombre];
+
+            arquetipoGanador =
+                nombre;
+        }
+    }
+
+
+    return {
+
+        tipo: arquetipoGanador,
+
+        ...arquetipos[arquetipoGanador],
+
+        puntuaciones
+    };
+}
+
+
+// ============================================
+// REVELACIONES DE LOS PATRONES
+// ============================================
 
 const revelaciones = {
 
@@ -1012,36 +1340,50 @@ const revelaciones = {
         "Tu reflejo sugiere una energía centrada, capaz de regresar a su propio eje incluso mientras explora."
 };
 
-const cierres = {
 
-    centrada:
-        "Tu reflejo te recuerda algo sencillo: puedes explorar nuevos caminos sin perder tu centro.",
+// ============================================
+// GENERAR REVELACIÓN
+// ============================================
 
-    singularidad:
-        "Tu reflejo te recuerda que no necesitas parecerte a nadie para encontrar tu propio camino.",
-
-    atrevimiento:
-        "Tu reflejo te recuerda que a veces el camino más interesante comienza justo donde termina lo conocido."
-};
 function generarRevelacion(patrones) {
 
+    const dimensiones =
+        calcularDimensiones(patrones);
+
+
+    const arquetipo =
+        calcularArquetipo(dimensiones);
+
+
     const esencia =
-        revelaciones[patrones.interpretacionRostro];
+        revelaciones[
+            patrones.interpretacionRostro
+        ];
 
     const mirada =
-        revelaciones[patrones.interpretacionMirada];
+        revelaciones[
+            patrones.interpretacionMirada
+        ];
 
     const expresion =
-        revelaciones[patrones.interpretacionBoca];
+        revelaciones[
+            patrones.interpretacionBoca
+        ];
 
     const direccion =
-        revelaciones[patrones.interpretacionNariz];
+        revelaciones[
+            patrones.interpretacionNariz
+        ];
 
     const matiz =
-        revelaciones[patrones.interpretacionCejas];
+        revelaciones[
+            patrones.interpretacionCejas
+        ];
 
-    const centro =
-        cierres[patrones.interpretacionEquilibrio];
+    const equilibrio =
+        revelaciones[
+            patrones.interpretacionEquilibrio
+        ];
 
 
     const texto =
@@ -1056,10 +1398,19 @@ function generarRevelacion(patrones) {
 
         matiz + " " +
 
-        centro;
+        equilibrio + " " +
+
+        arquetipo.cierre;
 
 
-    return texto;
+    return {
+
+        arquetipo,
+
+        dimensiones,
+
+        texto
+    };
 }
 // ============================================
 // EXPONER AL HTML
