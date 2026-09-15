@@ -561,6 +561,16 @@ function extraerPatrones(caracteristicas) {
         formaRostro = "amplio";
     }
 
+    let interpretacionRostro;
+
+if (formaRostro === "alargado") {
+    interpretacionRostro = "profundidad";
+} else if (formaRostro === "equilibrado") {
+    interpretacionRostro = "balance";
+} else {
+    interpretacionRostro = "presencia";
+}
+
 
     // ========================================
     // APERTURA DE LA MIRADA
@@ -596,6 +606,15 @@ function extraerPatrones(caracteristicas) {
         mirada = "profunda";
     }
 
+    let mirada;
+
+if (aperturaOjosPromedio > 3.2) {
+    mirada = "abierta";
+} else if (aperturaOjosPromedio > 2.4) {
+    mirada = "serena";
+} else {
+    mirada = "profunda";
+}
 
     // ========================================
     // EQUILIBRIO DE LAS CEJAS
@@ -620,7 +639,13 @@ function extraerPatrones(caracteristicas) {
         cejasPatron = "asimetría_sutil";
     }
 
+    let interpretacionCejas;
 
+if (cejasPatron === "equilibradas") {
+    interpretacionCejas = "armonía";
+} else {
+    interpretacionCejas = "individualidad";
+}
     // ========================================
     // PROPORCIÓN DE LA NARIZ
     // ========================================
@@ -641,7 +666,15 @@ function extraerPatrones(caracteristicas) {
         narizPatron = "alargada";
     }
 
+    let interpretacionNariz;
 
+if (narizPatron === "compacta") {
+    interpretacionNariz = "determinación";
+} else if (narizPatron === "proporcionada") {
+    interpretacionNariz = "equilibrio";
+} else {
+    interpretacionNariz = "dirección";
+}
     // ========================================
     // SIMETRÍA
     // ========================================
@@ -682,6 +715,25 @@ if (boca.proporcion > 22) {
     bocaPatron = "abierta";
 }
 
+let bocaPatron;
+
+if (boca.proporcion > 22) {
+    bocaPatron = "contenida";
+} else if (boca.proporcion > 8) {
+    bocaPatron = "expresiva";
+} else {
+    bocaPatron = "abierta";
+}
+
+let interpretacionBoca;
+
+if (bocaPatron === "contenida") {
+    interpretacionBoca = "introspección";
+} else if (bocaPatron === "expresiva") {
+    interpretacionBoca = "expresión";
+} else {
+    interpretacionBoca = "expansión";
+}
 
     // ========================================
     // RESULTADO
@@ -689,19 +741,33 @@ if (boca.proporcion > 22) {
 
     return {
     formaRostro,
+    interpretacionRostro,
+
     mirada,
+    interpretacionMirada,
+
     cejas: cejasPatron,
+    interpretacionCejas,
+
     nariz: narizPatron,
+    interpretacionNariz,
+
     boca: bocaPatron,
+    interpretacionBoca,
+
     equilibrio,
-    energiaEquilibrio,
+    interpretacionEquilibrio,
+
     valores: {
         proporcionRostro:
             rostro.proporcion,
+
         aperturaMirada:
             aperturaOjosPromedio,
+
         simetria:
             simetria.horizontal,
+
         proporcionBoca:
             boca.proporcion
     }
