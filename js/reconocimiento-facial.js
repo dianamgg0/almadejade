@@ -1123,7 +1123,7 @@ const arquetipos = {
 
     observadora: {
 
-        nombre: "La Observadora",
+        nombre: "La Contemplación",
 
         emoji: "🌙",
 
@@ -1193,9 +1193,9 @@ const arquetipos = {
 
     flor: {
 
-        nombre: "La Flor",
+        nombre: "El Loto",
 
-        emoji: "🌸",
+        emoji: "🪷",
 
         descripcion:
             "Tu reflejo transmite apertura y expresión. Hay una energía que parece encontrar belleza en mostrarse, expandirse y ocupar su propio espacio.",
