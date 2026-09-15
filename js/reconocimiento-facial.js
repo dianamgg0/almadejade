@@ -662,38 +662,50 @@ function extraerPatrones(caracteristicas) {
         equilibrio = "orgánico";
     }
 
+    let energiaEquilibrio;
+
+if (equilibrio === "alto") {
+    energiaEquilibrio = "armonía";
+} else if (equilibrio === "moderado") {
+    energiaEquilibrio = "singularidad";
+} else {
+    energiaEquilibrio = "atrevimiento";
+}
+
+    let bocaPatron;
+
+if (boca.proporcion > 22) {
+    bocaPatron = "contenida";
+} else if (boca.proporcion > 8) {
+    bocaPatron = "expresiva";
+} else {
+    bocaPatron = "abierta";
+}
+
 
     // ========================================
     // RESULTADO
     // ========================================
 
     return {
-
-        formaRostro,
-
-        mirada,
-
-        cejas:
-            cejasPatron,
-
-        nariz:
-            narizPatron,
-
-        equilibrio,
-
-        valores: {
-
-            proporcionRostro:
-                rostro.proporcion,
-
-            aperturaMirada:
-                aperturaOjosPromedio,
-
-            simetria:
-                simetria.horizontal
-        }
-
-    };
+    formaRostro,
+    mirada,
+    cejas: cejasPatron,
+    nariz: narizPatron,
+    boca: bocaPatron,
+    equilibrio,
+    energiaEquilibrio,
+    valores: {
+        proporcionRostro:
+            rostro.proporcion,
+        aperturaMirada:
+            aperturaOjosPromedio,
+        simetria:
+            simetria.horizontal,
+        proporcionBoca:
+            boca.proporcion
+    }
+};
 }
 
 
