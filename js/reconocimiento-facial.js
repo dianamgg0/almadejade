@@ -726,7 +726,7 @@ function extraerPatrones(caracteristicas) {
 
     if (equilibrio === "alto") {
 
-        interpretacionEquilibrio = "armonía";
+        interpretacionEquilibrio = "centrada";
 
     } else if (equilibrio === "moderado") {
 
