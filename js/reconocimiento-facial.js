@@ -921,7 +921,7 @@ console.log(
 );
 
 const revelacion =
-    generarRevelacion(resultado.patrones);
+    generarRevelacion(patrones);
 
 console.log(
     "🌿 Revelación:",
