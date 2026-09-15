@@ -1128,10 +1128,10 @@ const arquetipos = {
         emoji: "🌙",
 
         descripcion:
-            "Tu reflejo habla de una naturaleza contemplativa, capaz de detenerse, observar y descubrir significado en aquello que otros pasan por alto.",
+            "Tu reflejo sugiere una naturaleza contemplativa, capaz de detenerse, observar y descubrir significado en aquello que otros pasan por alto.",
 
         cierre:
-            "A veces mirar con atención también es una forma de avanzar."
+            "A veces observar con atención también es una forma de avanzar."
     },
 
 
@@ -1142,7 +1142,7 @@ const arquetipos = {
         emoji: "🌱",
 
         descripcion:
-            "Tu reflejo sugiere una energía de crecimiento. Hay algo en ti que parece estar siempre preparándose para convertirse en algo nuevo.",
+            "Tu reflejo sugiere una energía de crecimiento. Hay algo que se está formando en tu interior, preparándose para convertirse en algo nuevo.",
 
         cierre:
             "No todo lo que está creciendo necesita mostrarse todavía."
@@ -1156,7 +1156,7 @@ const arquetipos = {
         emoji: "🔥",
 
         descripcion:
-            "Tu reflejo transmite impulso y determinación. Hay una energía que te invita a avanzar y convertir tus intenciones en movimiento.",
+            "Tu reflejo transmite impulso y determinación. Hay una energía que invita a avanzar y convertir las intenciones en movimiento.",
 
         cierre:
             "Tu fuerza no está solamente en avanzar, sino en saber qué merece tu energía."
@@ -1170,7 +1170,7 @@ const arquetipos = {
         emoji: "🌊",
 
         descripcion:
-            "Tu reflejo transmite una energía flexible y abierta. Como el agua, pareces encontrar nuevas formas de avanzar sin dejar de ser tú.",
+            "Tu reflejo transmite una energía flexible y abierta. Como el agua, hay una capacidad de encontrar nuevas formas de avanzar sin perder la propia esencia.",
 
         cierre:
             "A veces avanzar no significa luchar contra el camino, sino encontrar por dónde fluir."
@@ -1184,7 +1184,7 @@ const arquetipos = {
         emoji: "🌿",
 
         descripcion:
-            "Tu reflejo habla de estabilidad y profundidad. Hay en ti una energía que busca sostenerse desde dentro antes de crecer hacia afuera.",
+            "Tu reflejo habla de estabilidad y profundidad. Hay una energía que busca sostenerse desde dentro antes de crecer hacia afuera.",
 
         cierre:
             "Cuanto más profundo es tu centro, más libre puede ser tu crecimiento."
@@ -1198,7 +1198,7 @@ const arquetipos = {
         emoji: "🪷",
 
         descripcion:
-            "Tu reflejo transmite apertura y expresión. Hay una energía que parece encontrar belleza en mostrarse, expandirse y ocupar su propio espacio.",
+            "Tu reflejo transmite apertura y expresión. Como el loto, hay una energía capaz de emerger desde lo profundo y abrirse hacia la luz.",
 
         cierre:
             "Abrirte al mundo también puede ser una forma de reconocerte."
