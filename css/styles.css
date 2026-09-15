@@ -1961,6 +1961,48 @@ figcaption {
 
 }
 
+/* =========================================================
+   ESTADO: ESPEJO ANALIZANDO
+========================================================= */
+
+.magic-mirror-page .mirror-frame.analizando .light-rays {
+    opacity: 1;
+}
+
+.magic-mirror-page .mirror-frame.analizando .light-rays::before {
+    animation:
+        mirrorLightMove 2.8s linear infinite;
+}
+
+.magic-mirror-page .mirror-frame.analizando .light-rays::after {
+    animation:
+        mirrorMistMove 4s ease-in-out infinite alternate;
+}
+
+/* Suave respiración del reflejo */
+.magic-mirror-page .mirror-frame.analizando .reflection img {
+    animation: reflejoAnalizando 2.8s ease-in-out infinite;
+}
+
+
+@keyframes reflejoAnalizando {
+
+    0%, 100% {
+        filter:
+            sepia(0.15)
+            contrast(0.95)
+            brightness(1.02);
+    }
+
+    50% {
+        filter:
+            sepia(0.15)
+            contrast(0.95)
+            brightness(1.10);
+    }
+
+}
+
 
 /* =========================================================
    TEXTO MÁGICO
