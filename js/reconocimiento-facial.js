@@ -1127,11 +1127,33 @@ const arquetipos = {
 
         emoji: "🌙",
 
-        descripcion:
-            "Tu reflejo sugiere una naturaleza contemplativa, capaz de detenerse, observar y descubrir significado en aquello que otros pasan por alto.",
+        variaciones: [
 
-        cierre:
-            "A veces observar con atención también es una forma de avanzar."
+            {
+                descripcion:
+                    "Tu reflejo sugiere una naturaleza contemplativa, capaz de detenerse, observar y descubrir significado en aquello que otros pasan por alto.",
+
+                cierre:
+                    "A veces observar con atención también es una forma de avanzar."
+            },
+
+            {
+                descripcion:
+                    "Hay en tu reflejo una energía que invita a mirar más allá de lo evidente. Pareces encontrar valor en los pequeños detalles y en aquello que necesita tiempo para ser comprendido.",
+
+                cierre:
+                    "No todo lo importante necesita ser descubierto de inmediato."
+            },
+
+            {
+                descripcion:
+                    "Tu reflejo habla de una mirada que prefiere comprender antes de apresurarse. Hay profundidad en tu manera de acercarte a lo que despierta tu curiosidad.",
+
+                cierre:
+                    "Cuando te permites observar con calma, también puedes encontrarte a ti."
+            }
+
+        ]
     },
 
 
@@ -1141,11 +1163,33 @@ const arquetipos = {
 
         emoji: "🌱",
 
-        descripcion:
-            "Tu reflejo sugiere una energía de crecimiento. Hay algo que se está formando en tu interior, preparándose para convertirse en algo nuevo.",
+        variaciones: [
 
-        cierre:
-            "No todo lo que está creciendo necesita mostrarse todavía."
+            {
+                descripcion:
+                    "Tu reflejo sugiere una energía de crecimiento. Hay algo que se está formando en tu interior, preparándose para convertirse en algo nuevo.",
+
+                cierre:
+                    "No todo lo que está creciendo necesita mostrarse todavía."
+            },
+
+            {
+                descripcion:
+                    "Tu reflejo habla de potencial y transformación. Quizás hay ideas, deseos o caminos que todavía están tomando forma, aunque ya exista en ti la intuición de hacia dónde pueden llevarte.",
+
+                cierre:
+                    "Lo que hoy parece pequeño también puede contener el comienzo de algo extraordinario."
+            },
+
+            {
+                descripcion:
+                    "Hay en tu reflejo una energía de renovación, como quien atraviesa una etapa de preparación antes de dar el siguiente paso.",
+
+                cierre:
+                    "Confía también en aquello que todavía está tomando forma."
+            }
+
+        ]
     },
 
 
@@ -1155,11 +1199,33 @@ const arquetipos = {
 
         emoji: "🔥",
 
-        descripcion:
-            "Tu reflejo transmite impulso y determinación. Hay una energía que invita a avanzar y convertir las intenciones en movimiento.",
+        variaciones: [
 
-        cierre:
-            "Tu fuerza no está solamente en avanzar, sino en saber qué merece tu energía."
+            {
+                descripcion:
+                    "Tu reflejo transmite impulso y determinación. Hay una energía que invita a avanzar y convertir las intenciones en movimiento.",
+
+                cierre:
+                    "Tu fuerza no está solamente en avanzar, sino en saber qué merece tu energía."
+            },
+
+            {
+                descripcion:
+                    "Hay en tu reflejo una energía activa, como una chispa que busca convertirse en acción. Cuando algo despierta tu interés, parece difícil permanecer completamente indiferente.",
+
+                cierre:
+                    "Una llama no necesita arder en todas direcciones para iluminar."
+            },
+
+            {
+                descripcion:
+                    "Tu reflejo sugiere voluntad y capacidad de movimiento. Existe en ti una fuerza que puede transformar una intención en el primer paso de un camino.",
+
+                cierre:
+                    "Cuando encuentras aquello que realmente importa, tu energía sabe hacia dónde dirigirse."
+            }
+
+        ]
     },
 
 
@@ -1169,11 +1235,33 @@ const arquetipos = {
 
         emoji: "🌊",
 
-        descripcion:
-            "Tu reflejo transmite una energía flexible y abierta. Como el agua, hay una capacidad de encontrar nuevas formas de avanzar sin perder la propia esencia.",
+        variaciones: [
 
-        cierre:
-            "A veces avanzar no significa luchar contra el camino, sino encontrar por dónde fluir."
+            {
+                descripcion:
+                    "Tu reflejo transmite una energía flexible y abierta. Como el agua, hay una capacidad de encontrar nuevas formas de avanzar sin perder la propia esencia.",
+
+                cierre:
+                    "A veces avanzar no significa luchar contra el camino, sino encontrar por dónde fluir."
+            },
+
+            {
+                descripcion:
+                    "Hay en tu reflejo una energía que parece adaptarse al movimiento de la vida. No siempre necesitas tener todo definido para continuar avanzando.",
+
+                cierre:
+                    "También existe sabiduría en saber cuándo dejar que el camino se revele."
+            },
+
+            {
+                descripcion:
+                    "Tu reflejo habla de movimiento y libertad. Hay una disposición a explorar diferentes caminos y permitir que las experiencias transformen tu manera de avanzar.",
+
+                cierre:
+                    "Fluir no significa perder el rumbo; a veces significa confiar en el movimiento."
+            }
+
+        ]
     },
 
 
@@ -1183,11 +1271,33 @@ const arquetipos = {
 
         emoji: "🌿",
 
-        descripcion:
-            "Tu reflejo habla de estabilidad y profundidad. Hay una energía que busca sostenerse desde dentro antes de crecer hacia afuera.",
+        variaciones: [
 
-        cierre:
-            "Cuanto más profundo es tu centro, más libre puede ser tu crecimiento."
+            {
+                descripcion:
+                    "Tu reflejo habla de estabilidad y profundidad. Hay una energía que busca sostenerse desde dentro antes de crecer hacia afuera.",
+
+                cierre:
+                    "Cuanto más profundo es tu centro, más libre puede ser tu crecimiento."
+            },
+
+            {
+                descripcion:
+                    "Hay en tu reflejo una sensación de firmeza y conexión interior. Antes de buscar nuevos horizontes, parece importante para ti saber desde dónde estás creciendo.",
+
+                cierre:
+                    "Lo que te sostiene por dentro también puede darte libertad para explorar."
+            },
+
+            {
+                descripcion:
+                    "Tu reflejo sugiere una energía serena y estable, como quien encuentra fuerza no solo en lo que muestra al mundo, sino también en aquello que guarda en su interior.",
+
+                cierre:
+                    "A veces crecer no significa alejarse de las raíces, sino profundizarlas."
+            }
+
+        ]
     },
 
 
@@ -1197,11 +1307,33 @@ const arquetipos = {
 
         emoji: "🪷",
 
-        descripcion:
-            "Tu reflejo transmite apertura y expresión. Como el loto, hay una energía capaz de emerger desde lo profundo y abrirse hacia la luz.",
+        variaciones: [
 
-        cierre:
-            "Abrirte al mundo también puede ser una forma de reconocerte."
+            {
+                descripcion:
+                    "Tu reflejo transmite apertura y expresión. Como el loto, hay una energía capaz de emerger desde lo profundo y abrirse hacia la luz.",
+
+                cierre:
+                    "Abrirte al mundo también puede ser una forma de reconocerte."
+            },
+
+            {
+                descripcion:
+                    "Hay en tu reflejo una energía de transformación y apertura. Como el loto que emerge desde aguas profundas, parece existir en ti una capacidad de convertir la experiencia en una nueva forma de florecer.",
+
+                cierre:
+                    "Lo que has atravesado también puede formar parte de la belleza que estás creando."
+            },
+
+            {
+                descripcion:
+                    "Tu reflejo sugiere una energía que busca expresarse y ocupar su propio espacio. Hay algo en ti que parece querer salir a la luz sin dejar atrás aquello que lo hizo crecer.",
+
+                cierre:
+                    "Florecer no significa olvidar de dónde vienes."
+            }
+
+        ]
     }
 };
 
@@ -1354,6 +1486,13 @@ function generarRevelacion(patrones) {
     const arquetipo =
         calcularArquetipo(dimensiones);
 
+    const variacion =
+    arquetipo.variaciones[
+        Math.floor(
+            Math.random() *
+            arquetipo.variaciones.length
+        )
+    ];
 
     const esencia =
         revelaciones[
@@ -1400,7 +1539,9 @@ function generarRevelacion(patrones) {
 
         equilibrio + " " +
 
-        arquetipo.cierre;
+        variacion.descripcion + " " +
+
+        variacion.cierre;
 
 
     return {
