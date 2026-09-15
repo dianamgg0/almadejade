@@ -768,6 +768,11 @@ async function analizarRostro(imagen) {
     );
 
 console.log(
+    "👄 Boca:",
+    caracteristicas.boca
+);
+
+console.log(
     "✨ Patrones simbólicos:",
     patrones
 );
