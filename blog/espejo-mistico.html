@@ -374,15 +374,24 @@ ctx.shadowBlur = 18;
 ctx.shadowOffsetX = 0;
 ctx.shadowOffsetY = 2;
 
-const text = fraseActual;
+const lineas = fraseActual.split("\n");
+
 const xText = canvas.width / 2;
+const lineHeight = 70;
 const yText = canvas.height - 25;
 
-/* borde primero */
-ctx.strokeText(text, xText, yText);
+/* Dibujar cada línea */
+lineas.forEach((linea, i) => {
 
-/* relleno encima */
-ctx.fillText(text, xText, yText);
+    const y = yText - (lineas.length - 1 - i) * lineHeight;
+
+    /* borde */
+    ctx.strokeText(linea, xText, y);
+
+    /* relleno */
+    ctx.fillText(linea, xText, y);
+
+});
 
 ctx.restore();
 
