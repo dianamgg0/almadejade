@@ -149,6 +149,10 @@ Dime... Cuál es mi revelación?
 🌼 Descargar mi revelación 🌼
 </button>
 
+<button id="downloadCardBtn" style="display:none;">
+    ✦ Descargar tarjeta ✦
+</button>
+
 </div>
 
 <script>
@@ -167,6 +171,8 @@ const frases = [
 ];
 
 let fraseActual = "";  
+let arquetipoActual = null;
+let textoRevelacion = "";
   
 const upload = document.getElementById('imageUpload');
 const uploadedImage = document.getElementById('uploadedImage');
@@ -232,6 +238,8 @@ if (resultado) {
     const texto =
         resultado.revelacion.texto;
 
+    arquetipoActual = arquetipo;
+    textoRevelacion = texto;
 
     analysisStatus.textContent =
         `${arquetipo.emoji} ${arquetipo.nombre}`;
@@ -386,6 +394,305 @@ link.click();
 };
 
 };
+
+});
+
+function dibujarTextoCentrado(
+    ctx,
+    texto,
+    centroX,
+    y,
+    anchoMaximo,
+    altoLinea
+){
+
+    const palabras = texto.split(" ");
+
+    let linea = "";
+    const lineas = [];
+
+    for (let i = 0; i < palabras.length; i++) {
+
+        const prueba =
+            linea + palabras[i] + " ";
+
+        const ancho =
+            ctx.measureText(prueba).width;
+
+        if (ancho > anchoMaximo && linea !== "") {
+
+            lineas.push(linea.trim());
+
+            linea =
+                palabras[i] + " ";
+
+        } else {
+
+            linea = prueba;
+        }
+    }
+
+    if (linea.trim() !== "") {
+
+        lineas.push(linea.trim());
+    }
+
+
+    lineas.forEach(function(linea, index){
+
+        ctx.fillText(
+            linea,
+            centroX,
+            y + index * altoLinea
+        );
+
+    });
+}
+
+/* ==============================
+   TARJETA DEL ARQUETIPO
+============================== */
+
+const downloadCardBtn = document.getElementById("downloadCardBtn");
+
+downloadCardBtn.addEventListener("click", function(){
+
+    if (!uploadedImage || !arquetipoActual) return;
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    /* FORMATO TARJETA */
+
+    canvas.width = 1080;
+    canvas.height = 1350;
+
+    /* FONDO */
+
+    ctx.fillStyle = "#e3d5c0";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    /* TARJETA INTERIOR */
+
+    const margin = 45;
+    const radius = 42;
+
+    ctx.save();
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+        margin,
+        margin,
+        canvas.width - margin * 2,
+        canvas.height - margin * 2,
+        radius
+    );
+
+    ctx.fillStyle = "#f5ebd9";
+    ctx.fill();
+
+    ctx.strokeStyle = "rgba(114,94,82,0.35)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.restore();
+
+
+    /* ==============================
+       IMAGEN
+    ============================== */
+
+    const user = new Image();
+
+    user.src = uploadedImage.src;
+
+    user.onload = function(){
+
+        const imageW = 680;
+        const imageH = 620;
+
+        const imageX = (canvas.width - imageW) / 2;
+        const imageY = 110;
+
+        ctx.save();
+
+        ctx.beginPath();
+
+        ctx.ellipse(
+            imageX + imageW / 2,
+            imageY + imageH / 2,
+            imageW / 2,
+            imageH / 2,
+            0,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.clip();
+
+
+        /* COVER DE LA IMAGEN */
+
+        const imgRatio = user.width / user.height;
+        const boxRatio = imageW / imageH;
+
+        let dw, dh, ox = 0, oy = 0;
+
+        if (imgRatio > boxRatio) {
+
+            dh = imageH;
+            dw = imageH * imgRatio;
+
+            ox = (imageW - dw) / 2;
+
+        } else {
+
+            dw = imageW;
+            dh = imageW / imgRatio;
+
+            oy = (imageH - dh) / 2;
+        }
+
+        ctx.drawImage(
+            user,
+            imageX + ox,
+            imageY + oy,
+            dw,
+            dh
+        );
+
+        ctx.restore();
+
+
+        /* ==============================
+           SEPARADOR SUPERIOR
+        ============================== */
+
+        ctx.save();
+
+        ctx.font = "30px 'Cormorant Garamond'";
+
+        ctx.fillStyle = "#725e52";
+
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+
+        ctx.fillText(
+            "— ✦ —",
+            canvas.width / 2,
+            770
+        );
+
+        ctx.restore();
+
+
+        /* ==============================
+           ARQUETIPO
+        ============================== */
+
+        ctx.save();
+
+        ctx.font = "italic 58px 'Cormorant Garamond'";
+
+        ctx.fillStyle = "#635045";
+
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+
+        ctx.fillText(
+            arquetipoActual.nombre,
+            canvas.width / 2,
+            845
+        );
+
+        ctx.restore();
+
+
+        /* ==============================
+           DESCRIPCIÓN
+        ============================== */
+
+        ctx.save();
+
+        ctx.font = "30px 'Cormorant Garamond'";
+
+        ctx.fillStyle = "#725e52";
+
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+
+        const descripcion =
+            arquetipoActual.descripcion ||
+            "";
+
+        dibujarTextoCentrado(
+            ctx,
+            descripcion,
+            canvas.width / 2,
+            925,
+            800,
+            42
+        );
+
+        ctx.restore();
+
+
+        /* ==============================
+           SEPARADOR INFERIOR
+        ============================== */
+
+        ctx.save();
+
+        ctx.font = "30px 'Cormorant Garamond'";
+
+        ctx.fillStyle = "#725e52";
+
+        ctx.textAlign = "center";
+
+        ctx.fillText(
+            "— ✦ —",
+            canvas.width / 2,
+            1120
+        );
+
+        ctx.restore();
+
+
+        /* ==============================
+           ALMA DE JADE
+        ============================== */
+
+        ctx.save();
+
+        ctx.font = "italic 32px 'Cormorant Garamond'";
+
+        ctx.fillStyle = "#635045";
+
+        ctx.textAlign = "center";
+
+        ctx.fillText(
+            "Alma de Jade",
+            canvas.width / 2,
+            1215
+        );
+
+        ctx.restore();
+
+
+        /* ==============================
+           DESCARGA
+        ============================== */
+
+        const link = document.createElement("a");
+
+        link.download = "mi-arquetipo.png";
+
+        link.href = canvas.toDataURL("image/png");
+
+        link.click();
+
+    };
 
 });
 
