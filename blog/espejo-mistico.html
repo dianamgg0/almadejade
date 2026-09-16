@@ -374,11 +374,6 @@ ctx.shadowBlur = 18;
 ctx.shadowOffsetX = 0;
 ctx.shadowOffsetY = 2;
 
-console.log("FRASE ACTUAL:", fraseActual);
-console.log("ARQUETIPO:", arquetipoActual);
-console.log("TEXTO REVELACION:", textoRevelacion);
-console.log("🌙 ARQUETIPO COMPLETO:", arquetipoActual);
-console.log("🌙 PROPIEDADES:", Object.keys(arquetipoActual));
 
 const lineas = fraseActual.split("\n");
 
@@ -475,6 +470,13 @@ const downloadCardBtn = document.getElementById("downloadCardBtn");
 downloadCardBtn.addEventListener("click", function(){
 
     if (!uploadedImage || !arquetipoActual) return;
+
+    console.log("🖨️ SE EJECUTÓ DESCARGAR");
+    console.log("FRASE ACTUAL:", fraseActual);
+    console.log("ARQUETIPO:", arquetipoActual);
+    console.log("TEXTO REVELACION:", textoRevelacion);
+    console.log("🌙 ARQUETIPO COMPLETO:", arquetipoActual);
+    console.log("🌙 PROPIEDADES:", Object.keys(arquetipoActual));
 
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
