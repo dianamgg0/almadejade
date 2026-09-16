@@ -1920,8 +1920,8 @@ figcaption {
     background:
         radial-gradient(
             ellipse at center,
-            rgba(180, 210, 195, 0.35) 0%,
-            rgba(195, 220, 207, 0.20) 30%,
+            rgba(180, 210, 195, 0.45) 0%,
+            rgba(195, 220, 207, 0.25) 30%,
             rgba(195, 220, 207, 0) 70%
         );
 
