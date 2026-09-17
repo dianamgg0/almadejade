@@ -1870,11 +1870,11 @@ figcaption {
 .magic-mirror-page .light-rays {
     position: absolute;
 
-    top: 13%;
+    top: 12.5%;
     left: 18%;
 
     width: 62.5%;
-    height: 71%;
+    height: 71.5%;
 
     pointer-events: none;
 
