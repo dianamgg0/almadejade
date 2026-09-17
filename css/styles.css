@@ -1833,11 +1833,11 @@ figcaption {
 .magic-mirror-page .reflection {
     position: absolute;
 
-    top: 12.5%;
+    top: 11.5%;
     left: 19%;
 
     width: 62.5%;
-    height: 69%;
+    height: 70.5%;
 
     overflow: hidden;
 
@@ -1870,11 +1870,11 @@ figcaption {
 .magic-mirror-page .light-rays {
     position: absolute;
 
-    top: 12.5%;
+    top: 11.5%;
     left: 19%;
 
     width: 62.5%;
-    height: 69%;
+    height: 70.5%;
 
     pointer-events: none;
 
