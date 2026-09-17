@@ -173,6 +173,7 @@ const frases = [
 let fraseActual = "";  
 let arquetipoActual = null;
 let textoRevelacion = "";
+let descripcionTarjeta = "";
   
 const upload = document.getElementById('imageUpload');
 const uploadedImage = document.getElementById('uploadedImage');
@@ -237,6 +238,8 @@ if (resultado) {
 
     const texto =
         resultado.revelacion.texto;
+
+    descripcionTarjeta = resultado.revelacion.descripcionTarjeta || "";
 
     arquetipoActual = arquetipo;
     textoRevelacion = texto;
@@ -643,7 +646,7 @@ downloadCardBtn.addEventListener("click", function(){
         ctx.textBaseline = "top";
 
         const descripcion =
-            arquetipoActual.descripcion ||
+            descripcionTarjeta ||
             "";
 
         dibujarTextoCentrado(

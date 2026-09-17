@@ -1551,6 +1551,8 @@ function generarRevelacion(patrones) {
         dimensiones,
 
         texto
+
+        descripcionTarjeta: variacion.descripcion
     };
 }
 // ============================================
