@@ -1550,7 +1550,7 @@ function generarRevelacion(patrones) {
 
         dimensiones,
 
-        texto
+        texto,
 
         descripcionTarjeta: variacion.descripcion
     };
