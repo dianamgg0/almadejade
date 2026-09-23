@@ -168,16 +168,15 @@ const frases = [
 "🌿 Tu espíritu resplandece 🌿"
 ];
 
-let fraseActual = "";  
 let arquetipoActual = null;
 let textoRevelacion = "";
 let descripcionTarjeta = "";
-let patronesActuales = null;
-  
+let tarjetasActuales = null;
+
 const upload = document.getElementById('imageUpload');
 const uploadedImage = document.getElementById('uploadedImage');
-const downloadBtn = document.getElementById('downloadBtn');
 const magicText = document.getElementById('magicText');
+const downloadCardBtn = document.getElementById("downloadCardBtn");
 
 /* SUBIR IMAGEN */
 
@@ -191,29 +190,17 @@ const reader = new FileReader();
 
 reader.onload = function(event){
 
-uploadedImage.src = event.target.result;
+    uploadedImage.src = event.target.result;
 
-fraseActual = frases[Math.floor(Math.random() * frases.length)];
+    const faceAnalysis = document.getElementById("faceAnalysis");
+    const analysisStatus = document.getElementById("analysisStatus");
+    const mirrorFrame = document.getElementById("mirrorFrame");
 
-magicText.textContent = fraseActual;
+    faceAnalysis.style.display = "block";
 
-magicText.style.display = "block";
+    analysisStatus.textContent = "✨ Observando tu reflejo...";
 
-
- const faceAnalysis =
-    document.getElementById("faceAnalysis");
-
-const analysisStatus =
-    document.getElementById("analysisStatus");
-
-const mirrorFrame = document.getElementById("mirrorFrame");
-
-faceAnalysis.style.display = "block";
-
-analysisStatus.textContent =
-    "✨ Observando tu reflejo..."; 
-  
-mirrorFrame.classList.add("analizando");
+    mirrorFrame.classList.add("analizando");
 
 };
 
@@ -239,6 +226,7 @@ if (resultado) {
         resultado.revelacion.texto;
 
     descripcionTarjeta = resultado.revelacion.descripcionTarjeta || "";
+    tarjetasActuales =  resultado.revelacion.tarjetas || {};
 
     arquetipoActual = arquetipo;
     textoRevelacion = texto;
@@ -289,171 +277,193 @@ if (resultado) {
 
 /* DESCARGAR */
 
-downloadCardBtn.addEventListener('click', function(){
+// ============================================================
+// DESCARGA DE LAS 5 TARJETAS
+// ============================================================
 
-const canvas = document.createElement('canvas');
-const ctx = canvas.getContext('2d');
+function crearBaseTarjeta() {
 
-const frame = new Image();
-frame.src = "../images/Espejo.png";
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-frame.onload = function(){
+    canvas.width = 1080;
+    canvas.height = 1350;
 
-const ratio = frame.height / frame.width;
+    // Fondo exterior
+    ctx.fillStyle = "#e3cba8";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-canvas.width = 1000;
-canvas.height = 1000 * ratio;
+    // Tarjeta interior
+    const margin = 45;
+    const radius = 42;
 
-ctx.fillStyle = "#e3d5c0";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
 
-ctx.drawImage(frame,0,0,canvas.width,canvas.height);
+    ctx.beginPath();
+    ctx.roundRect(
+        margin,
+        margin,
+        canvas.width - margin * 2,
+        canvas.height - margin * 2,
+        radius
+    );
 
-const user = new Image();
-user.src = uploadedImage.src;
+    ctx.fillStyle = "#f5ebd9";
+    ctx.fill();
 
-user.onload = function(){
+    ctx.strokeStyle = "rgba(114,94,82,0.35)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
 
-const w = canvas.width * 0.64;
-const h = canvas.height * 0.64;
+    ctx.restore();
 
-const x = (canvas.width - w) / 2;
-const y = canvas.height * 0.2;
-
-ctx.save();
-
-ctx.beginPath();
-
-ctx.ellipse(
-x + w/2,
-y + h/2,
-w/2,
-h/2,
-0,
-0,
-Math.PI * 2
-);
-
-ctx.clip();
-
-/* cover */
-
-const imgRatio = user.width / user.height;
-const boxRatio = w / h;
-
-let dw, dh, ox=0, oy=0;
-
-if(imgRatio > boxRatio){
-dh = h;
-dw = h * imgRatio;
-ox = (w - dw)/2;
-}else{
-dw = w;
-dh = w / imgRatio;
-oy = (h - dh)/2;
+    return {
+        canvas,
+        ctx
+    };
 }
 
-ctx.drawImage(user,x+ox,y+oy,dw,dh);
 
-ctx.restore();
+// ------------------------------------------------------------
+// Cargar imagen
+// ------------------------------------------------------------
 
-/* TEXTO REVELACION */
+function cargarImagen(src) {
 
-ctx.save();
+    return new Promise(function(resolve, reject) {
 
-ctx.font = "italic 60px 'Cormorant Garamond'";
-ctx.textAlign = "center";
-ctx.textBaseline = "bottom";
+        const img = new Image();
 
-/* relleno dorado */
-ctx.fillStyle = "#635045";
+        img.onload = function() {
+            resolve(img);
+        };
 
-/* borde oscuro */
+        img.onerror = function() {
+            reject(new Error("No se pudo cargar la imagen."));
+        };
+
+        img.src = src;
+
+    });
+}
 
 
-/* glow suave */
-ctx.shadowColor = "rgba(0,0,0,0.45)";
-ctx.shadowBlur = 18;
-ctx.shadowOffsetX = 0;
-ctx.shadowOffsetY = 2;
+// ------------------------------------------------------------
+// Dibujar fotografía ovalada
+// ------------------------------------------------------------
+
+function dibujarFotoOvalada(
+    ctx,
+    user,
+    imageX,
+    imageY,
+    imageW,
+    imageH
+) {
+
+    ctx.save();
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        imageX + imageW / 2,
+        imageY + imageH / 2,
+        imageW / 2,
+        imageH / 2,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.clip();
+
+    const imgRatio = user.width / user.height;
+    const boxRatio = imageW / imageH;
+
+    let dw;
+    let dh;
+    let ox = 0;
+    let oy = 0;
+
+    if (imgRatio > boxRatio) {
+
+        dh = imageH;
+        dw = imageH * imgRatio;
+        ox = (imageW - dw) / 2;
+
+    } else {
+
+        dw = imageW;
+        dh = imageW / imgRatio;
+        oy = (imageH - dh) / 2;
+
+    }
+
+    ctx.drawImage(
+        user,
+        imageX + ox,
+        imageY + oy,
+        dw,
+        dh
+    );
+
+    ctx.restore();
+}
 
 
-const lineas = fraseActual.split("\n");
+// ------------------------------------------------------------
+// Texto centrado con ajuste automático
+// ------------------------------------------------------------
 
-const xText = canvas.width / 2;
-const lineHeight = 70;
-const yText = canvas.height - 25;
-
-/* Dibujar cada línea */
-lineas.forEach((linea, i) => {
-
-    const y = yText - (lineas.length - 1 - i) * lineHeight;
-
-    /* borde */
-    ctx.strokeText(linea, xText, y);
-
-    /* relleno */
-    ctx.fillText(linea, xText, y);
-
-});
-
-ctx.restore();
-
-/* DESCARGA */
-
-const link=document.createElement("a");
-link.download="mi-revelacion.png";
-link.href=canvas.toDataURL();
-link.click();
-
-};
-
-};
-
-});
-
-function dibujarTextoCentrado(
+function dibujarTextoAjustado(
     ctx,
     texto,
     centroX,
     y,
     anchoMaximo,
-    altoLinea
-){
+    altoLinea,
+    maxLineas
+) {
 
-    const palabras = texto.split(" ");
+    if (!texto) return;
 
-    let linea = "";
+    const palabras = texto.split(/\s+/);
+
     const lineas = [];
 
-    for (let i = 0; i < palabras.length; i++) {
+    let linea = "";
+
+    palabras.forEach(function(palabra) {
 
         const prueba =
-            linea + palabras[i] + " ";
+            linea === ""
+                ? palabra
+                : linea + " " + palabra;
 
-        const ancho =
-            ctx.measureText(prueba).width;
+        if (
+            ctx.measureText(prueba).width > anchoMaximo &&
+            linea !== ""
+        ) {
 
-        if (ancho > anchoMaximo && linea !== "") {
-
-            lineas.push(linea.trim());
-
-            linea =
-                palabras[i] + " ";
+            lineas.push(linea);
+            linea = palabra;
 
         } else {
 
             linea = prueba;
+
         }
+
+    });
+
+    if (linea !== "") {
+        lineas.push(linea);
     }
 
-    if (linea.trim() !== "") {
+    const lineasFinales =
+        lineas.slice(0, maxLineas);
 
-        lineas.push(linea.trim());
-    }
-
-
-    lineas.forEach(function(linea, index){
+    lineasFinales.forEach(function(linea, index) {
 
         ctx.fillText(
             linea,
@@ -462,13 +472,422 @@ function dibujarTextoCentrado(
         );
 
     });
+
 }
+
+
+// ------------------------------------------------------------
+// Pie de tarjeta
+// ------------------------------------------------------------
+
+function dibujarPieTarjeta(ctx) {
+
+    ctx.save();
+
+    ctx.textAlign = "center";
+
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '28px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        "— ✦ —",
+        540,
+        1115
+    );
+
+    ctx.font =
+        'italic 32px "Cormorant Garamond", serif';
+
+    ctx.fillStyle = "#635045";
+
+    ctx.fillText(
+        "Alma de Jade",
+        540,
+        1205
+    );
+
+    ctx.restore();
+}
+
+
+// ------------------------------------------------------------
+// Tarjeta 1 — Arquetipo
+// ------------------------------------------------------------
+
+async function crearTarjetaArquetipo(user) {
+
+    const base = crearBaseTarjeta();
+
+    const canvas = base.canvas;
+    const ctx = base.ctx;
+
+    const imageW = 580;
+    const imageH = 680;
+
+    const imageX =
+        (canvas.width - imageW) / 2;
+
+    const imageY = 85;
+
+    dibujarFotoOvalada(
+        ctx,
+        user,
+        imageX,
+        imageY,
+        imageW,
+        imageH
+    );
+
+    // Separador
+    ctx.save();
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '28px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        "— ✦ —",
+        540,
+        805
+    );
+
+    // Arquetipo
+    ctx.fillStyle = "#635045";
+
+    ctx.font =
+        'italic 58px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        arquetipoActual.nombre,
+        540,
+        865
+    );
+
+    // Descripción
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '30px "Cormorant Garamond", serif';
+
+    dibujarTextoAjustado(
+        ctx,
+        descripcionTarjeta,
+        540,
+        925,
+        800,
+        42,
+        5
+    );
+
+    ctx.restore();
+
+    dibujarPieTarjeta(ctx);
+
+    return canvas;
+}
+
+
+// ------------------------------------------------------------
+// Tarjetas de interpretación
+// ------------------------------------------------------------
+
+async function crearTarjetaInterpretacion(
+    user,
+    titulo,
+    texto
+) {
+
+    const base = crearBaseTarjeta();
+
+    const canvas = base.canvas;
+    const ctx = base.ctx;
+
+    // Fotografía más pequeña
+    const imageW = 400;
+    const imageH = 470;
+
+    const imageX =
+        (canvas.width - imageW) / 2;
+
+    const imageY = 105;
+
+    dibujarFotoOvalada(
+        ctx,
+        user,
+        imageX,
+        imageY,
+        imageW,
+        imageH
+    );
+
+    ctx.save();
+
+    ctx.textAlign = "center";
+
+    // Separador
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '28px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        "— ✦ —",
+        540,
+        625
+    );
+
+    // Título
+    ctx.fillStyle = "#635045";
+
+    ctx.font =
+        'italic 54px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        titulo,
+        540,
+        700
+    );
+
+    // Texto
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '30px "Cormorant Garamond", serif';
+
+    dibujarTextoAjustado(
+        ctx,
+        texto,
+        540,
+        775,
+        800,
+        44,
+        7
+    );
+
+    ctx.restore();
+
+    dibujarPieTarjeta(ctx);
+
+    return canvas;
+}
+
+
+// ------------------------------------------------------------
+// Canvas → Blob
+// ------------------------------------------------------------
+
+function canvasABlob(canvas) {
+
+    return new Promise(function(resolve, reject) {
+
+        canvas.toBlob(
+            function(blob) {
+
+                if (blob) {
+                    resolve(blob);
+                } else {
+                    reject(
+                        new Error(
+                            "No se pudo crear la imagen."
+                        )
+                    );
+                }
+
+            },
+            "image/png"
+        );
+
+    });
+}
+
+
+// ------------------------------------------------------------
+// Descargar las 5 tarjetas
+// ------------------------------------------------------------
+
+downloadCardBtn.addEventListener(
+    "click",
+    async function() {
+
+        if (
+            !uploadedImage ||
+            !arquetipoActual ||
+            !tarjetasActuales
+        ) {
+            return;
+        }
+
+        const textoOriginal =
+            downloadCardBtn.textContent;
+
+        try {
+
+            downloadCardBtn.disabled = true;
+
+            downloadCardBtn.textContent =
+                "⏳ Preparando tus tarjetas...";
+
+            // Esperar a que la fuente esté disponible
+            if (document.fonts) {
+                await document.fonts.ready;
+            }
+
+            const user =
+                await cargarImagen(
+                    uploadedImage.src
+                );
+
+            // ------------------------------------------------
+            // Crear UNA SOLA colección desde la misma revelación
+            // ------------------------------------------------
+
+            const tarjetas = [];
+
+            tarjetas.push({
+                nombre: "01-Arquetipo.png",
+                canvas:
+                    await crearTarjetaArquetipo(user)
+            });
+
+            tarjetas.push({
+                nombre: "02-Mirada.png",
+                canvas:
+                    await crearTarjetaInterpretacion(
+                        user,
+                        "La mirada",
+                        tarjetasActuales.mirada
+                    )
+            });
+
+            tarjetas.push({
+                nombre: "03-Expresion.png",
+                canvas:
+                    await crearTarjetaInterpretacion(
+                        user,
+                        "La expresión",
+                        tarjetasActuales.expresion
+                    )
+            });
+
+            tarjetas.push({
+                nombre: "04-Direccion.png",
+                canvas:
+                    await crearTarjetaInterpretacion(
+                        user,
+                        "La dirección",
+                        tarjetasActuales.direccion
+                    )
+            });
+
+            tarjetas.push({
+                nombre: "05-Cierre.png",
+                canvas:
+                    await crearTarjetaInterpretacion(
+                        user,
+                        "Cierre",
+                        tarjetasActuales.cierre
+                    )
+            });
+
+
+            // ------------------------------------------------
+            // Crear ZIP
+            // ------------------------------------------------
+
+            const zip =
+                new JSZip();
+
+            const carpeta =
+                zip.folder("Espejo-Mistico");
+
+            for (
+                const tarjeta of tarjetas
+            ) {
+
+                const blob =
+                    await canvasABlob(
+                        tarjeta.canvas
+                    );
+
+                carpeta.file(
+                    tarjeta.nombre,
+                    blob
+                );
+
+            }
+
+
+            // ------------------------------------------------
+            // Generar ZIP
+            // ------------------------------------------------
+
+            const zipBlob =
+                await zip.generateAsync({
+                    type: "blob",
+                    compression: "DEFLATE",
+                    compressionOptions: {
+                        level: 6
+                    }
+                });
+
+
+            // ------------------------------------------------
+            // Descargar
+            // ------------------------------------------------
+
+            const url =
+                URL.createObjectURL(zipBlob);
+
+            const link =
+                document.createElement("a");
+
+            link.href = url;
+
+            link.download =
+                "Espejo-Mistico.zip";
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            link.remove();
+
+            setTimeout(function() {
+                URL.revokeObjectURL(url);
+            }, 1000);
+
+
+        } catch (error) {
+
+            console.error(
+                "Error al generar las tarjetas:",
+                error
+            );
+
+            alert(
+                "No pude preparar las tarjetas. Inténtalo nuevamente."
+            );
+
+        } finally {
+
+            downloadCardBtn.disabled = false;
+
+            downloadCardBtn.textContent =
+                textoOriginal;
+
+        }
+
+    }
+);
 
 /* ==============================
    TARJETA DEL ARQUETIPO
 ============================== */
 
-const downloadCardBtn = document.getElementById("downloadCardBtn");
 
 downloadCardBtn.addEventListener("click", function(){
 
