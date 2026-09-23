@@ -172,6 +172,7 @@ let fraseActual = "";
 let arquetipoActual = null;
 let textoRevelacion = "";
 let descripcionTarjeta = "";
+let patronesActuales = null;
   
 const upload = document.getElementById('imageUpload');
 const uploadedImage = document.getElementById('uploadedImage');
@@ -241,6 +242,7 @@ if (resultado) {
 
     arquetipoActual = arquetipo;
     textoRevelacion = texto;
+    patronesActuales = resultado.patrones
 
     downloadCardBtn.style.display = "inline-block";
 
