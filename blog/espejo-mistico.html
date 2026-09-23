@@ -1183,14 +1183,15 @@ downloadCardBtn.addEventListener("click", function(){
             descripcionTarjeta ||
             "";
 
-        dibujarTextoCentrado(
-            ctx,
-            descripcion,
-            canvas.width / 2,
-            925,
-            800,
-            42
-        );
+        dibujarTextoAjustado(
+    ctx,
+    descripcion,
+    canvas.width / 2,
+    925,
+    800,
+    42,
+    5
+);
 
         ctx.restore();
 
