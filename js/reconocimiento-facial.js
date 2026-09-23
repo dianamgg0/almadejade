@@ -1547,12 +1547,18 @@ function generarRevelacion(patrones) {
     return {
 
         arquetipo,
+    dimensiones,
+    texto,
+    descripcionTarjeta: variacion.descripcion,
 
-        dimensiones,
-
-        texto,
-
-        descripcionTarjeta: variacion.descripcion
+    tarjetas: {
+        mirada,
+        expresion,
+        direccion,
+        matiz,
+        equilibrio,
+        cierre: variacion.cierre
+    }
     };
 }
 // ============================================
