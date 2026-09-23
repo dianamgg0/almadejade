@@ -595,10 +595,11 @@ async function crearTarjetaArquetipo(user) {
 // Tarjetas de interpretación
 // ------------------------------------------------------------
 
-async function crearTarjetaInterpretacion(
+async function crearTarjetaDimension(
     user,
     titulo,
-    texto
+    parrafo1,
+    parrafo2
 ) {
 
     const base = crearBaseTarjeta();
@@ -606,14 +607,109 @@ async function crearTarjetaInterpretacion(
     const canvas = base.canvas;
     const ctx = base.ctx;
 
-    // Fotografía más pequeña
-    const imageW = 400;
-    const imageH = 470;
+    ctx.save();
+
+    ctx.textAlign = "center";
+
+    // ---------------------------------------------
+    // TÍTULO DE LA DIMENSIÓN
+    // ---------------------------------------------
+
+    ctx.fillStyle = "#635045";
+
+    ctx.font =
+        'italic 58px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        titulo,
+        540,
+        220
+    );
+
+
+    // ---------------------------------------------
+    // PRIMER PÁRRAFO
+    // ---------------------------------------------
+
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '30px "Cormorant Garamond", serif';
+
+    dibujarTextoAjustado(
+        ctx,
+        parrafo1,
+        540,
+        355,
+        800,
+        43,
+        6
+    );
+
+
+    // ---------------------------------------------
+    // SEPARADOR CENTRAL
+    // ---------------------------------------------
+
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '28px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        "— ✦ —",
+        540,
+        650
+    );
+
+
+    // ---------------------------------------------
+    // SEGUNDO PÁRRAFO
+    // ---------------------------------------------
+
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '30px "Cormorant Garamond", serif';
+
+    dibujarTextoAjustado(
+        ctx,
+        parrafo2,
+        540,
+        780,
+        800,
+        43,
+        6
+    );
+
+
+    // ---------------------------------------------
+    // SEPARADOR FINAL
+    // ---------------------------------------------
+
+    ctx.fillStyle = "#725e52";
+
+    ctx.font =
+        '28px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        "— ✦ —",
+        540,
+        1080
+    );
+
+
+    // ---------------------------------------------
+    // PEQUEÑO OVALO DE LA FOTO
+    // ---------------------------------------------
+
+    const imageW = 145;
+    const imageH = 175;
 
     const imageX =
         (canvas.width - imageW) / 2;
 
-    const imageY = 105;
+    const imageY = 1095;
 
     dibujarFotoOvalada(
         ctx,
@@ -624,57 +720,26 @@ async function crearTarjetaInterpretacion(
         imageH
     );
 
-    ctx.save();
 
-    ctx.textAlign = "center";
+    // ---------------------------------------------
+    // ALMA DE JADE
+    // ---------------------------------------------
 
-    // Separador
-    ctx.fillStyle = "#725e52";
-
-    ctx.font =
-        '28px "Cormorant Garamond", serif';
-
-    ctx.fillText(
-        "— ✦ —",
-        540,
-        625
-    );
-
-    // Título
     ctx.fillStyle = "#635045";
 
     ctx.font =
-        'italic 54px "Cormorant Garamond", serif';
+        'italic 30px "Cormorant Garamond", serif';
 
     ctx.fillText(
-        titulo,
+        "Alma de Jade",
         540,
-        700
-    );
-
-    // Texto
-    ctx.fillStyle = "#725e52";
-
-    ctx.font =
-        '30px "Cormorant Garamond", serif';
-
-    dibujarTextoAjustado(
-        ctx,
-        texto,
-        540,
-        775,
-        800,
-        44,
-        7
+        1290
     );
 
     ctx.restore();
 
-    dibujarPieTarjeta(ctx);
-
     return canvas;
 }
-
 
 // ------------------------------------------------------------
 // Canvas → Blob
@@ -747,21 +812,71 @@ downloadCardBtn.addEventListener(
 
             const tarjetas = [];
 
-            tarjetas.push({
-                nombre: "01-Arquetipo.png",
-                canvas:
-                    await crearTarjetaArquetipo(user)
-            });
 
-            tarjetas.push({
-                nombre: "02-Mirada.png",
-                canvas:
-                    await crearTarjetaInterpretacion(
-                        user,
-                        "La mirada",
-                        tarjetasActuales.mirada
-                    )
-            });
+// ------------------------------------------------
+// 01 — ARQUETIPO
+// ------------------------------------------------
+
+tarjetas.push({
+    nombre: "01-Arquetipo.png",
+
+    canvas:
+        await crearTarjetaArquetipo(user)
+});
+
+
+// ------------------------------------------------
+// 02 — EXPRESIÓN
+// ------------------------------------------------
+
+const expresionParrafo1 =
+    `${tarjetasActuales.esencia} ${tarjetasActuales.mirada}`;
+
+
+const expresionParrafo2 =
+    `${tarjetasActuales.expresion} ${tarjetasActuales.direccion}`;
+
+
+tarjetas.push({
+
+    nombre: "02-Expresion.png",
+
+    canvas:
+        await crearTarjetaDimension(
+            user,
+            "EXPRESIÓN",
+            expresionParrafo1,
+            expresionParrafo2
+        )
+
+});
+
+
+// ------------------------------------------------
+// 03 — ARMONÍA
+// ------------------------------------------------
+
+const armoniaParrafo1 =
+    `${tarjetasActuales.matiz} ${tarjetasActuales.equilibrio}`;
+
+
+const armoniaParrafo2 =
+    tarjetasActuales.cierre;
+
+
+tarjetas.push({
+
+    nombre: "03-Armonia.png",
+
+    canvas:
+        await crearTarjetaDimension(
+            user,
+            "ARMONÍA",
+            armoniaParrafo1,
+            armoniaParrafo2
+        )
+
+});
 
             tarjetas.push({
                 nombre: "03-Expresion.png",

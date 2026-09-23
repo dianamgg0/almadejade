@@ -1552,6 +1552,7 @@ function generarRevelacion(patrones) {
     descripcionTarjeta: variacion.descripcion,
 
     tarjetas: {
+        esencia,
         mirada,
         expresion,
         direccion,
