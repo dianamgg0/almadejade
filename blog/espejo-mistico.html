@@ -601,6 +601,9 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
     const canvas = base.canvas;
     const ctx = base.ctx;
 
+    const centroX = canvas.width / 2;
+
+
     // ------------------------------------------------
     // TÍTULO
     // ------------------------------------------------
@@ -608,12 +611,13 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
     ctx.save();
 
     ctx.textAlign = "center";
+    ctx.textBaseline = "alphabetic";
     ctx.fillStyle = "#635045";
     ctx.font = 'italic 58px "Cormorant Garamond", serif';
 
     ctx.fillText(
         titulo,
-        canvas.width / 2,
+        centroX,
         185
     );
 
@@ -621,7 +625,7 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
 
 
     // ------------------------------------------------
-    // SEPARADOR
+    // SEPARADOR SUPERIOR
     // ------------------------------------------------
 
     ctx.save();
@@ -632,7 +636,7 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
 
     ctx.fillText(
         "— ✦ —",
-        canvas.width / 2,
+        centroX,
         270
     );
 
@@ -640,20 +644,22 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
 
 
     // ------------------------------------------------
-    // PÁRRAFO 1
+    // TEXTO — PÁRRAFO 1
     // ------------------------------------------------
 
     ctx.save();
 
+    ctx.textAlign = "center";
+    ctx.textBaseline = "alphabetic";
     ctx.fillStyle = "#725e52";
     ctx.font = '30px "Cormorant Garamond", serif';
 
     dibujarTextoAjustado(
         ctx,
         parrafo1,
-        canvas.width / 2,
+        centroX,
         355,
-        800,
+        760,
         43,
         5
     );
@@ -662,20 +668,22 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
 
 
     // ------------------------------------------------
-    // PÁRRAFO 2
+    // TEXTO — PÁRRAFO 2
     // ------------------------------------------------
 
     ctx.save();
 
+    ctx.textAlign = "center";
+    ctx.textBaseline = "alphabetic";
     ctx.fillStyle = "#725e52";
     ctx.font = '30px "Cormorant Garamond", serif';
 
     dibujarTextoAjustado(
         ctx,
         parrafo2,
-        canvas.width / 2,
-        590,
-        800,
+        centroX,
+        625,
+        760,
         43,
         5
     );
@@ -691,7 +699,10 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
     const imageH = 175;
 
     const imageX =
-        (canvas.width - imageW) / 2;
+        centroX - imageW / 2;
+
+    // El óvalo queda justo encima
+    // del separador inferior.
 
     const imageY = 825;
 
@@ -706,7 +717,10 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
 
 
     // ------------------------------------------------
-    // SEPARADOR FINAL
+    // SEPARADOR INFERIOR
+    // ------------------------------------------------
+    // Esta posición debe coincidir con
+    // la del separador de la tarjeta Arquetipo.
     // ------------------------------------------------
 
     ctx.save();
@@ -717,7 +731,7 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
 
     ctx.fillText(
         "— ✦ —",
-        canvas.width / 2,
+        centroX,
         1045
     );
 
@@ -731,12 +745,13 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
     ctx.save();
 
     ctx.textAlign = "center";
+    ctx.textBaseline = "alphabetic";
     ctx.fillStyle = "#635045";
     ctx.font = 'italic 32px "Cormorant Garamond", serif';
 
     ctx.fillText(
         "Alma de Jade",
-        canvas.width / 2,
+        centroX,
         1195
     );
 
@@ -745,35 +760,6 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
 
     return canvas;
 }
-
-// ------------------------------------------------------------
-// Canvas → Blob
-// ------------------------------------------------------------
-
-function canvasABlob(canvas) {
-
-    return new Promise(function(resolve, reject) {
-
-        canvas.toBlob(
-            function(blob) {
-
-                if (blob) {
-                    resolve(blob);
-                } else {
-                    reject(
-                        new Error(
-                            "No se pudo crear la imagen."
-                        )
-                    );
-                }
-
-            },
-            "image/png"
-        );
-
-    });
-}
-
 
 // ------------------------------------------------------------
 // Descargar las 5 tarjetas
