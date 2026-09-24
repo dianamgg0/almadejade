@@ -595,113 +595,97 @@ async function crearTarjetaArquetipo(user) {
 // Tarjetas de interpretación
 // ------------------------------------------------------------
 
-async function crearTarjetaDimension(
-    user,
-    titulo,
-    parrafo1,
-    parrafo2
-) {
+async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
 
     const base = crearBaseTarjeta();
-
     const canvas = base.canvas;
     const ctx = base.ctx;
+
+    // ------------------------------------------------
+    // TÍTULO
+    // ------------------------------------------------
 
     ctx.save();
 
     ctx.textAlign = "center";
-
-    // ---------------------------------------------
-    // TÍTULO DE LA DIMENSIÓN
-    // ---------------------------------------------
-
     ctx.fillStyle = "#635045";
-
-    ctx.font =
-        'italic 58px "Cormorant Garamond", serif';
+    ctx.font = 'italic 58px "Cormorant Garamond", serif';
 
     ctx.fillText(
         titulo,
-        540,
-        220
+        canvas.width / 2,
+        185
     );
 
+    ctx.restore();
 
-    // ---------------------------------------------
-    // PRIMER PÁRRAFO
-    // ---------------------------------------------
+
+    // ------------------------------------------------
+    // SEPARADOR
+    // ------------------------------------------------
+
+    ctx.save();
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#725e52";
+    ctx.font = '28px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        "— ✦ —",
+        canvas.width / 2,
+        270
+    );
+
+    ctx.restore();
+
+
+    // ------------------------------------------------
+    // PÁRRAFO 1
+    // ------------------------------------------------
+
+    ctx.save();
 
     ctx.fillStyle = "#725e52";
-
-    ctx.font =
-        '30px "Cormorant Garamond", serif';
+    ctx.font = '30px "Cormorant Garamond", serif';
 
     dibujarTextoAjustado(
         ctx,
         parrafo1,
-        540,
+        canvas.width / 2,
         355,
         800,
         43,
-        6
+        5
     );
 
-
-    // ---------------------------------------------
-    // SEPARADOR CENTRAL
-    // ---------------------------------------------
-
-    ctx.fillStyle = "#725e52";
-
-    ctx.font =
-        '28px "Cormorant Garamond", serif';
-
-    ctx.fillText(
-        "— ✦ —",
-        540,
-        650
-    );
+    ctx.restore();
 
 
-    // ---------------------------------------------
-    // SEGUNDO PÁRRAFO
-    // ---------------------------------------------
+    // ------------------------------------------------
+    // PÁRRAFO 2
+    // ------------------------------------------------
+
+    ctx.save();
 
     ctx.fillStyle = "#725e52";
-
-    ctx.font =
-        '30px "Cormorant Garamond", serif';
+    ctx.font = '30px "Cormorant Garamond", serif';
 
     dibujarTextoAjustado(
         ctx,
         parrafo2,
-        540,
-        780,
+        canvas.width / 2,
+        590,
         800,
         43,
-        6
+        5
     );
 
-
-    // ---------------------------------------------
-    // SEPARADOR FINAL
-    // ---------------------------------------------
-
-    ctx.fillStyle = "#725e52";
-
-    ctx.font =
-        '28px "Cormorant Garamond", serif';
-
-    ctx.fillText(
-        "— ✦ —",
-        540,
-        1080
-    );
+    ctx.restore();
 
 
-    // ---------------------------------------------
-    // PEQUEÑO OVALO DE LA FOTO
-    // ---------------------------------------------
+    // ------------------------------------------------
+    // FOTO OVALADA
+    // ------------------------------------------------
 
     const imageW = 145;
     const imageH = 175;
@@ -709,7 +693,7 @@ async function crearTarjetaDimension(
     const imageX =
         (canvas.width - imageW) / 2;
 
-    const imageY = 1095;
+    const imageY = 825;
 
     dibujarFotoOvalada(
         ctx,
@@ -721,22 +705,43 @@ async function crearTarjetaDimension(
     );
 
 
-    // ---------------------------------------------
-    // ALMA DE JADE
-    // ---------------------------------------------
+    // ------------------------------------------------
+    // SEPARADOR FINAL
+    // ------------------------------------------------
 
-    ctx.fillStyle = "#635045";
+    ctx.save();
 
-    ctx.font =
-        'italic 30px "Cormorant Garamond", serif';
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#725e52";
+    ctx.font = '28px "Cormorant Garamond", serif';
 
     ctx.fillText(
-        "Alma de Jade",
-        540,
-        1290
+        "— ✦ —",
+        canvas.width / 2,
+        1045
     );
 
     ctx.restore();
+
+
+    // ------------------------------------------------
+    // ALMA DE JADE
+    // ------------------------------------------------
+
+    ctx.save();
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#635045";
+    ctx.font = 'italic 32px "Cormorant Garamond", serif';
+
+    ctx.fillText(
+        "Alma de Jade",
+        canvas.width / 2,
+        1195
+    );
+
+    ctx.restore();
+
 
     return canvas;
 }
