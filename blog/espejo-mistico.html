@@ -278,7 +278,7 @@ if (resultado) {
 /* DESCARGAR */
 
 // ============================================================
-// DESCARGA DE LAS 5 TARJETAS
+// DESCARGA DE LAS 3 TARJETAS
 // ============================================================
 function canvasABlob(canvas) {
     return new Promise((resolve, reject) => {
@@ -726,7 +726,7 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
     // El óvalo queda justo encima
     // del separador inferior.
 
-    const imageY = 825;
+    const imageY = 795;
 
     dibujarFotoOvalada(
         ctx,
@@ -754,7 +754,7 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
     ctx.fillText(
         "— ✦ —",
         centroX,
-        1045
+        1015
     );
 
     ctx.restore();
