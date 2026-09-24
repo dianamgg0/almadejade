@@ -813,15 +813,14 @@ downloadCardBtn.addEventListener(
             const tarjetas = [];
 
 
+
 // ------------------------------------------------
 // 01 — ARQUETIPO
 // ------------------------------------------------
 
 tarjetas.push({
     nombre: "01-Arquetipo.png",
-
-    canvas:
-        await crearTarjetaArquetipo(user)
+    canvas: await crearTarjetaArquetipo(user)
 });
 
 
@@ -830,25 +829,19 @@ tarjetas.push({
 // ------------------------------------------------
 
 const expresionParrafo1 =
-    `${tarjetasActuales.esencia} ${tarjetasActuales.mirada}`;
-
+    `${tarjetasActuales.esencia || ""} ${tarjetasActuales.mirada || ""}`.trim();
 
 const expresionParrafo2 =
-    `${tarjetasActuales.expresion} ${tarjetasActuales.direccion}`;
-
+    `${tarjetasActuales.expresion || ""} ${tarjetasActuales.direccion || ""}`.trim();
 
 tarjetas.push({
-
     nombre: "02-Expresion.png",
-
-    canvas:
-        await crearTarjetaDimension(
-            user,
-            "EXPRESIÓN",
-            expresionParrafo1,
-            expresionParrafo2
-        )
-
+    canvas: await crearTarjetaDimension(
+        user,
+        "EXPRESIÓN",
+        expresionParrafo1,
+        expresionParrafo2
+    )
 });
 
 
@@ -857,58 +850,20 @@ tarjetas.push({
 // ------------------------------------------------
 
 const armoniaParrafo1 =
-    `${tarjetasActuales.matiz} ${tarjetasActuales.equilibrio}`;
-
+    `${tarjetasActuales.matiz || ""} ${tarjetasActuales.equilibrio || ""}`.trim();
 
 const armoniaParrafo2 =
-    tarjetasActuales.cierre;
-
+    tarjetasActuales.cierre || "";
 
 tarjetas.push({
-
     nombre: "03-Armonia.png",
-
-    canvas:
-        await crearTarjetaDimension(
-            user,
-            "ARMONÍA",
-            armoniaParrafo1,
-            armoniaParrafo2
-        )
-
+    canvas: await crearTarjetaDimension(
+        user,
+        "ARMONÍA",
+        armoniaParrafo1,
+        armoniaParrafo2
+    )
 });
-
-            tarjetas.push({
-                nombre: "03-Expresion.png",
-                canvas:
-                    await crearTarjetaDimension(
-                        user,
-                        "La expresión",
-                        tarjetasActuales.expresion
-                    )
-            });
-
-            tarjetas.push({
-                nombre: "04-Direccion.png",
-                canvas:
-                    await crearTarjetaDimension(
-                        user,
-                        "La dirección",
-                        tarjetasActuales.direccion
-                    )
-            });
-
-            tarjetas.push({
-                nombre: "05-Cierre.png",
-                canvas:
-                    await crearTarjetaDimension(
-                        user,
-                        "Cierre",
-                        tarjetasActuales.cierre
-                    )
-            });
-
-
             // ------------------------------------------------
             // Crear ZIP
             // ------------------------------------------------
