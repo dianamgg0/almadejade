@@ -383,13 +383,47 @@ function dibujarFotoOvalada(
     imageH
 ) {
 
-    ctx.save();
+    const foto = user;
 
-    ctx.beginPath();
+    if (!foto) {
+        return;
+    }
 
-    ctx.ellipse(
-        imageX + imageW / 2,
-        imageY + imageH / 2,
+    // ------------------------------------------------
+    // CANVAS TEMPORAL PARA LA FOTO
+    // ------------------------------------------------
+
+    const padding = 35;
+
+    const tempCanvas = document.createElement("canvas");
+
+    tempCanvas.width =
+        imageW + padding * 2;
+
+    tempCanvas.height =
+        imageH + padding * 2;
+
+    const tempCtx =
+        tempCanvas.getContext("2d");
+
+    const x =
+        padding;
+
+    const y =
+        padding;
+
+
+    // ------------------------------------------------
+    // RECORTE OVALADO
+    // ------------------------------------------------
+
+    tempCtx.save();
+
+    tempCtx.beginPath();
+
+    tempCtx.ellipse(
+        tempCanvas.width / 2,
+        tempCanvas.height / 2,
         imageW / 2,
         imageH / 2,
         0,
@@ -397,41 +431,195 @@ function dibujarFotoOvalada(
         Math.PI * 2
     );
 
-    ctx.clip();
+    tempCtx.clip();
 
-    const imgRatio = user.width / user.height;
-    const boxRatio = imageW / imageH;
 
-    let dw;
-    let dh;
-    let ox = 0;
-    let oy = 0;
+    // ------------------------------------------------
+    // IMAGEN
+    // ------------------------------------------------
 
-    if (imgRatio > boxRatio) {
+    const scale = Math.max(
+        imageW / foto.width,
+        imageH / foto.height
+    );
 
-        dh = imageH;
-        dw = imageH * imgRatio;
-        ox = (imageW - dw) / 2;
+    const drawW =
+        foto.width * scale;
 
-    } else {
+    const drawH =
+        foto.height * scale;
 
-        dw = imageW;
-        dh = imageW / imgRatio;
-        oy = (imageH - dh) / 2;
+    const drawX =
+        x + (imageW - drawW) / 2;
 
+    const drawY =
+        y + (imageH - drawH) / 2;
+
+    tempCtx.drawImage(
+        foto,
+        drawX,
+        drawY,
+        drawW,
+        drawH
+    );
+
+    tempCtx.restore();
+
+
+    // ------------------------------------------------
+    // SUAVIZAR LOS BORDES
+    // ------------------------------------------------
+
+    const imageData =
+        tempCtx.getImageData(
+            0,
+            0,
+            tempCanvas.width,
+            tempCanvas.height
+        );
+
+    const data =
+        imageData.data;
+
+    const centerX =
+        tempCanvas.width / 2;
+
+    const centerY =
+        tempCanvas.height / 2;
+
+    const radiusX =
+        imageW / 2;
+
+    const radiusY =
+        imageH / 2;
+
+    for (
+        let py = 0;
+        py < tempCanvas.height;
+        py++
+    ) {
+
+        for (
+            let px = 0;
+            px < tempCanvas.width;
+            px++
+        ) {
+
+            const dx =
+                (px - centerX) / radiusX;
+
+            const dy =
+                (py - centerY) / radiusY;
+
+            const distancia =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+            let alpha = 255;
+
+            if (distancia >= 1) {
+
+                alpha = 0;
+
+            } else if (distancia > 0.78) {
+
+                const suavizado =
+                    (1 - distancia) /
+                    (1 - 0.78);
+
+                alpha =
+                    Math.floor(
+                        255 * suavizado
+                    );
+            }
+
+            const index =
+                (py * tempCanvas.width + px) * 4;
+
+            data[index + 3] =
+                Math.min(
+                    data[index + 3],
+                    alpha
+                );
+        }
     }
 
+    tempCtx.putImageData(
+        imageData,
+        0,
+        0
+    );
+
+
+    // ------------------------------------------------
+    // INTEGRAR LA FOTO CON EL FONDO
+    // ------------------------------------------------
+
+    ctx.save();
+
+    ctx.globalAlpha = 0.96;
+
     ctx.drawImage(
-        user,
-        imageX + ox,
-        imageY + oy,
-        dw,
-        dh
+        tempCanvas,
+        imageX - padding,
+        imageY - padding
     );
 
     ctx.restore();
-}
 
+
+    // ------------------------------------------------
+    // NIEBLA MUY SUTIL
+    // ------------------------------------------------
+
+    ctx.save();
+
+    const mistGradient =
+        ctx.createRadialGradient(
+            imageX + imageW / 2,
+            imageY + imageH / 2,
+            imageW * 0.28,
+            imageX + imageW / 2,
+            imageY + imageH / 2,
+            imageW * 0.70
+        );
+
+    mistGradient.addColorStop(
+        0,
+        "rgba(245,235,217,0)"
+    );
+
+    mistGradient.addColorStop(
+        0.72,
+        "rgba(245,235,217,0.04)"
+    );
+
+    mistGradient.addColorStop(
+        1,
+        "rgba(245,235,217,0.18)"
+    );
+
+    ctx.fillStyle =
+        mistGradient;
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        imageX + imageW / 2,
+        imageY + imageH / 2,
+        imageW / 2 + 20,
+        imageH / 2 + 20,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+    ctx.restore();
+}
 
 // ------------------------------------------------------------
 // Texto centrado con ajuste automático
