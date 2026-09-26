@@ -580,10 +580,10 @@ function dibujarFotoOvalada(
         ctx.createRadialGradient(
             imageX + imageW / 2,
             imageY + imageH / 2,
-            imageW * 0.28,
+            imageW * 0.2,
             imageX + imageW / 2,
             imageY + imageH / 2,
-            imageW * 0.70
+            imageW * 0.80
         );
 
     mistGradient.addColorStop(
@@ -593,12 +593,12 @@ function dibujarFotoOvalada(
 
     mistGradient.addColorStop(
         0.72,
-        "rgba(245,235,217,0.04)"
+        "rgba(245,235,217,0.08)"
     );
 
     mistGradient.addColorStop(
         1,
-        "rgba(245,235,217,0.18)"
+        "rgba(245,235,217,0.3)"
     );
 
     ctx.fillStyle =
@@ -609,8 +609,8 @@ function dibujarFotoOvalada(
     ctx.ellipse(
         imageX + imageW / 2,
         imageY + imageH / 2,
-        imageW / 2 + 20,
-        imageH / 2 + 20,
+        imageW / 2 + 35,
+        imageH / 2 + 35,
         0,
         0,
         Math.PI * 2
