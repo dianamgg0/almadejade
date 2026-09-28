@@ -138,7 +138,9 @@ Dime... Cuál es mi revelación?
 <div class="controls">
 
 <input type="file" id="imageUpload" accept="image/*" hidden>
-  
+
+<div id="faceErrorMessage"></div>
+
 <p id="magicText">
     🍃 Tu reflejo revela tu divinidad 🍃
 </p>
@@ -219,11 +221,16 @@ uploadedImage.onload = async function() {
 
 if (resultado) {
 
+    faceErrorMessage.style.display = "none";
+
     const arquetipo =
         resultado.revelacion.arquetipo;
 
     const texto =
         resultado.revelacion.texto;
+
+    const faceErrorMessage =
+    document.getElementById("faceErrorMessage");
 
     descripcionTarjeta = resultado.revelacion.descripcionTarjeta || "";
     tarjetasActuales =  resultado.revelacion.tarjetas || {};
@@ -296,10 +303,10 @@ magicText.innerHTML = `
 
 } else {
 
-    analysisStatus.textContent =
+    faceErrorMessage.textContent =
         "No logramos encontrar un rostro claro. Intenta con una imagen donde tu rostro se vea completo y con buena luz. ✨";
 
-    analysisStatus.style.display = "block";
+    faceErrorMessage.style.display = "block";
 
     magicText.style.display = "none";
 
