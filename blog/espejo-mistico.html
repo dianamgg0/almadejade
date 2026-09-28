@@ -271,6 +271,7 @@ magicText.innerHTML = `
     magicText.style.display =
         "block";
 
+    console.log("✅ Revelación generada. Iniciando tarjetas...");
     mostrarVistaAnimadaTarjetasActuales();
 
     fraseActual =
@@ -304,6 +305,7 @@ magicText.innerHTML = `
 
 async function mostrarVistaAnimadaTarjetasActuales() {
 
+    console.log("🎨 Entró en la función de tarjetas");
     const user = await cargarImagen(uploadedImage.src);
 
     const tarjetas = [
