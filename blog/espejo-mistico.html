@@ -997,6 +997,37 @@ async function crearTarjetaDimension(user, titulo, parrafo1, parrafo2) {
     return canvas;
 }
 
+function mostrarVistaAnimadaTarjetas(tarjetas) {
+
+    let preview = document.getElementById(
+        "previewTarjetas"
+    );
+
+    if (!preview) {
+        preview = document.createElement("div");
+        preview.id = "previewTarjetas";
+        preview.className = "preview-tarjetas";
+        preview.setAttribute("aria-hidden", "true");
+
+        downloadCardBtn.parentElement.insertBefore(
+            preview,
+            downloadCardBtn
+        );
+    }
+
+    preview.innerHTML = "";
+
+    tarjetas.forEach(function(tarjeta) {
+
+        const imagen = document.createElement("img");
+
+        imagen.className = "mini-tarjeta";
+        imagen.src = tarjeta.canvas.toDataURL("image/png");
+        imagen.alt = "";
+
+        preview.appendChild(imagen);
+    });
+}
 // ------------------------------------------------------------
 // Descargar las 5 tarjetas
 // ------------------------------------------------------------
@@ -1091,6 +1122,8 @@ tarjetas.push({
         armoniaParrafo2
     )
 });
+
+mostrarVistaAnimadaTarjetas(tarjetas);
             // ------------------------------------------------
             // Crear ZIP
             // ------------------------------------------------
