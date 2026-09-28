@@ -2013,13 +2013,13 @@ figcaption {
 
     max-width: 600px;
 
-    font-size: 2.2rem;
+    font-size: 1.65rem;
 
     color: #635045;
 
     display: none;
 
-    line-height: 1.4;
+    line-height: 1.65;
 
     text-shadow:
         0 0 10px rgba(255, 255, 255, 0.8);
@@ -2129,7 +2129,8 @@ figcaption {
 
 
     .magic-mirror-page #magicText {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
+        line-height: 1.6;
     }
 
 }
