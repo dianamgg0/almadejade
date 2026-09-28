@@ -271,6 +271,7 @@ magicText.innerHTML = `
     magicText.style.display =
         "block";
 
+    mostrarVistaAnimadaTarjetasActuales();
 
     fraseActual =
         `${arquetipo.emoji} ${arquetipo.nombre}\n\n${texto}`;
@@ -300,6 +301,38 @@ magicText.innerHTML = `
 }
 
 };
+
+async function mostrarVistaAnimadaTarjetasActuales() {
+
+    const user = await cargarImagen(uploadedImage.src);
+
+    const tarjetas = [
+        {
+            nombre: "01-Arquetipo.png",
+            canvas: await crearTarjetaArquetipo(user)
+        },
+        {
+            nombre: "02-Expresion.png",
+            canvas: await crearTarjetaDimension(
+                user,
+                "EXPRESIÓN",
+                tarjetasActuales.expresion || "",
+                tarjetasActuales.direccion || ""
+            )
+        },
+        {
+            nombre: "03-Armonia.png",
+            canvas: await crearTarjetaDimension(
+                user,
+                "ARMONÍA",
+                tarjetasActuales.esencia || "",
+                tarjetasActuales.mirada || ""
+            )
+        }
+    ];
+
+    mostrarVistaAnimadaTarjetas(tarjetas);
+}
 
 /* DESCARGAR */
 
