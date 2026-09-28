@@ -2147,3 +2147,53 @@ figcaption {
     }
 
 }
+
+/* =========================================================
+   REVELACIÓN FRAGMENTADA
+   ========================================================= */
+
+.revelacion-fragmentada {
+    margin-top: 25px;
+}
+
+.revelacion-inicio,
+.revelacion-final {
+    display: block;
+}
+
+.revelacion-velada {
+    max-width: 520px;
+    margin: 22px auto;
+    padding: 8px 20px;
+
+    color: #725e52;
+
+    opacity: 0.48;
+
+    filter: blur(4px);
+
+    user-select: none;
+    pointer-events: none;
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent,
+            black 12%,
+            black 88%,
+            transparent
+        );
+
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent,
+            black 12%,
+            black 88%,
+            transparent
+        );
+}
+
+.revelacion-final {
+    margin-top: 24px;
+}
