@@ -2169,9 +2169,9 @@ figcaption {
 
     color: #725e52;
 
-    opacity: 0.58;
+    opacity: 0.5;
 
-    filter: blur(2.5px);
+    filter: blur(3px);
 
     user-select: none;
     pointer-events: none;
