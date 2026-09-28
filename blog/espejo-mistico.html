@@ -238,8 +238,34 @@ if (resultado) {
         `${arquetipo.emoji} ${arquetipo.nombre}`;
 
 
-    magicText.innerHTML =
-        `<strong>${arquetipo.nombre}</strong><br><br>${texto}`;
+    const fragmentoInicio =
+    `${tarjetasActuales.esencia || ""} ${tarjetasActuales.mirada || ""}`.trim();
+
+const fragmentoMedio =
+    `${tarjetasActuales.expresion || ""} ${tarjetasActuales.direccion || ""}`.trim();
+
+const fragmentoFinal =
+    tarjetasActuales.cierre || "";
+
+magicText.innerHTML = `
+    <strong>${arquetipo.nombre}</strong>
+
+    <div class="revelacion-fragmentada">
+
+        <div class="revelacion-inicio">
+            ${fragmentoInicio}
+        </div>
+
+        <div class="revelacion-velada">
+            ${fragmentoMedio}
+        </div>
+
+        <div class="revelacion-final">
+            ...${fragmentoFinal}
+        </div>
+
+    </div>
+`;
 
 
     magicText.style.display =
