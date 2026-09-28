@@ -297,7 +297,13 @@ magicText.innerHTML = `
 } else {
 
     analysisStatus.textContent =
-        "No pude encontrar un rostro claro en la imagen.";
+        "No logramos encontrar un rostro claro. Intenta con una imagen donde tu rostro se vea completo y con buena luz. ✨";
+
+    analysisStatus.style.display = "block";
+
+    magicText.style.display = "none";
+
+    downloadCardBtn.style.display = "none";
 
 }
 
