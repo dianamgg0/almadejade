@@ -2285,3 +2285,29 @@ figcaption {
 
     display: none;
 }
+
+.privacidad-revelacion {
+    max-width: 560px;
+    margin: 45px auto 20px;
+    padding: 18px 22px;
+
+    text-align: center;
+
+    color: #725e52;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    opacity: 0.82;
+}
+
+.privacidad-titulo {
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.privacidad-texto {
+    margin: 4px 0;
+}
