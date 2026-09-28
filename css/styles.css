@@ -2198,3 +2198,77 @@ figcaption {
 .revelacion-final {
     margin-top: 24px;
 }
+
+/* Vista animada de las tarjetas */
+.preview-tarjetas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 125px;
+    margin: 10px auto 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.mini-tarjeta {
+    position: absolute;
+    width: 62px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 14px rgba(70, 50, 35, 0.22);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    animation: flotarTarjeta 5s ease-in-out infinite;
+}
+
+.mini-tarjeta:nth-child(1) {
+    --desplazamiento: -48px;
+    --giro: -12deg;
+    animation-delay: 0s;
+}
+
+.mini-tarjeta:nth-child(2) {
+    --desplazamiento: 0px;
+    --giro: 0deg;
+    animation-delay: 1.2s;
+}
+
+.mini-tarjeta:nth-child(3) {
+    --desplazamiento: 48px;
+    --giro: 12deg;
+    animation-delay: 2.4s;
+}
+
+@keyframes flotarTarjeta {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(15px) rotate(0deg) scale(0.65);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    45%, 70% {
+        opacity: 1;
+        transform:
+            translate(var(--desplazamiento), -5px)
+            rotate(var(--giro))
+            scale(0.85);
+    }
+
+    90% {
+        opacity: 0;
+        transform: translateY(10px) rotate(0deg) scale(0.65);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mini-tarjeta {
+        animation: none;
+        opacity: 1;
+        transform: scale(0.75);
+    }
+}
