@@ -2169,9 +2169,9 @@ figcaption {
 
     color: #725e52;
 
-    opacity: 0.48;
+    opacity: 0.58;
 
-    filter: blur(4px);
+    filter: blur(2.5px);
 
     user-select: none;
     pointer-events: none;
@@ -2256,7 +2256,7 @@ figcaption {
         transform:
             translate(var(--desplazamiento), -5px)
             rotate(var(--giro))
-            scale(0.85);
+            scale(0.95);
     }
 
     90% {
