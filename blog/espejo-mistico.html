@@ -241,7 +241,9 @@ uploadedImage.onload = async function() {
 
 if (resultado) {
 
-    
+    const faceErrorMessage =
+    document.getElementById("faceErrorMessage");
+
     if (faceErrorMessage) {
         faceErrorMessage.style.display = "none";
     }
@@ -252,8 +254,7 @@ if (resultado) {
     const texto =
         resultado.revelacion.texto;
 
-    const faceErrorMessage =
-    document.getElementById("faceErrorMessage");
+    
 
     descripcionTarjeta = resultado.revelacion.descripcionTarjeta || "";
     tarjetasActuales =  resultado.revelacion.tarjetas || {};
