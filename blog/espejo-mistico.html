@@ -241,7 +241,9 @@ uploadedImage.onload = async function() {
 
 if (resultado) {
 
-    faceErrorMessage.style.display = "none";
+    
+    if (faceErrorMessage) {
+        faceErrorMessage.style.display = "none";
 
     const arquetipo =
         resultado.revelacion.arquetipo;
