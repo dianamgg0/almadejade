@@ -2537,3 +2537,11 @@ figcaption {
         height: 150px;
     }
 }
+
+a {
+    color: #5d7565;
+}
+
+a:hover {
+    color: #4d4038;
+}
