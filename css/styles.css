@@ -2509,7 +2509,7 @@ figcaption {
     width: 180px;
     height: 180px;
     object-fit: contain;
-    border-radius: 16px;
+    border-radius: 22px;
     background: #f4efe8;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
