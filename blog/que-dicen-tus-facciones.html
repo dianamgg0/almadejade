@@ -241,5 +241,46 @@ setupNewsletterForm("newsletter-form-2", "newsletter-success-2");
 </script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3JK1LJXM4"></script>
+
+<script>
+
+const writingVideo = document.getElementById("writing-video");
+const soundButton = document.getElementById("sound-button");
+
+if (writingVideo && soundButton) {
+
+soundButton.addEventListener("click", function () {
+
+if (writingVideo.muted) {
+
+writingVideo.muted = false;
+writingVideo.volume = 1;
+
+soundButton.textContent = "🔇 Silenciar";
+
+soundButton.setAttribute(
+"aria-label",
+"Silenciar video"
+);
+
+} else {
+
+writingVideo.muted = true;
+
+soundButton.textContent = "🔊 Activar sonido";
+
+soundButton.setAttribute(
+"aria-label",
+"Activar sonido"
+);
+
+}
+
+});
+
+}
+
+</script>
+
 </body>
 </html>
