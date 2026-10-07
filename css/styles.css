@@ -2499,8 +2499,8 @@ figcaption {
 }
 /* Miniatura del último artículo */
 .latest-article-image-link {
-    width: 220px;
-    height: 220px;
+    width: 280px;
+    height: 280px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
