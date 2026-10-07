@@ -2499,19 +2499,23 @@ figcaption {
 }
 /* Miniatura del último artículo */
 .latest-article-image-link {
-    display: block;
-    width: 180px;
+    width: 220px;
+    height: 220px;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 22px;
 }
 
 .latest-article-image {
-    display: block;
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    object-position: center;
+    display: block;
     border-radius: 22px;
-    background: #f4efe8;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 /* Ajuste de la tarjeta del último artículo */
