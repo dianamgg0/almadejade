@@ -2499,14 +2499,10 @@ figcaption {
 }
 /* Miniatura del último artículo */
 .latest-article-image-link {
-    width: 280px;
-    height: 280px;
-    flex-shrink: 0;
+    display: block;
+    width: 300px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 22px;
+    
 }
 
 .latest-article-image {
