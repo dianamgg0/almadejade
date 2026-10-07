@@ -2497,3 +2497,43 @@ figcaption {
     }
 
 }
+/* Miniatura del último artículo */
+.latest-article-image-link {
+    display: block;
+    width: 180px;
+    flex-shrink: 0;
+}
+
+.latest-article-image {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #f4efe8;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Ajuste de la tarjeta del último artículo */
+.latest-article {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* En móvil, la imagen se adapta */
+@media (max-width: 600px) {
+
+    .latest-article {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    .latest-article-image-link {
+        width: 150px;
+    }
+
+    .latest-article-image {
+        height: 150px;
+    }
+}
