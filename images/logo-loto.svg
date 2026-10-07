@@ -1,0 +1,22 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+	<style>
+		.s0 { fill: none;stroke: #cbc3af;stroke-linejoin: round;stroke-width: 10 } 
+	</style>
+	<g>
+		<g>
+			<path class="s0" d="m256 102.5c-84 120-69 195 0 277.5 69-82.5 84-157.5 0-277.5z"/>
+			<path id="Layer copy" class="s0" d="m387.38 143.56c-130.1 67.31-151.61 140.71-128.78 245.81 99.41-41.06 147.5-100.54 128.78-245.81z"/>
+			<path id="Layer copy 2" class="s0" d="m99.85 153.36c-3.16 146.44 50.99 200.46 154.2 230.71 11.52-106.93-17.68-177.62-154.2-230.71z"/>
+		</g>
+		<g>
+			<path class="s0" d="m61 256c15 90 120 135 195 135-60-75-105-120-195-135z"/>
+			<path class="s0" d="m451 256c-15 90-120 135-195 135 60-75 105-120 195-135z"/>
+		</g>
+		<g>
+		</g>
+		<g>
+		</g>
+		<g>
+		</g>
+	</g>
+</svg>
