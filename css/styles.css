@@ -2500,7 +2500,7 @@ figcaption {
 /* Miniatura del último artículo */
 .latest-article-image-link {
     width: 220px;
-    height: 360px;
+    aspect-ratio: 220 / 360;
     flex-shrink: 0;
     display: block;
     overflow: hidden;
@@ -2533,7 +2533,7 @@ figcaption {
 
     .latest-article-image-link {
         width: 150px;
-        height: 210px;
+        
     }
 
    
