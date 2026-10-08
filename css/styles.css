@@ -2507,8 +2507,8 @@ figcaption {
 
 .latest-article-image {
      display: block;
-    width: 220px;
-    height: auto;
+    width: 200px;
+    height: 220px;
     object-fit: contain;
     background: #f4efe8;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
