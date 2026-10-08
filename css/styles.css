@@ -2500,15 +2500,15 @@ figcaption {
 /* Miniatura del último artículo */
 .latest-article-image-link {
     display: block;
-    width: 300px;
+    width: 180px;
     display: flex;
     
 }
 
 .latest-article-image {
      display: block;
-    width: 180px;
-    height: 180px;
+    width: 300px;
+    height: auto;
     object-fit: contain;
     background: #f4efe8;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
