@@ -2533,11 +2533,10 @@ figcaption {
 
     .latest-article-image-link {
         width: 150px;
+        height: 188px;
     }
 
-    .latest-article-image {
-        height: 150px;
-    }
+   
 }
 
 a {
