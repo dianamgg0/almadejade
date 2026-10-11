@@ -1742,7 +1742,7 @@ figcaption {
     width: 100%;
     min-height: 100vh;
 
-    background-image: url("/images/fondo-mirror.png");
+    background-image: url("/images/fondo-mirror.jpg");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
