@@ -1837,8 +1837,7 @@ figcaption {
     width: 62.5%;
     height: 71.5%;
 
-    object-fit: cover;
-    object-position: center;
+    overflow: hidden;
 
     border-radius: 50% / 60%;
 
