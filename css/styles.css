@@ -2658,86 +2658,102 @@ a:hover {
     overflow: hidden;
 }
 
-/* El humo queda detrás del texto del botón */
 
-#revealBtn::before,
-#downloadCardBtn::before {
-    content: "";
-    position: absolute;
-    inset: -60%;
-    z-index: -1;
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(255, 250, 239, 0.65),
-            rgba(232, 213, 190, 0.22) 35%,
-            transparent 70%
-        );
-
-    filter: blur(12px);
-    animation: humoMagico 8s ease-in-out infinite alternate;
-}
-
-
-/* Contenedor de las miniaturas */
-.preview-tarjetas {
+/* Humo visible sobre el fondo del botón */
+#downloadCardBtn {
     position: relative;
     isolation: isolate;
     overflow: hidden;
 }
 
-/* Niebla mágica sobre las tarjetas */
-.niebla-tarjetas {
+#downloadCardBtn::after {
+    content: "";
     position: absolute;
-    inset: -15%;
-    z-index: 2;
+    inset: -50%;
+    z-index: -1;
     pointer-events: none;
-    overflow: hidden;
 
-    background:
-        radial-gradient(
-            ellipse at 20% 65%,
-            rgba(255, 250, 239, 0.65),
-            transparent 48%
-        ),
-        radial-gradient(
-            ellipse at 75% 35%,
-            rgba(232, 213, 190, 0.55),
-            transparent 52%
-        ),
-        radial-gradient(
-            ellipse at 50% 85%,
-            rgba(255, 255, 255, 0.45),
-            transparent 45%
-        );
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 250, 239, 0.45) 0%,
+        rgba(232, 213, 190, 0.20) 35%,
+        transparent 70%
+    );
 
-    filter: blur(15px);
-    opacity: 0.7;
-    animation: nieblaEnMovimiento 10s ease-in-out infinite alternate;
+    filter: blur(10px);
+    animation: nieblaFlotante 8s ease-in-out infinite alternate;
 }
 
-@keyframes nieblaEnMovimiento {
+
+
+
+/* =====================================
+   NIEBLA SUAVE SOBRE LAS MINIATURAS
+===================================== */
+
+.preview-tarjetas {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Capa independiente: no ocupa espacio en el diseño */
+.niebla-tarjetas {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+/* Dos nubes difusas, sin fondo rectangular */
+.niebla-tarjetas::before,
+.niebla-tarjetas::after {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 65%;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 250, 239, 0.38) 0%,
+        rgba(232, 213, 190, 0.20) 30%,
+        rgba(245, 235, 217, 0.08) 52%,
+        transparent 72%
+    );
+
+    filter: blur(16px);
+    will-change: transform, opacity;
+}
+
+.niebla-tarjetas::before {
+    left: -15%;
+    top: 5%;
+    animation: nieblaFlotante 9s ease-in-out infinite alternate;
+}
+
+.niebla-tarjetas::after {
+    right: -15%;
+    bottom: 0;
+    animation: nieblaFlotante 12s ease-in-out infinite alternate-reverse;
+    opacity: 0.75;
+}
+
+@keyframes nieblaFlotante {
     0% {
-        transform: translate(-4%, 3%) scale(1);
+        transform: translate(-3%, 8%) scale(0.9);
         opacity: 0.35;
     }
 
     50% {
-        transform: translate(3%, -3%) scale(1.08);
-        opacity: 0.7;
+        transform: translate(7%, -4%) scale(1.08);
+        opacity: 0.8;
     }
 
     100% {
-        transform: translate(-2%, -6%) scale(1.15);
+        transform: translate(-2%, -8%) scale(1.15);
         opacity: 0.45;
     }
-}
-
-/* Las miniaturas se mantienen encima del fondo */
-.preview-tarjetas .mini-tarjeta {
-    position: relative;
-    z-index: 1;
 }
 
