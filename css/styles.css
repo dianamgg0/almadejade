@@ -2679,3 +2679,65 @@ a:hover {
     filter: blur(12px);
     animation: humoMagico 8s ease-in-out infinite alternate;
 }
+
+
+/* Contenedor de las miniaturas */
+.preview-tarjetas {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Niebla mágica sobre las tarjetas */
+.niebla-tarjetas {
+    position: absolute;
+    inset: -15%;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 65%,
+            rgba(255, 250, 239, 0.65),
+            transparent 48%
+        ),
+        radial-gradient(
+            ellipse at 75% 35%,
+            rgba(232, 213, 190, 0.55),
+            transparent 52%
+        ),
+        radial-gradient(
+            ellipse at 50% 85%,
+            rgba(255, 255, 255, 0.45),
+            transparent 45%
+        );
+
+    filter: blur(15px);
+    opacity: 0.7;
+    animation: nieblaEnMovimiento 10s ease-in-out infinite alternate;
+}
+
+@keyframes nieblaEnMovimiento {
+    0% {
+        transform: translate(-4%, 3%) scale(1);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translate(3%, -3%) scale(1.08);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(-2%, -6%) scale(1.15);
+        opacity: 0.45;
+    }
+}
+
+/* Las miniaturas se mantienen encima del fondo */
+.preview-tarjetas .mini-tarjeta {
+    position: relative;
+    z-index: 1;
+}
+
