@@ -112,7 +112,7 @@ Observando tu Reflejo<br>
           —  ✦ —
 </h1>
 <h2>
-Espejito, espejito... Cuál es mi revelación?
+Espejito, espejito... Qué dicen mis facciones?
 </h2>
 
 <div class="mirror-frame" id="mirrorFrame">
@@ -120,6 +120,17 @@ Espejito, espejito... Cuál es mi revelación?
   <img src="../images/imagen-espejo.png" class="placeholder-reflection">  
 
   <img src="../images/marco-espejo.png" class="mirror-image">
+
+  
+<button
+    type="button"
+    id="mirror-sound-button"
+    class="sound-button"
+    aria-label="Activar música ambiental"
+>
+    🔊 Activar música
+</button>
+
 
   <div class="reflection">
     <img id="uploadedImage">
@@ -136,6 +147,14 @@ Espejito, espejito... Cuál es mi revelación?
   <div class="light-rays"></div>
 
 </div>
+
+<!-- Música ambiental del espejo -->
+<audio id="mirror-audio" preload="none" loop>
+    <source
+        src=".resource-musica-ambiental-opulus.mp3"
+        type="audio/mpeg"
+    >
+</audio>
 
 <div class="controls">
 
@@ -1550,6 +1569,42 @@ downloadCardBtn.addEventListener("click", function(){
 
 });
 
+</script>
+
+
+<script>
+const mirrorAudio = document.getElementById("mirror-audio");
+const mirrorSoundButton = document.getElementById("mirror-sound-button");
+
+if (mirrorAudio && mirrorSoundButton) {
+    mirrorAudio.volume = 0.3;
+    mirrorAudio.loop = true;
+    mirrorAudio.pause();
+
+    mirrorSoundButton.addEventListener("click", async function () {
+        if (mirrorAudio.paused) {
+            try {
+                await mirrorAudio.play();
+
+                mirrorSoundButton.textContent = "🔇 Silenciar música";
+                mirrorSoundButton.setAttribute(
+                    "aria-label",
+                    "Silenciar música ambiental"
+                );
+            } catch (error) {
+                console.error("No se pudo reproducir la música:", error);
+            }
+        } else {
+            mirrorAudio.pause();
+
+            mirrorSoundButton.textContent = "🔊 Activar música";
+            mirrorSoundButton.setAttribute(
+                "aria-label",
+                "Activar música ambiental"
+            );
+        }
+    });
+}
 </script>
 
 

@@ -548,6 +548,10 @@ figcaption {
     transform: translateX(-50%) scale(1.03);
 }
 
+#mirror-sound-button {
+    z-index: 10;
+}
+
 .video-caption {
     margin-top: 0.8rem;
     font-size: 0.9rem;
