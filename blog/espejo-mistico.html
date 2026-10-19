@@ -1115,13 +1115,7 @@ function mostrarVistaAnimadaTarjetas(tarjetas) {
 
     preview.innerHTML = "";
 
-     // Capa de niebla mágica
-    const niebla = document.createElement("div");
-    niebla.className = "niebla-tarjetas";
-    niebla.setAttribute("aria-hidden", "true");
-
-    preview.appendChild(niebla);
-
+    
     tarjetas.forEach(function(tarjeta) {
 
         const imagen = document.createElement("img");
@@ -1132,6 +1126,14 @@ function mostrarVistaAnimadaTarjetas(tarjetas) {
 
         preview.appendChild(imagen);
     });
+
+     // Capa de niebla mágica
+    const niebla = document.createElement("div");
+    niebla.className = "niebla-tarjetas";
+    niebla.setAttribute("aria-hidden", "true");
+
+    preview.appendChild(niebla);
+
 }
 // ------------------------------------------------------------
 // Descargar las 5 tarjetas
