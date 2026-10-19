@@ -2560,3 +2560,21 @@ a {
 a:hover {
     color: #4d4038;
 }
+.music-credit {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #725e52;
+    opacity: 0.8;
+}
+
+.music-credit a {
+    color: #725e52;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.music-credit a:hover {
+    opacity: 1;
+}
