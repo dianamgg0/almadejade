@@ -2658,35 +2658,6 @@ a:hover {
     overflow: hidden;
 }
 
-
-/* Humo visible sobre el fondo del botón */
-#downloadCardBtn {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-}
-
-#downloadCardBtn::after {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    z-index: -1;
-    pointer-events: none;
-
-    background: radial-gradient(
-        ellipse at center,
-        rgba(255, 250, 239, 0.45) 0%,
-        rgba(232, 213, 190, 0.20) 35%,
-        transparent 70%
-    );
-
-    filter: blur(10px);
-    animation: nieblaFlotante 8s ease-in-out infinite alternate;
-}
-
-
-
-
 /* =========================================
    NIEBLA SOBRE LAS MINIATURAS
 ========================================= */
