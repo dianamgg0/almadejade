@@ -1822,6 +1822,23 @@ figcaption {
 
     display: block;
 
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+.magic-mirror-page .mirror-image-flor {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
     z-index: 3;
 
     pointer-events: none;
