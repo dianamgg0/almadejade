@@ -2578,3 +2578,104 @@ a:hover {
 .music-credit a:hover {
     opacity: 1;
 }
+
+
+/* =====================================
+   HUMO MÁGICO — ALMA DE JADE
+===================================== */
+
+@keyframes humoMagico {
+    0% {
+        transform: translate3d(-8%, 5%, 0) scale(1);
+        opacity: 0.12;
+    }
+
+    50% {
+        transform: translate3d(7%, -4%, 0) scale(1.12);
+        opacity: 0.28;
+    }
+
+    100% {
+        transform: translate3d(-3%, -10%, 0) scale(1.2);
+        opacity: 0.14;
+    }
+}
+
+/* Contenedor del efecto */
+
+.humo-magico {
+    position: absolute;
+    inset: -12%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+    border-radius: inherit;
+}
+
+/* Capas de neblina */
+
+.humo-magico::before,
+.humo-magico::after {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(
+            ellipse at 25% 55%,
+            rgba(255, 250, 239, 0.65) 0%,
+            rgba(232, 213, 190, 0.22) 30%,
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse at 75% 35%,
+            rgba(255, 255, 255, 0.55) 0%,
+            rgba(221, 199, 176, 0.18) 35%,
+            transparent 68%
+        ),
+        radial-gradient(
+            ellipse at 55% 80%,
+            rgba(246, 235, 217, 0.42) 0%,
+            transparent 55%
+        );
+
+    filter: blur(18px);
+    animation: humoMagico 12s ease-in-out infinite alternate;
+}
+
+.humo-magico::after {
+    animation-duration: 17s;
+    animation-direction: alternate-reverse;
+    filter: blur(28px);
+    opacity: 0.7;
+}
+
+/* Botón de revelación */
+
+#revealBtn,
+#downloadCardBtn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* El humo queda detrás del texto del botón */
+
+#revealBtn::before,
+#downloadCardBtn::before {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 250, 239, 0.65),
+            rgba(232, 213, 190, 0.22) 35%,
+            transparent 70%
+        );
+
+    filter: blur(12px);
+    animation: humoMagico 8s ease-in-out infinite alternate;
+}
