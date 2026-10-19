@@ -2691,10 +2691,6 @@ a:hover {
    NIEBLA SUAVE SOBRE LAS MINIATURAS
 ===================================== */
 
-.preview-tarjetas {
-    position: relative;
-    isolation: isolate;
-}
 
 /* Capa independiente: no ocupa espacio en el diseño */
 .niebla-tarjetas {
