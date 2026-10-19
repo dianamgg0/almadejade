@@ -2580,77 +2580,87 @@ a:hover {
 }
 
 
-/* Niebla superpuesta a las miniaturas */
-#previewTarjetas {
-    position: relative;
-}
+
+/* ==========================================
+   NIEBLA MÁGICA SOBRE LAS TARJETAS
+   No modifica la posición de las miniaturas
+========================================== */
 
 #previewTarjetas .niebla-tarjetas {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
+    inset: 0;
+    z-index: 100;
     pointer-events: none;
-    overflow: hidden;
+    overflow: visible;
 }
 
-/* Dos masas de niebla difusa */
-#previewTarjetas .niebla-tarjetas::before,
+/* Nube difusa izquierda */
+#previewTarjetas .niebla-tarjetas::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 145px;
+    left: calc(50% - 100px);
+    top: -10px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 250, 239, 0.75) 0%,
+        rgba(232, 213, 190, 0.45) 30%,
+        rgba(245, 235, 217, 0.18) 55%,
+        transparent 75%
+    );
+
+    filter: blur(13px);
+    animation: humoTarjetasIzquierda 6s ease-in-out infinite alternate;
+}
+
+/* Nube difusa derecha */
 #previewTarjetas .niebla-tarjetas::after {
     content: "";
     position: absolute;
-    top: -25%;
-    width: 75%;
-    height: 150%;
+    width: 110px;
+    height: 140px;
+    left: calc(50% - 10px);
+    top: -8px;
     border-radius: 50%;
-    filter: blur(22px);
-    will-change: transform;
-}
 
-#previewTarjetas .niebla-tarjetas::before {
-    left: -15%;
     background: radial-gradient(
         ellipse at center,
-        rgba(255, 250, 239, 0.85) 0%,
-        rgba(232, 213, 190, 0.48) 35%,
-        rgba(245, 235, 217, 0.18) 58%,
-        transparent 75%
-    );
-    animation: nieblaMovimientoIzquierda 7s ease-in-out infinite alternate;
-}
-
-#previewTarjetas .niebla-tarjetas::after {
-    right: -15%;
-    background: radial-gradient(
-        ellipse at center,
-        rgba(255, 255, 255, 0.75) 0%,
-        rgba(221, 199, 176, 0.40) 35%,
+        rgba(255, 255, 255, 0.7) 0%,
+        rgba(221, 199, 176, 0.38) 35%,
         rgba(245, 235, 217, 0.15) 58%,
-        transparent 75%
+        transparent 76%
     );
-    animation: nieblaMovimientoDerecha 9s ease-in-out infinite alternate;
+
+    filter: blur(16px);
+    animation: humoTarjetasDerecha 8s ease-in-out infinite alternate;
 }
 
-@keyframes nieblaMovimientoIzquierda {
+@keyframes humoTarjetasIzquierda {
     from {
-        transform: translate(-8%, 5%) scale(0.9);
+        transform: translate(-10px, 8px) scale(0.9);
+        opacity: 0.35;
     }
+
     to {
-        transform: translate(30%, -5%) scale(1.2);
+        transform: translate(35px, -8px) scale(1.15);
+        opacity: 0.9;
     }
 }
 
-@keyframes nieblaMovimientoDerecha {
+@keyframes humoTarjetasDerecha {
     from {
-        transform: translate(8%, -4%) scale(1.1);
+        transform: translate(12px, -5px) scale(1.1);
+        opacity: 0.3;
     }
+
     to {
-        transform: translate(-30%, 6%) scale(0.9);
+        transform: translate(-30px, 8px) scale(0.9);
+        opacity: 0.8;
     }
 }
-
 
 /* =========================================
    HUMO AMBIENTAL EN EL BOTÓN DE CONSERVAR
