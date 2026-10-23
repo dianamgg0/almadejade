@@ -571,7 +571,7 @@ figcaption {
     }
 
     .sound-button {
-        bottom: 0.2px;
+        bottom: -5px;
         padding: 0.65rem 1.1rem;
         font-size: 0.85rem;
     }
