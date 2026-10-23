@@ -2719,3 +2719,38 @@ a:hover {
 }
 
 
+/* Aportes voluntarios: Espejo Místico */
+.donation-section {
+    width: min(100% - 32px, 440px);
+    margin: 28px auto;
+    padding: 24px 20px;
+    text-align: center;
+    background: rgba(245, 235, 217, 0.72);
+    border: 1px solid #cca387;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.donation-section h3 {
+    color: #725e52;
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+}
+
+.donation-section p {
+    color: #725e52;
+    line-height: 1.6;
+}
+
+.donation-section .donation-note {
+    margin: 14px 0 0;
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+#paypal-container-K4UEPDRD3WEY6 {
+    max-width: 320px;
+    margin: 20px auto 0;
+}
+
+
