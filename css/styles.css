@@ -2759,8 +2759,26 @@ a:hover {
     margin: 18px auto 0;
 }
 
+
 .donation-section #downloadCardBtn {
     display: block;
-    width: 100%;
-    margin: 18px auto 0;
+    width: auto;
+    margin: 14px auto 0;
+    padding: 7px 12px;
+    background: transparent;
+    border: 1px solid rgba(114, 94, 82, 0.25);
+    border-radius: 20px;
+    color: #8A786B;
+    font-size: 0.82rem;
+    font-weight: 400;
+    box-shadow: none;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, color 0.2s ease;
 }
+
+.donation-section #downloadCardBtn:hover {
+    opacity: 1;
+    color: #5C493B;
+    border-color: rgba(114, 94, 82, 0.5);
+}
+
