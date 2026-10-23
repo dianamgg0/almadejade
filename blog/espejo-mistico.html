@@ -134,6 +134,13 @@ Espejito, espejito... Qué dicen mis facciones?
     <img id="uploadedImage">
   </div>
 <!-- Reconocimiento inicial -->
+<div id="faceAnalysis" style="display:none;">
+
+    <p id="analysisStatus">
+        ✨ Observando tu reflejo...
+    </p>
+
+</div>
   
   <div class="light-rays"></div>
 
@@ -252,7 +259,7 @@ reader.onload = function(event){
 
     faceAnalysis.style.display = "block";
 
-    analysisStatus.textContent = "✨ Observando tu reflejo...";
+    analysisStatus.textContent = "✧ Observando tu reflejo...";
 
     mirrorFrame.classList.add("analizando");
 
@@ -300,7 +307,7 @@ if (resultado) {
     document.getElementById("donationSection").style.display = "block";
 
     analysisStatus.textContent =
-        `${arquetipo.emoji} ${arquetipo.nombre}`;
+        ``;
 
 
     const fragmentoInicio =
