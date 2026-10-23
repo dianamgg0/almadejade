@@ -2760,17 +2760,19 @@ a:hover {
 }
 
 
+
 .donation-section #downloadCardBtn {
     background: transparent;
-    border-color: rgba(114, 94, 82, 0.25);
+    border: 1px solid rgba(114, 94, 82, 0.4);
     color: #8A786B;
     box-shadow: none;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .donation-section #downloadCardBtn:hover {
     color: #5C493B;
-    border-color: rgba(114, 94, 82, 0.5);
+    border-color: #8A786B;
     opacity: 1;
 }
+
 
