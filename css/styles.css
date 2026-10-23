@@ -571,11 +571,12 @@ figcaption {
     }
 
     .sound-button {
-        bottom: 14px;
+        bottom: 18px;
         padding: 0.65rem 1.1rem;
         font-size: 0.85rem;
     }
 
+    
 }
 
 /* =========================================================
