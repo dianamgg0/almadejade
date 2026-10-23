@@ -169,24 +169,28 @@ Espejito, espejito... Qué dicen mis facciones?
 </button>
 
 
+
 <div class="donation-section" id="donationSection" style="display:none;">
+
     <h3>Quiero conservar mi reflejo y aportar</h3>
 
     <p>
-        ♡ Con tu aporte ayudas a la creación de nuevas experiencias confortables para el espíritu ♡
+        ♡ Con tu aporte ayudas a la creación de nuevas
+        experiencias confortables para el espíritu ♡
     </p>
 
     <div id="paypal-container-EP7YWAJ6Z36PG"></div>
 
     <p class="donation-note">
-        Tu aporte es voluntario. 
+        Tu aporte es voluntario.
     </p>
+
+    <button class="magic-btn" id="downloadCardBtn" type="button">
+        ✦ Conservar sin aportar
+    </button>
+
 </div>
 
-
-<button class="magic-btn" id="downloadCardBtn" style="display:none;">
-    ✦ Conservar mi Reflejo 
-</button>
 
 <div class="privacidad-revelacion">
 
@@ -1125,9 +1129,12 @@ function mostrarVistaAnimadaTarjetas(tarjetas) {
         preview.className = "preview-tarjetas";
         preview.setAttribute("aria-hidden", "true");
 
-        downloadCardBtn.parentElement.insertBefore(
-            preview,
-            downloadCardBtn
+        const donationSection =
+    document.getElementById("donationSection");
+
+donationSection.parentElement.insertBefore(
+    preview,
+    donationSection
         );
     }
 

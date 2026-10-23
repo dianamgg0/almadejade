@@ -2720,27 +2720,6 @@ a:hover {
 
 
 /* Aportes voluntarios: Espejo Místico */
-.donation-section {
-    width: min(100% - 32px, 440px);
-    margin: 28px auto;
-    padding: 24px 20px;
-    text-align: center;
-    background: rgba(245, 235, 217, 0.72);
-    border: 1px solid #cca387;
-    border-radius: 16px;
-    box-sizing: border-box;
-}
-
-.donation-section h3 {
-    color: #725e52;
-    margin: 0 0 12px;
-    font-size: 1.2rem;
-}
-
-.donation-section p {
-    color: #725e52;
-    line-height: 1.6;
-}
 
 .donation-section .donation-note {
     margin: 14px 0 0;
@@ -2748,12 +2727,40 @@ a:hover {
     opacity: 0.85;
 }
 
-#paypal-container-K4UEPDRD3WEY6 {
-    max-width: 320px;
-    margin: 20px auto 0;
-}
-
 #paypal-form-fields-container-EP7YWAJ6Z36PG .input-label {
     color: #5C493B !important;
     opacity: 1 !important;
+}
+
+.donation-section {
+    width: min(100% - 32px, 440px);
+    margin: 24px auto;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background: rgba(245, 235, 217, 0.94);
+    border: 1px solid #cca387;
+    border-radius: 16px;
+    color: #5c493b;
+}
+
+.donation-section h3 {
+    color: #5c493b;
+    margin-top: 0;
+}
+
+.donation-section p {
+    color: #725e52;
+    line-height: 1.6;
+}
+
+#paypal-container-EP7YWAJ6Z36PG {
+    max-width: 320px;
+    margin: 18px auto 0;
+}
+
+.donation-section #downloadCardBtn {
+    display: block;
+    width: 100%;
+    margin: 18px auto 0;
 }
