@@ -169,7 +169,7 @@ Espejito, espejito... Qué dicen mis facciones?
 </button>
 
 
-<div class="donation-section">
+<div class="donation-section" id="donationSection" style="display:none;">
     <h3>Quiero conservar mi reflejo y aportar</h3>
 
     <p>
@@ -299,6 +299,8 @@ if (resultado) {
     patronesActuales = resultado.patrones
 
     downloadCardBtn.style.display = "inline-block";
+
+    document.getElementById("donationSection").style.display = "block";
 
     analysisStatus.textContent =
         `${arquetipo.emoji} ${arquetipo.nombre}`;
