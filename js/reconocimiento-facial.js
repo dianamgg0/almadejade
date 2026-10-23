@@ -1125,7 +1125,7 @@ const arquetipos = {
 
         nombre: "La Contemplación",
 
-        emoji: "🌙",
+        emoji: "❋",
 
         variaciones: [
 
@@ -1161,7 +1161,7 @@ const arquetipos = {
 
         nombre: "La Semilla",
 
-        emoji: "🌱",
+        emoji: "○",
 
         variaciones: [
 
@@ -1197,7 +1197,7 @@ const arquetipos = {
 
         nombre: "La Llama",
 
-        emoji: "🔥",
+        emoji: "☼",
 
         variaciones: [
 
@@ -1233,7 +1233,7 @@ const arquetipos = {
 
         nombre: "El Río",
 
-        emoji: "🌊",
+        emoji: "• ·",
 
         variaciones: [
 
@@ -1269,7 +1269,7 @@ const arquetipos = {
 
         nombre: "La Raíz",
 
-        emoji: "🌿",
+        emoji: "❋",
 
         variaciones: [
 
@@ -1305,7 +1305,7 @@ const arquetipos = {
 
         nombre: "El Loto",
 
-        emoji: "🪷",
+        emoji: "❀",
 
         variaciones: [
 
