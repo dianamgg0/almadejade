@@ -548,6 +548,36 @@ figcaption {
     transform: translateX(-50%) scale(1.03);
 }
 
+.sound-button-mirror {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: none;
+    border-radius: 30px;
+
+    padding: 0.75rem 1.3rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: #333;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.sound-button-mirror:hover {
+    transform: translateX(-50%) scale(1.03);
+}
+
 #mirror-sound-button {
     z-index: 10;
 }
@@ -572,6 +602,12 @@ figcaption {
 
     .sound-button {
         bottom: 15px;
+        padding: 0.65rem 1.1rem;
+        font-size: 0.85rem;
+    }
+
+     .sound-button-mirror {
+        bottom: -10px;
         padding: 0.65rem 1.1rem;
         font-size: 0.85rem;
     }
