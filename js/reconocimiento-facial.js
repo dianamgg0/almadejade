@@ -1413,155 +1413,216 @@ function calcularArquetipo(dimensiones) {
 // REVELACIONES DE LOS PATRONES
 // ============================================
 
+
 const revelaciones = {
+    profundidad: [
+        "Hay en ti una inclinación a mirar más allá de lo evidente y descubrir nuevos significados.",
+        "Tu esencia invita a explorar aquello que merece tiempo, atención y comprensión.",
+        "En tu mundo interior pueden convivir la reflexión y el deseo de encontrar respuestas."
+    ],
 
-    profundidad:
-        "Hay en ti una mirada hacia lo profundo, una inclinación a descubrir lo que se encuentra más allá de lo evidente.",
+    balance: [
+        "Tu esencia busca armonía entre distintas formas de sentir, pensar y avanzar.",
+        "Hay en ti una afinidad con los puntos medios y con la posibilidad de encontrar equilibrio.",
+        "Tu naturaleza invita a integrar diferentes perspectivas sin perder tu propio centro."
+    ],
 
-    balance:
-        "Tu reflejo sugiere una naturaleza que busca el equilibrio y encuentra belleza en los puntos medios.",
+    presencia: [
+        "Tu esencia evoca una presencia serena que puede hacerse notar sin imponerse.",
+        "Hay en ti una forma de ocupar tu espacio con naturalidad y autenticidad.",
+        "Tu presencia simbólica habla de reconocer tu valor sin necesitar constantes demostraciones."
+    ],
 
-    presencia:
-        "Tu reflejo transmite una presencia que no necesita imponerse para hacerse notar.",
+    curiosidad: [
+        "Tu mirada representa el deseo de descubrir, explorar y mantener viva la curiosidad.",
+        "Hay una invitación a observar lo desconocido con apertura y ganas de aprender.",
+        "Tu mirada simbólica se relaciona con la exploración y el interés por nuevas posibilidades."
+    ],
 
+    calma: [
+        "Tu mirada evoca serenidad y la posibilidad de observar antes de actuar.",
+        "Hay espacio para responder a las experiencias con pausa y claridad.",
+        "La calma simboliza una forma de escuchar lo que sucede antes de elegir el siguiente paso."
+    ],
 
-    curiosidad:
-        "Tu mirada simbólicamente habla de curiosidad, de una mente que disfruta descubrir y explorar.",
+    misterio: [
+        "Tu mirada invita a reconocer que no todo necesita revelarse de inmediato.",
+        "Hay una dimensión interior que puede comprenderse poco a poco, sin apresurar las respuestas.",
+        "El misterio representa la riqueza de aquello que continúa descubriéndose con el tiempo."
+    ],
 
-    calma:
-        "Tu mirada transmite una energía serena, como quien observa antes de dejarse llevar.",
+    armonía: [
+        "La armonía simboliza la búsqueda de una relación amable entre tus distintas facetas.",
+        "Tu reflejo invita a encontrar un ritmo propio entre lo que sientes y lo que expresas.",
+        "Hay una posibilidad de integrar tus experiencias sin exigir que todo sea perfecto."
+    ],
 
-    misterio:
-        "Tu mirada guarda un matiz de misterio, como si siempre conservara una parte de sí misma por descubrir.",
+    individualidad: [
+        "Tu singularidad recuerda que puedes construir un camino propio sin imitar a los demás.",
+        "Hay valor en reconocer aquello que te distingue y darle espacio en tu manera de vivir.",
+        "Tu individualidad simboliza la libertad de encontrar una forma de avanzar que tenga sentido para ti."
+    ],
 
+    determinación: [
+        "La determinación representa la capacidad de orientar tu energía hacia aquello que importa.",
+        "Hay una invitación a transformar tus intenciones en pasos concretos, a tu propio ritmo.",
+        "Tu impulso simbólico habla de perseverar sin olvidar qué merece realmente tu esfuerzo."
+    ],
 
-    armonía:
-        "Hay una sensación de armonía en tu reflejo, una forma de encontrar tu propio ritmo.",
+    equilibrio: [
+        "El equilibrio representa la búsqueda de proporción entre tus deseos y tus necesidades.",
+        "Tu reflejo invita a armonizar el movimiento con los momentos de pausa.",
+        "Hay valor en encontrar un punto de apoyo desde el cual puedas avanzar con mayor claridad."
+    ],
 
-    individualidad:
-        "Tu reflejo muestra una individualidad que no necesita seguir exactamente el mismo camino que los demás.",
+    dirección: [
+        "La dirección simboliza la posibilidad de elegir un rumbo acorde con tus prioridades.",
+        "Tu camino puede aclararse cuando reconoces qué quieres cultivar y hacia dónde deseas avanzar.",
+        "Hay una invitación a dar pasos conscientes sin necesitar conocer todo el recorrido."
+    ],
 
+    introspección: [
+        "La introspección representa el espacio que te das para reconocer lo que sientes antes de expresarlo.",
+        "Hay valor en escuchar tu mundo interior y comprenderlo sin apresurar conclusiones.",
+        "Tu dimensión reflexiva invita a mirar hacia dentro con curiosidad y amabilidad."
+    ],
 
-    determinación:
-        "Aparece también una energía de determinación, esa fuerza tranquila que ayuda a seguir adelante.",
+    expresión: [
+        "La expresión simboliza la posibilidad de dar forma visible a tus ideas y emociones.",
+        "Hay distintas maneras de compartir lo que llevas dentro y encontrar tu propia voz.",
+        "Tu dimensión expresiva invita a comunicarte con autenticidad y respetar tu manera de hacerlo."
+    ],
 
-    equilibrio:
-        "Tu reflejo sugiere una relación natural con el equilibrio y la proporción.",
+    expansión: [
+        "La expansión representa la apertura a nuevas experiencias y formas de expresión.",
+        "Hay una invitación a explorar posibilidades y permitir que tus intereses encuentren espacio.",
+        "Tu energía simbólica sugiere crecimiento a través del descubrimiento y la apertura."
+    ],
 
-    dirección:
-        "Hay en tu reflejo una sensación de dirección, como quien sabe hacia dónde quiere llevar sus pasos.",
+    singularidad: [
+        "Tu singularidad representa una manera propia de combinar experiencias, ideas y sensibilidad.",
+        "Hay valor en reconocer los matices que hacen personal tu forma de estar en el mundo.",
+        "Tu camino no necesita parecerse a otros para tener significado."
+    ],
 
+    atrevimiento: [
+        "El atrevimiento simboliza la disposición a considerar caminos que todavía no conoces.",
+        "Hay ocasiones en las que explorar una posibilidad nueva abre perspectivas inesperadas.",
+        "Tu impulso de exploración invita a probar alternativas sin perder de vista tus límites."
+    ],
 
-    introspección:
-        "Tu expresión guarda algo hacia dentro, una tendencia a sentir y pensar antes de mostrarlo todo.",
-
-    expresión:
-        "Tu expresión habla de una energía que encuentra facilidad para salir y hacerse visible.",
-
-    expansión:
-        "Tu expresión transmite apertura, espontaneidad y deseo de dejar que lo que llevas dentro encuentre espacio.",
-
-
-    singularidad:
-        "Tu equilibrio tiene un matiz propio, una singularidad que forma parte de tu manera de habitar el mundo.",
-
-    atrevimiento:
-        "Tu reflejo tiene un toque de atrevimiento, como una invitación a explorar caminos menos previsibles.",
-
-    centrada:
-        "Tu reflejo sugiere una energía centrada, capaz de regresar a su propio eje incluso mientras explora."
+    centrada: [
+        "La conexión con tu centro simboliza la posibilidad de volver a tus prioridades cuando lo necesitas.",
+        "Hay valor en conservar claridad sobre lo importante mientras exploras nuevas opciones.",
+        "Tu dimensión centrada invita a avanzar sin perder de vista aquello que te sostiene."
+    ]
 };
 
+// Elige una frase por categoría y evita duplicados dentro
+// de una misma lectura.
+function elegirFraseUnica(categoria, frasesUsadas) {
+    const opciones = revelaciones[categoria];
+
+    if (!opciones || opciones.length === 0) {
+        console.warn("No hay frases para la categoría:", categoria);
+        return "";
+    }
+
+    const disponibles = opciones.filter(
+        frase => !frasesUsadas.has(frase)
+    );
+
+    // Si una categoría se queda sin alternativas, utiliza
+    // su primera frase; las categorías actuales tienen textos
+    // diferentes entre sí para evitar esta situación normal.
+    const opcionesFinales = disponibles.length
+        ? disponibles
+        : opciones;
+
+    const frase = opcionesFinales[
+        Math.floor(Math.random() * opcionesFinales.length)
+    ];
+
+    frasesUsadas.add(frase);
+    return frase;
+}
 
 // ============================================
 // GENERAR REVELACIÓN
 // ============================================
 
 function generarRevelacion(patrones) {
+    const dimensiones = calcularDimensiones(patrones);
+    const arquetipoCalculado = calcularArquetipo(dimensiones);
 
-    const dimensiones =
-        calcularDimensiones(patrones);
-
-
-    const arquetipo =
-        calcularArquetipo(dimensiones);
-
-    const variacion =
-    arquetipo.variaciones[
+    // Las tres variaciones siguen vinculadas al arquetipo.
+    const variacion = arquetipoCalculado.variaciones[
         Math.floor(
-            Math.random() *
-            arquetipo.variaciones.length
+            Math.random() * arquetipoCalculado.variaciones.length
         )
     ];
 
-    const esencia =
-        revelaciones[
-            patrones.interpretacionRostro
-        ];
+    // Evita repetir una frase exacta en las seis dimensiones.
+    const frasesUsadas = new Set();
 
-    const mirada =
-        revelaciones[
-            patrones.interpretacionMirada
-        ];
+    const esencia = elegirFraseUnica(
+        patrones.interpretacionRostro,
+        frasesUsadas
+    );
 
-    const expresion =
-        revelaciones[
-            patrones.interpretacionBoca
-        ];
+    const mirada = elegirFraseUnica(
+        patrones.interpretacionMirada,
+        frasesUsadas
+    );
 
-    const direccion =
-        revelaciones[
-            patrones.interpretacionNariz
-        ];
+    const expresion = elegirFraseUnica(
+        patrones.interpretacionBoca,
+        frasesUsadas
+    );
 
-    const matiz =
-        revelaciones[
-            patrones.interpretacionCejas
-        ];
+    const direccion = elegirFraseUnica(
+        patrones.interpretacionNariz,
+        frasesUsadas
+    );
 
-    const equilibrio =
-        revelaciones[
-            patrones.interpretacionEquilibrio
-        ];
+    const matiz = elegirFraseUnica(
+        patrones.interpretacionCejas,
+        frasesUsadas
+    );
 
+    const equilibrio = elegirFraseUnica(
+        patrones.interpretacionEquilibrio,
+        frasesUsadas
+    );
 
-    const texto =
-
-        esencia + " " +
-
-        mirada + " " +
-
-        expresion + " " +
-
-        direccion + " " +
-
-        matiz + " " +
-
-        equilibrio + " " +
-
-        variacion.descripcion + " " +
-
-        variacion.cierre;
-
-
-    return {
-
-        arquetipo,
-    dimensiones,
-    texto,
-    descripcionTarjeta: variacion.descripcion,
-
-    tarjetas: {
+    const texto = [
         esencia,
         mirada,
         expresion,
         direccion,
         matiz,
         equilibrio,
-        cierre: variacion.cierre
-    }
+        variacion.descripcion,
+        variacion.cierre
+    ].filter(Boolean).join(" ");
+
+    return {
+        arquetipo: arquetipoCalculado,
+        dimensiones,
+        texto,
+        descripcionTarjeta: variacion.descripcion,
+        tarjetas: {
+            esencia,
+            mirada,
+            expresion,
+            direccion,
+            matiz,
+            equilibrio,
+            cierre: variacion.cierre
+        }
     };
 }
+
 // ============================================
 // EXPONER AL HTML
 // ============================================
