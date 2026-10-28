@@ -310,14 +310,11 @@ if (resultado) {
         ``;
 
 
-    const fragmentoInicio =
-    `${tarjetasActuales.esencia || ""} ${tarjetasActuales.mirada || ""}`.trim();
+const fragmentoInicio = descripcionTarjeta;
 
-const fragmentoMedio =
-    `${tarjetasActuales.expresion || ""} ${tarjetasActuales.direccion || ""}`.trim();
+const fragmentoMedio = tarjetasActuales.expresion || "";
 
-const fragmentoFinal =
-    tarjetasActuales.cierre || "";
+const fragmentoFinal = tarjetasActuales.esencia || "";
 
 magicText.innerHTML = `
     <strong>${arquetipo.nombre}</strong>
