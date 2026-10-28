@@ -2527,7 +2527,7 @@ figcaption {
 }
 
 .latest-article:hover .latest-image img {
-    transform: scale(1.03);
+    transform: scale(1.0);
 }
 
 .latest-content {
