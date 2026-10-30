@@ -2491,7 +2491,7 @@ figcaption {
 
 .latest-article {
     display: grid;
-    grid-template-columns: 42% 58%;
+    grid-template-columns: 46% 54%;
     align-items: center;
     max-width: 760px;
     margin: 25px auto 0;
