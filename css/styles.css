@@ -2574,8 +2574,8 @@ figcaption {
 }
 /* Miniatura del último artículo */
 .latest-article-image-link {
-    width: 220px;
-    aspect-ratio: 220 / 360;
+    width: 240px;
+    aspect-ratio: 240 / 360;
     flex-shrink: 0;
     display: block;
     overflow: hidden;
