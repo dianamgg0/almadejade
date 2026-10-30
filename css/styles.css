@@ -2514,7 +2514,7 @@ figcaption {
 
 .latest-image {
     height: 100%;
-    min-height: 260px;
+    min-height: 220px;
     overflow: hidden;
 }
 
