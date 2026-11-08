@@ -336,8 +336,16 @@ setupNewsletterForm("newsletter-form-2", "newsletter-success-2");
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3JK1LJXM4"></script>
 
-<script>
 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S3JK1LJXM4');
+</script>
+
+<script>
 const writingVideo = document.getElementById("writing-video");
 const soundButton = document.getElementById("sound-button");
 
